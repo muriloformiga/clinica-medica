@@ -5,6 +5,8 @@
  */
 package br.ufs.view;
 
+import br.ufs.view.panels.PacienteJPanelView;
+import br.ufs.view.panels.PatrimonioJPanelView;
 import java.awt.Color;
 
 /**
@@ -30,45 +32,90 @@ public class HomeView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelSide = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanelPaciente = new javax.swing.JPanel();
+        jLabelIconPaciente = new javax.swing.JLabel();
+        jLabelPaciente = new javax.swing.JLabel();
+        jPanelFuncionario = new javax.swing.JPanel();
+        jLabelIconFuncionario = new javax.swing.JLabel();
+        jLabelFuncionario = new javax.swing.JLabel();
+        jPanelPatrimonio = new javax.swing.JPanel();
+        jLabelIconPatrimonio = new javax.swing.JLabel();
+        jLabelPatrimonio = new javax.swing.JLabel();
         jPanelMain = new javax.swing.JPanel();
         jPanelTopBar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Clínica Médica");
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(600, 400));
 
         jPanelSide.setBackground(new java.awt.Color(20, 182, 130));
+        jPanelSide.setMaximumSize(new java.awt.Dimension(300, 436));
         jPanelSide.setPreferredSize(new java.awt.Dimension(210, 436));
-
-        jPanel2.setBackground(new java.awt.Color(20, 208, 130));
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
-            }
-        });
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufs/view/images/bulleted_list_32px.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 70, 50));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Patrimônio");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 2, 210, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ClínicaMédica");
 
+        jPanelPaciente.setBackground(new java.awt.Color(20, 208, 130));
+        jPanelPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelPacienteMouseClicked(evt);
+            }
+        });
+        jPanelPaciente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelIconPaciente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufs/view/images/guest_filled_32px.png"))); // NOI18N
+        jPanelPaciente.add(jLabelIconPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 70, 50));
+
+        jLabelPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPaciente.setText("Pacientes");
+        jPanelPaciente.add(jLabelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 2, 210, 50));
+
+        jPanelFuncionario.setBackground(new java.awt.Color(20, 208, 130));
+        jPanelFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelFuncionarioMouseClicked(evt);
+            }
+        });
+        jPanelFuncionario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelIconFuncionario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufs/view/images/group_32px.png"))); // NOI18N
+        jPanelFuncionario.add(jLabelIconFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 70, 50));
+
+        jLabelFuncionario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelFuncionario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFuncionario.setText("Funcionários");
+        jPanelFuncionario.add(jLabelFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 2, 210, 50));
+
+        jPanelPatrimonio.setBackground(new java.awt.Color(20, 208, 130));
+        jPanelPatrimonio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelPatrimonioMouseClicked(evt);
+            }
+        });
+        jPanelPatrimonio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelIconPatrimonio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconPatrimonio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufs/view/images/checklist_32px.png"))); // NOI18N
+        jPanelPatrimonio.add(jLabelIconPatrimonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 70, 50));
+
+        jLabelPatrimonio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelPatrimonio.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPatrimonio.setText("Patrimônio");
+        jPanelPatrimonio.add(jLabelPatrimonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 2, 210, 50));
+
         javax.swing.GroupLayout jPanelSideLayout = new javax.swing.GroupLayout(jPanelSide);
         jPanelSide.setLayout(jPanelSideLayout);
         jPanelSideLayout.setHorizontalGroup(
             jPanelSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
             .addGroup(jPanelSideLayout.createSequentialGroup()
                 .addGroup(jPanelSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSideLayout.createSequentialGroup()
@@ -78,6 +125,8 @@ public class HomeView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPatrimonio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelSideLayout.setVerticalGroup(
             jPanelSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,8 +136,12 @@ public class HomeView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addComponent(jPanelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelPatrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelMain.setLayout(new javax.swing.BoxLayout(jPanelMain, javax.swing.BoxLayout.LINE_AXIS));
@@ -101,31 +154,43 @@ public class HomeView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelSide, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelSide, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                    .addComponent(jPanelTopBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jPanelTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelSide, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanelSide, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+                .addGap(3, 3, 3)
+                .addComponent(jPanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-        jPanel2.setBackground(Color.GREEN);
-        PatrimonioJPanelView p = new PatrimonioJPanelView();
+    private void jPanelPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPacienteMouseClicked
+        jPanelPaciente.setBackground(Color.GREEN);
+        PacienteJPanelView p = new PacienteJPanelView();
         jPanelMain.add(p);
         //p.setVisible(true);
         this.pack(); 
-    }//GEN-LAST:event_jPanel2MouseClicked
+    }//GEN-LAST:event_jPanelPacienteMouseClicked
+
+    private void jPanelFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionarioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelFuncionarioMouseClicked
+
+    private void jPanelPatrimonioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPatrimonioMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelPatrimonioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,11 +228,17 @@ public class HomeView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabelFuncionario;
+    private javax.swing.JLabel jLabelIconFuncionario;
+    private javax.swing.JLabel jLabelIconPaciente;
+    private javax.swing.JLabel jLabelIconPatrimonio;
+    private javax.swing.JLabel jLabelPaciente;
+    private javax.swing.JLabel jLabelPatrimonio;
+    private javax.swing.JPanel jPanelFuncionario;
     private javax.swing.JPanel jPanelMain;
+    private javax.swing.JPanel jPanelPaciente;
+    private javax.swing.JPanel jPanelPatrimonio;
     private javax.swing.JPanel jPanelSide;
     private javax.swing.JPanel jPanelTopBar;
     private javax.swing.JSeparator jSeparator1;
