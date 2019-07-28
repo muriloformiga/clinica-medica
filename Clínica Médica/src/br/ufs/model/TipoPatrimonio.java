@@ -7,6 +7,7 @@ public class TipoPatrimonio {
     private boolean intangivel;
     private boolean movel;
     private boolean imovel;
+<<<<<<< HEAD
 
     public boolean isTangivel() {
         return tangivel;
@@ -39,6 +40,8 @@ public class TipoPatrimonio {
     public void setImovel(boolean imovel) {
         this.imovel = imovel;
     }
+=======
+>>>>>>> feature/model-classes
     
     
 }
