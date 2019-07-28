@@ -6,8 +6,8 @@ import java.util.Date;
 public class Agenda {
     private Date data;
     private Date hora; 
-<<<<<<< HEAD
 
+    
     public Date getData() {
         return data;
     }
@@ -23,8 +23,6 @@ public class Agenda {
     public void setHora(Date hora) {
         this.hora = hora;
     }
-=======
->>>>>>> feature/model-classes
     
     
 }
