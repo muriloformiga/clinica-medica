@@ -113,17 +113,20 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Itens">
               <Font PropertyName="font" name="Tahoma" size="18" style="1"/>
-              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel8" alignment="1" pref="188" max="32767" attributes="0"/>
-              <Component id="jPanel11" alignment="1" pref="188" max="32767" attributes="0"/>
+              <Component id="jPanel8" alignment="1" pref="200" max="32767" attributes="0"/>
+              <Component id="jPanel11" alignment="1" pref="200" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -203,7 +206,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel12" pref="166" max="32767" attributes="0"/>
+                      <Component id="jLabel12" pref="178" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -239,10 +242,10 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="...">
               <Font PropertyName="font" name="Tahoma" size="18" style="1"/>
-              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
@@ -331,17 +334,17 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="...">
               <Font PropertyName="font" name="Tahoma" size="18" style="1"/>
-              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel9" alignment="0" pref="188" max="32767" attributes="0"/>
-              <Component id="jPanel12" alignment="0" pref="188" max="32767" attributes="0"/>
+              <Component id="jPanel9" alignment="0" pref="200" max="32767" attributes="0"/>
+              <Component id="jPanel12" alignment="0" pref="200" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -374,7 +377,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="186" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="198" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -402,7 +405,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="186" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="198" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -423,10 +426,10 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="...">
               <Font PropertyName="font" name="Tahoma" size="18" style="1"/>
-              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>

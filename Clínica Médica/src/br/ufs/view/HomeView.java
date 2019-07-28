@@ -181,7 +181,7 @@ public class HomeView extends javax.swing.JFrame {
         //jPanelFuncionario.setBackground(Color.getHSBColor(20, 208, 130));
         //jPanelPatrimonio.setBackground(Color.getHSBColor(20, 208, 130));
         PacienteJPanelView p = new PacienteJPanelView();
-        jPanelMain.removeAll();
+        jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(p);
         //p.setVisible(true);
         this.pack(); 
@@ -192,7 +192,7 @@ public class HomeView extends javax.swing.JFrame {
         //jPanelPatrimonio.setBackground(Color.getHSBColor(20, 208, 130));
         //jPanelPaciente.setBackground(Color.getHSBColor(20, 208, 130));
         FuncionarioJPanelView f = new FuncionarioJPanelView();
-        jPanelMain.removeAll();
+        jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(f);
         this.pack();
     }//GEN-LAST:event_jPanelFuncionarioMouseClicked
@@ -202,7 +202,7 @@ public class HomeView extends javax.swing.JFrame {
        //jPanelPaciente.setBackground(Color.getHSBColor(20, 208, 130));
        //jPanelFuncionario.setBackground(Color.getHSBColor(20, 208, 130));
         PatrimonioJPanelView p = new PatrimonioJPanelView();
-        jPanelMain.removeAll();
+        jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(p);
         this.pack();
     }//GEN-LAST:event_jPanelPatrimonioMouseClicked
