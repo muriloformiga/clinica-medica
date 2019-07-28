@@ -5,6 +5,7 @@
  */
 package br.ufs.view;
 
+import br.ufs.view.panels.FuncionarioJPanelView;
 import br.ufs.view.panels.PacienteJPanelView;
 import br.ufs.view.panels.PatrimonioJPanelView;
 import java.awt.Color;
@@ -177,18 +178,33 @@ public class HomeView extends javax.swing.JFrame {
 
     private void jPanelPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPacienteMouseClicked
         jPanelPaciente.setBackground(Color.GREEN);
+        //jPanelFuncionario.setBackground(Color.getHSBColor(20, 208, 130));
+        //jPanelPatrimonio.setBackground(Color.getHSBColor(20, 208, 130));
         PacienteJPanelView p = new PacienteJPanelView();
+        jPanelMain.removeAll();
         jPanelMain.add(p);
         //p.setVisible(true);
         this.pack(); 
     }//GEN-LAST:event_jPanelPacienteMouseClicked
 
     private void jPanelFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionarioMouseClicked
-        // TODO add your handling code here:
+        jPanelFuncionario.setBackground(Color.GREEN);
+        //jPanelPatrimonio.setBackground(Color.getHSBColor(20, 208, 130));
+        //jPanelPaciente.setBackground(Color.getHSBColor(20, 208, 130));
+        FuncionarioJPanelView f = new FuncionarioJPanelView();
+        jPanelMain.removeAll();
+        jPanelMain.add(f);
+        this.pack();
     }//GEN-LAST:event_jPanelFuncionarioMouseClicked
 
     private void jPanelPatrimonioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPatrimonioMouseClicked
-        // TODO add your handling code here:
+       jPanelPatrimonio.setBackground(Color.GREEN);
+       //jPanelPaciente.setBackground(Color.getHSBColor(20, 208, 130));
+       //jPanelFuncionario.setBackground(Color.getHSBColor(20, 208, 130));
+        PatrimonioJPanelView p = new PatrimonioJPanelView();
+        jPanelMain.removeAll();
+        jPanelMain.add(p);
+        this.pack();
     }//GEN-LAST:event_jPanelPatrimonioMouseClicked
 
     /**
