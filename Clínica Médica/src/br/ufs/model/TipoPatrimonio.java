@@ -8,10 +8,6 @@ public class TipoPatrimonio {
     private boolean movel;
     private boolean imovel;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
     public boolean isTangivel() {
         return tangivel;
     }
