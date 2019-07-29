@@ -180,8 +180,8 @@ public class HomeView extends javax.swing.JFrame {
 
     private void jPanelPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPacienteMouseClicked
         jPanelPaciente.setBackground(Color.GREEN);
-        //jPanelFuncionario.setBackground(Color.getHSBColor(20, 208, 130));
-        //jPanelPatrimonio.setBackground(Color.getHSBColor(20, 208, 130));
+        jPanelFuncionario.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+        jPanelPatrimonio.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         PacienteJPanelView p = new PacienteJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(p);
@@ -191,8 +191,8 @@ public class HomeView extends javax.swing.JFrame {
 
     private void jPanelFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionarioMouseClicked
         jPanelFuncionario.setBackground(Color.GREEN);
-        //jPanelPatrimonio.setBackground(Color.getHSBColor(20, 208, 130));
-        //jPanelPaciente.setBackground(Color.getHSBColor(20, 208, 130));
+        jPanelPatrimonio.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+        jPanelPaciente.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         FuncionarioJPanelView f = new FuncionarioJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(f);
@@ -201,8 +201,8 @@ public class HomeView extends javax.swing.JFrame {
 
     private void jPanelPatrimonioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPatrimonioMouseClicked
        jPanelPatrimonio.setBackground(Color.GREEN);
-       //jPanelPaciente.setBackground(Color.getHSBColor(20, 208, 130));
-       //jPanelFuncionario.setBackground(Color.getHSBColor(20, 208, 130));
+       jPanelPaciente.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+       jPanelFuncionario.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         PatrimonioJPanelView p = new PatrimonioJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(p);
