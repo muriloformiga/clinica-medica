@@ -7,6 +7,7 @@ package br.ufs.view.panels;
 
 import java.awt.Color;
 import java.util.HashSet;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,6 +22,7 @@ public class FuncionarioJPanelView extends javax.swing.JPanel {
         initComponents();
         jButton1.setBackground(new Color(20, 150, 90));
         jButton2.setBackground(new Color(20, 150, 90));
+        
     }
 
     /**
