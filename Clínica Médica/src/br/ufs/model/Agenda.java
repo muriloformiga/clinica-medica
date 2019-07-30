@@ -7,7 +7,6 @@ public class Agenda {
     private Date data;
     private Date hora; 
 
-    
     public Date getData() {
         return data;
     }
