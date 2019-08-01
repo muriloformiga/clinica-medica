@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 public class AgendaDAO {
     private Connection con = null;
+    PreparedStatement stmt = null;
     
     public AgendaDAO(){
         this.con = new ConnectionFactory().getConnection();
@@ -31,6 +32,8 @@ public class AgendaDAO {
        } catch (SQLException e) {
            Logger.getLogger(AgendaDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }
