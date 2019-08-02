@@ -4,13 +4,13 @@ package br.ufs.model;
 import java.util.Date;
 
 public class Funcionario {
-    protected String nome;
-    protected String cpf;
-    protected int matricula;
-    protected String telefone;
-    protected Date dt_nasc;
+    protected static String nome;
+    protected static String cpf;
+    protected static int matricula;
+    protected static String telefone;
+    protected static Date dt_nasc;
 
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
 
@@ -18,7 +18,7 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public static String getCpf() {
         return cpf;
     }
 
@@ -26,7 +26,7 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public int getMatricula() {
+    public static int getMatricula() {
         return matricula;
     }
 
@@ -34,7 +34,7 @@ public class Funcionario {
         this.matricula = matricula;
     }
 
-    public String getTelefone() {
+    public static String getTelefone() {
         return telefone;
     }
 
@@ -42,7 +42,7 @@ public class Funcionario {
         this.telefone = telefone;
     }
 
-    public Date getDt_nasc() {
+    public static Date getDt_nasc() {
         return dt_nasc;
     }
 

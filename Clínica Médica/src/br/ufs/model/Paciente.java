@@ -5,13 +5,13 @@ import java.util.Date;
 
 
 public class Paciente {
-    private String nome;
-    private String cpf;
-    private int cod_pac;
-    private String fone;
-    private Date dt_nasc;
+    private static String nome;
+    private static String cpf;
+    private static int cod_pac;
+    private static String fone;
+    private static Date dt_nasc;
 
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
 
@@ -19,7 +19,7 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public static String getCpf() {
         return cpf;
     }
 
@@ -27,7 +27,7 @@ public class Paciente {
         this.cpf = cpf;
     }
 
-    public int getCod_pac() {
+    public static int getCod_pac() {
         return cod_pac;
     }
 
@@ -35,7 +35,7 @@ public class Paciente {
         this.cod_pac = cod_pac;
     }
 
-    public String getFone() {
+    public static String getFone() {
         return fone;
     }
 
@@ -43,7 +43,7 @@ public class Paciente {
         this.fone = fone;
     }
 
-    public Date getDt_nasc() {
+    public static Date getDt_nasc() {
         return dt_nasc;
     }
 

@@ -12,13 +12,15 @@ public class TipoExame {
     private boolean fezes;
     private boolean t4livre;
     private boolean tsh;
+    
+    public TipoExame(){       
+    }
 
     public boolean isSangue() {
         return sangue;
     }
 
     public void setSangue(boolean sangue) {
-        this.sangue = sangue;
     }
 
     public boolean isLdl() {
