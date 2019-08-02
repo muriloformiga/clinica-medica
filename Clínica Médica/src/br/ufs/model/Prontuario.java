@@ -1,68 +1,23 @@
-
 package br.ufs.model;
-
-import java.util.Date;
 
 
 public class Prontuario {
-    private String nome;
-    private String cpf;
-    private String telefone;
-    private int cod_pac;
-    private Date dt_nasc;
-    private static String listExamesFeitos;
-    private static String prescricaoRemedios;
-    private static String observacoesMedicas;
+    private int idProntuario;
+    private String prescricaoRemedios;
+    private String observacoesMedicas;
 
-    public String getNome() {
-        return nome;
+    public Prontuario(){
+    }    
+    
+    public int getIdProntuario() {
+        return idProntuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setIdProntuario(int idProntuario) {
+        this.idProntuario = idProntuario;
     }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public int getCod_pac() {
-        return cod_pac;
-    }
-
-    public void setCod_pac(int cod_pac) {
-        this.cod_pac = cod_pac;
-    }
-
-    public Date getDt_nasc() {
-        return dt_nasc;
-    }
-
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
-    }
-
-    public static String getListExamesFeitos() {
-        return listExamesFeitos;
-    }
-
-    public void setListExamesFeitos(String listExamesFeitos) {
-        this.listExamesFeitos = listExamesFeitos;
-    }
-
-    public static String getPrescricaoRemedios() {
+    
+    public String getPrescricaoRemedios() {
         return prescricaoRemedios;
     }
 
@@ -70,14 +25,12 @@ public class Prontuario {
         this.prescricaoRemedios = prescricaoRemedios;
     }
 
-    public static String getObservacoesMedicas() {
+    public String getObservacoesMedicas() {
         return observacoesMedicas;
     }
 
     public void setObservacoesMedicas(String observacoesMedicas) {
         this.observacoesMedicas = observacoesMedicas;
     }
-    
-    
-       
+        
 }

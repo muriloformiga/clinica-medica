@@ -1,18 +1,19 @@
-
 package br.ufs.model;
 
 
 public class Especialidade {
-    private static String nome;
+    private int idEspecialidade;
+    private String nome;
 
-    public static String getNome() {
+    public Especialidade(){
+    }    
+    
+    public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
-    
+        
 }
