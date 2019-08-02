@@ -44,8 +44,10 @@ public class HomeView extends javax.swing.JFrame {
         jPanelPatrimonio = new javax.swing.JPanel();
         jLabelIconPatrimonio = new javax.swing.JLabel();
         jLabelPatrimonio = new javax.swing.JLabel();
+        jPanelAgenda = new javax.swing.JPanel();
+        jLabelIconAgenda = new javax.swing.JLabel();
+        jLabelAgenda = new javax.swing.JLabel();
         jPanelMain = new javax.swing.JPanel();
-        jPanelTopBar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clínica Médica");
@@ -53,7 +55,8 @@ public class HomeView extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setFocusTraversalPolicyProvider(true);
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(780, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanelSide.setBackground(new java.awt.Color(20, 182, 130));
         jPanelSide.setMaximumSize(new java.awt.Dimension(300, 436));
@@ -114,6 +117,23 @@ public class HomeView extends javax.swing.JFrame {
         jLabelPatrimonio.setText("Patrimônio");
         jPanelPatrimonio.add(jLabelPatrimonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 2, 210, 50));
 
+        jPanelAgenda.setBackground(new java.awt.Color(20, 208, 130));
+        jPanelAgenda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelAgendaMouseClicked(evt);
+            }
+        });
+        jPanelAgenda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelIconAgenda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelIconAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufs/view/images/checklist_32px.png"))); // NOI18N
+        jPanelAgenda.add(jLabelIconAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 70, 50));
+
+        jLabelAgenda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelAgenda.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelAgenda.setText("Agenda");
+        jPanelAgenda.add(jLabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 2, 210, 50));
+
         javax.swing.GroupLayout jPanelSideLayout = new javax.swing.GroupLayout(jPanelSide);
         jPanelSide.setLayout(jPanelSideLayout);
         jPanelSideLayout.setHorizontalGroup(
@@ -130,6 +150,9 @@ public class HomeView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelPatrimonio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelSideLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelSideLayout.setVerticalGroup(
             jPanelSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,17 +166,15 @@ public class HomeView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelAgenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelPatrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
         jPanelMain.setPreferredSize(new java.awt.Dimension(440, 460));
         jPanelMain.setLayout(new javax.swing.BoxLayout(jPanelMain, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanelTopBar.setBackground(new java.awt.Color(91, 240, 183));
-        jPanelTopBar.setPreferredSize(new java.awt.Dimension(600, 71));
-        jPanelTopBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,19 +183,12 @@ public class HomeView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelSide, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanelTopBar, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanelSide, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -210,6 +224,10 @@ public class HomeView extends javax.swing.JFrame {
         jPanelMain.add(p);
         this.pack();
     }//GEN-LAST:event_jPanelPatrimonioMouseClicked
+
+    private void jPanelAgendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAgendaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelAgendaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -248,18 +266,20 @@ public class HomeView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelAgenda;
     private javax.swing.JLabel jLabelFuncionario;
+    private javax.swing.JLabel jLabelIconAgenda;
     private javax.swing.JLabel jLabelIconFuncionario;
     private javax.swing.JLabel jLabelIconPaciente;
     private javax.swing.JLabel jLabelIconPatrimonio;
     private javax.swing.JLabel jLabelPaciente;
     private javax.swing.JLabel jLabelPatrimonio;
+    private javax.swing.JPanel jPanelAgenda;
     private javax.swing.JPanel jPanelFuncionario;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelPaciente;
     private javax.swing.JPanel jPanelPatrimonio;
     private javax.swing.JPanel jPanelSide;
-    private javax.swing.JPanel jPanelTopBar;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
