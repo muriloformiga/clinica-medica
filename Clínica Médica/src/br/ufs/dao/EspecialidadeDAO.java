@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class EspecialidadeDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public EspecialidadeDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,16 +21,18 @@ public class EspecialidadeDAO {
        String sql = "INSERT INTO especialidade(NOME, medico_ID) VALUES (?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, especialidade.getNome());
-           //stat.setInt(2, especialidade.getMedico().getId()); //Chave estrangeira de Medico
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, especialidade.getNome());
+           //stmt.setInt(2, especialidade.getMedico().getId()); //Chave estrangeira de Medico
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(EspecialidadeDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 //inserção incompleta
 public class AtestadoDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public AtestadoDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,17 +21,19 @@ public class AtestadoDAO {
        String sql = "INSERT INTO atestado(DT_INICIO, QTD_DIAS, CID) VALUES (?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setDate(1, new java.sql.Date(atestado.getDt_Inicio().getTime()));
-           stat.setInt(2, atestado.getQt_Dias());
-           stat.setString(3, atestado.getCid());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setDate(1, new java.sql.Date(atestado.getDt_Inicio().getTime()));
+           stmt.setInt(2, atestado.getQt_Dias());
+           stmt.setString(3, atestado.getCid());
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(AtestadoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

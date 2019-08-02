@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 //inserção incompleta
 public class ProntuarioDAO {
     private Connection con = null;
+    private PreparedStatement stmt = null;
     
     public ProntuarioDAO(){
         this.con = new ConnectionFactory().getConnection();
@@ -20,16 +21,18 @@ public class ProntuarioDAO {
        String sql = "INSERT INTO prontuario(PRESCRICAO_MEDICA, OBSERVACOES_MEDICAS) VALUES (?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, prontuario.getPrescricaoRemedios());
-           stat.setString(2, prontuario.getObservacoesMedicas());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, prontuario.getPrescricaoRemedios());
+           stmt.setString(2, prontuario.getObservacoesMedicas());
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

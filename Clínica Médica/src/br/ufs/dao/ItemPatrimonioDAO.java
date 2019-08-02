@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class ItemPatrimonioDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public ItemPatrimonioDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,18 +21,20 @@ public class ItemPatrimonioDAO {
        String sql = "INSERT INTO patrimonio(DESCRICAO, LOCALIZACAO, ANO_AQUISICAO, NUM_PATRIMONIO) VALUES (?,?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, itempatrimonio.getDescricao());           
-           stat.setString(2, itempatrimonio.getLocalizacao());                      
-           stat.setDate(3, new java.sql.Date(itempatrimonio.getAnoAquisicao().getTime()));
-           stat.setInt(4, itempatrimonio.getNumPatrimonio());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, itempatrimonio.getDescricao());           
+           stmt.setString(2, itempatrimonio.getLocalizacao());                      
+           stmt.setDate(3, new java.sql.Date(itempatrimonio.getAnoAquisicao().getTime()));
+           stmt.setInt(4, itempatrimonio.getNumPatrimonio());
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(ItemPatrimonioDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

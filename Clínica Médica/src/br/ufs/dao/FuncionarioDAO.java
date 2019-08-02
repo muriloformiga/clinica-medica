@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class FuncionarioDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public FuncionarioDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,20 +21,22 @@ public class FuncionarioDAO {
        String sql = "INSERT INTO funcionario(NOME, CPF, MATRICULA, TELEFONE, DT_NASC) VALUES (?,?,?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, funcionario.getNome());
-           stat.setString(2, funcionario.getCpf());
-           stat.setInt(3, funcionario.getMatricula());
-           stat.setString(4, funcionario.getTelefone());
-           stat.setDate(5, new java.sql.Date(funcionario.getDt_nasc().getTime()));
-           //stat.setString(6, funcionario.getEndereco());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, funcionario.getNome());
+           stmt.setString(2, funcionario.getCpf());
+           stmt.setInt(3, funcionario.getMatricula());
+           stmt.setString(4, funcionario.getTelefone());
+           stmt.setDate(5, new java.sql.Date(funcionario.getDt_nasc().getTime()));
+           //stmt.setString(6, funcionario.getEndereco());
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

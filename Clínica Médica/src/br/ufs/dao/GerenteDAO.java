@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 //inserção incompleta
 public class GerenteDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public GerenteDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,15 +21,17 @@ public class GerenteDAO {
        String sql = "INSERT INTO gerente(funcionario_ID) VALUES (?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           //stat.setInt(1, funcionario.getFuncionario().getId()); //Chave estrangeira de Funcionario
+           PreparedStatement stmt = con.prepareStatement(sql);
+           //stmt.setInt(1, funcionario.getFuncionario().getId()); //Chave estrangeira de Funcionario
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(AtestadoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

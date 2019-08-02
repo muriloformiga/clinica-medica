@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class EnderecoDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public EnderecoDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,20 +21,22 @@ public class EnderecoDAO {
        String sql = "INSERT INTO endereco(LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, CEP) VALUES (?,?,?,?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, endereco.getLogradouro());
-           stat.setInt(2, endereco.getNumero());
-           stat.setString(3, endereco.getBairro());
-           stat.setString(4, endereco.getCidade());
-           stat.setString(5, endereco.getEstado());
-           stat.setString(6, endereco.getCep());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, endereco.getLogradouro());
+           stmt.setInt(2, endereco.getNumero());
+           stmt.setString(3, endereco.getBairro());
+           stmt.setString(4, endereco.getCidade());
+           stmt.setString(5, endereco.getEstado());
+           stmt.setString(6, endereco.getCep());
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

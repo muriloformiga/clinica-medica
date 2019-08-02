@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 public class PacienteDAO {
     private Connection con = null;
+    private PreparedStatement stmt = null;
     
     public PacienteDAO(){
         this.con = new ConnectionFactory().getConnection();
@@ -20,19 +21,20 @@ public class PacienteDAO {
        String sql = "INSERT INTO pessoa(NOME, CPF, TELEFONE, DT_NASC) VALUES (?,?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setString(1, paciente.getNome());
-           stat.setString(2, paciente.getCpf());
-           stat.setString(3, paciente.getFone());
-           stat.setDate(4, new java.sql.Date(paciente.getDt_nasc().getTime()));
-           //ps.setDate(2, new java.sql.Date(endDate.getTime());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, paciente.getNome());
+           stmt.setString(2, paciente.getCpf());
+           stmt.setString(3, paciente.getFone());
+           stmt.setDate(4, new java.sql.Date(paciente.getDt_nasc().getTime()));
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

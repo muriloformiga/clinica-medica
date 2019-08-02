@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class PatrimonioDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public PatrimonioDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,16 +21,18 @@ public class PatrimonioDAO {
        String sql = "INSERT INTO patrimonio(DT_ULTIMO_LEVANTAMENTO, QTD_ITEM) VALUES (?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setDate(1, new java.sql.Date(patrimonio.getDataUltimoLevantamento().getTime()));
-           stat.setInt(2, patrimonio.getQuantItem());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setDate(1, new java.sql.Date(patrimonio.getDataUltimoLevantamento().getTime()));
+           stmt.setInt(2, patrimonio.getQuantItem());
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(PatrimonioDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

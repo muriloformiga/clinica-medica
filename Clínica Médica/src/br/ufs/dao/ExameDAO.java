@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 public class ExameDAO {
     private Connection con = null;
-    
+    private PreparedStatement stmt = null;
+
     public ExameDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -20,18 +21,20 @@ public class ExameDAO {
        String sql = "INSERT INTO exame(DT, HORA, SITUACAO, DIAGNOSTICO) VALUES (?,?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setDate(1, new java.sql.Date(exame.getData().getTime()));
-           stat.setString(2, exame.getHora()); //Este tipo deverá ser Date
-           stat.setBoolean(3, exame.isSituacao());
-           stat.setString(4, exame.getDiagnostico());
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setDate(1, new java.sql.Date(exame.getData().getTime()));
+           stmt.setString(2, exame.getHora()); //Este tipo deverá ser Date
+           stmt.setBoolean(3, exame.isSituacao());
+           stmt.setString(4, exame.getDiagnostico());
            
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
            Logger.getLogger(ExameDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
 }

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class AgendaDAO {
     private Connection con = null;
-    PreparedStatement stmt = null;
+    private PreparedStatement stmt = null;
     
     public AgendaDAO(){
         this.con = new ConnectionFactory().getConnection();
@@ -21,12 +21,12 @@ public class AgendaDAO {
        String sql = "INSERT INTO agenda(DT, HORA, medico_ID) VALUES (?,?,?)";
        
        try{
-           PreparedStatement stat = con.prepareStatement(sql);
-           stat.setDate(1, new java.sql.Date(agenda.getData().getTime()));
-           stat.setDate(2, new java.sql.Date(agenda.getHora().getTime())); //OBS: Horario do tipo Time ou Date?
-           //stat.setInt(3, especialidade.getMedico().getId()); //Chave estrangeira de Medico
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setDate(1, new java.sql.Date(agenda.getData().getTime()));
+           stmt.setDate(2, new java.sql.Date(agenda.getHora().getTime())); //OBS: Horario do tipo Time ou Date?
+           //stmt.setInt(3, especialidade.getMedico().getId()); //Chave estrangeira de Medico
 
-           stat.execute();
+           stmt.execute();
            return true;
            
        } catch (SQLException e) {
