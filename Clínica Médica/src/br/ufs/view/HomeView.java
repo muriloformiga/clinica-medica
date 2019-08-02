@@ -6,7 +6,6 @@
 package br.ufs.view;
 
 import br.ufs.view.panels.FuncionarioJPanelView;
-import br.ufs.view.panels.PacienteBuscaJpanelView;
 import br.ufs.view.panels.PacienteJPanelView;
 import br.ufs.view.panels.PatrimonioJPanelView;
 import java.awt.Color;
