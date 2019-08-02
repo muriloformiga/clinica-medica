@@ -77,7 +77,7 @@ public class PacienteJPanelView extends javax.swing.JPanel {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 204));
         setPreferredSize(new java.awt.Dimension(440, 460));
 
         jPanel2.setBackground(new java.awt.Color(20, 182, 130));
