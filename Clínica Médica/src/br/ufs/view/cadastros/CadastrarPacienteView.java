@@ -6,6 +6,8 @@
 package br.ufs.view.cadastros;
 
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -288,6 +290,50 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
                 new CadastrarPacienteView().setVisible(true);
             }
         });
+    }
+
+    public JButton getBtnCadastrarPaciente() {
+        return btnCadastrarPaciente;
+    }
+
+    public JTextField getTxtBairroPaciente() {
+        return txtBairroPaciente;
+    }
+
+    public JTextField getTxtCepPaciente() {
+        return txtCepPaciente;
+    }
+
+    public JTextField getTxtCidadePaciente() {
+        return txtCidadePaciente;
+    }
+
+    public JTextField getTxtCpfPaciente() {
+        return txtCpfPaciente;
+    }
+
+    public JTextField getTxtDataNascimentoPaciente() {
+        return txtDataNascimentoPaciente;
+    }
+
+    public JTextField getTxtEstadoPaciente() {
+        return txtEstadoPaciente;
+    }
+
+    public JTextField getTxtLogradouroPaciente() {
+        return txtLogradouroPaciente;
+    }
+
+    public JTextField getTxtNomePaciente() {
+        return txtNomePaciente;
+    }
+
+    public JTextField getTxtNumPaciente() {
+        return txtNumPaciente;
+    }
+
+    public JTextField getTxtTelefonePaciente() {
+        return txtTelefonePaciente;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
