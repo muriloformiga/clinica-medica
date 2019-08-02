@@ -5,12 +5,12 @@ import java.util.Date;
 
 
 public class Exame {
-    private Date data;
-    private String hora;
+    private static Date data;
+    private static String hora;
     private boolean situacao;
-    private String diagnostico;
+    private static String diagnostico;
 
-    public Date getData() {
+    public static Date getData() {
         return data;
     }
 
@@ -18,7 +18,7 @@ public class Exame {
         this.data = data;
     }
 
-    public String getHora() {
+    public static String getHora() {
         return hora;
     }
 
@@ -34,7 +34,7 @@ public class Exame {
         this.situacao = situacao;
     }
 
-    public String getDiagnostico() {
+    public static String getDiagnostico() {
         return diagnostico;
     }
 

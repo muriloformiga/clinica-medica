@@ -3,9 +3,9 @@ package br.ufs.model;
 
 
 public class Especialidade {
-    private String nome;
+    private static String nome;
 
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
 

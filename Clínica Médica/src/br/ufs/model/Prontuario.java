@@ -10,9 +10,9 @@ public class Prontuario {
     private String telefone;
     private int cod_pac;
     private Date dt_nasc;
-    private String listExamesFeitos;
-    private String prescricaoRemedios;
-    private String observacoesMedicas;
+    private static String listExamesFeitos;
+    private static String prescricaoRemedios;
+    private static String observacoesMedicas;
 
     public String getNome() {
         return nome;
@@ -54,7 +54,7 @@ public class Prontuario {
         this.dt_nasc = dt_nasc;
     }
 
-    public String getListExamesFeitos() {
+    public static String getListExamesFeitos() {
         return listExamesFeitos;
     }
 
@@ -62,7 +62,7 @@ public class Prontuario {
         this.listExamesFeitos = listExamesFeitos;
     }
 
-    public String getPrescricaoRemedios() {
+    public static String getPrescricaoRemedios() {
         return prescricaoRemedios;
     }
 
@@ -70,7 +70,7 @@ public class Prontuario {
         this.prescricaoRemedios = prescricaoRemedios;
     }
 
-    public String getObservacoesMedicas() {
+    public static String getObservacoesMedicas() {
         return observacoesMedicas;
     }
 

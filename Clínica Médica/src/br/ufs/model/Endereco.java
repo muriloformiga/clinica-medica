@@ -3,14 +3,14 @@ package br.ufs.model;
 
 
 public class Endereco {
-    private String logradouro;
-    private int numero;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String cep;
+    private static String logradouro;
+    private static int numero;
+    private static String bairro;
+    private static String cidade;
+    private static String estado;
+    private static String cep;
 
-    public String getLogradouro() {
+    public static String getLogradouro() {
         return logradouro;
     }
 
@@ -18,7 +18,7 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
-    public int getNumero() {
+    public static int getNumero() {
         return numero;
     }
 
@@ -26,7 +26,7 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public String getBairro() {
+    public static String getBairro() {
         return bairro;
     }
 
@@ -34,7 +34,7 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public String getCidade() {
+    public static String getCidade() {
         return cidade;
     }
 
@@ -42,7 +42,7 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public String getEstado() {
+    public static String getEstado() {
         return estado;
     }
 
@@ -50,7 +50,7 @@ public class Endereco {
         this.estado = estado;
     }
 
-    public String getCep() {
+    public static String getCep() {
         return cep;
     }
 
