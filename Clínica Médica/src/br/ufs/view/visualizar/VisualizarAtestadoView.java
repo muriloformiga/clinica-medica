@@ -9,12 +9,12 @@ package br.ufs.view.visualizar;
  *
  * @author Murilo Formiga
  */
-public class VisualizarProntuarioView extends javax.swing.JFrame {
+public class VisualizarAtestadoView extends javax.swing.JFrame {
 
     /**
-     * Creates new form VisualizarProntuarioView
+     * Creates new form VisualizarAtestadoView
      */
-    public VisualizarProntuarioView() {
+    public VisualizarAtestadoView() {
         initComponents();
     }
 
@@ -34,14 +34,13 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JLabel();
         txtCpf = new javax.swing.JLabel();
         txtDataNascimento = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        txtPrescricoesRemedios = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        txtObservacoesMedicas = new javax.swing.JLabel();
+        txtDataNascimento1 = new javax.swing.JLabel();
+        txtDataNascimento2 = new javax.swing.JLabel();
+        txtDataNascimento3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Visualizar Prontuário");
-        setPreferredSize(new java.awt.Dimension(694, 500));
+        setTitle("Visualizar Atestado");
+        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(20, 150, 90));
@@ -61,6 +60,12 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
 
         txtDataNascimento.setText("txtDataNascimento");
 
+        txtDataNascimento1.setText("txtQuantidadeDias");
+
+        txtDataNascimento2.setText("txtCid");
+
+        txtDataNascimento3.setText("txtDataInicio");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -75,13 +80,18 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(154, 154, 154)
-                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtDataNascimento3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtDataNascimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataNascimento2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtlNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -89,53 +99,12 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prescrições de Remédios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
-
-        txtPrescricoesRemedios.setText("txtPrescricoesRemedios");
-        txtPrescricoesRemedios.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtPrescricoesRemedios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtPrescricoesRemedios, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Observações Médicas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
-
-        txtObservacoesMedicas.setText("txtObservacoesMedicas");
-        txtObservacoesMedicas.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtObservacoesMedicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtObservacoesMedicas, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDataNascimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataNascimento3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDataNascimento2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -144,10 +113,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -155,11 +121,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(539, Short.MAX_VALUE))
+                .addContainerGap(869, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -206,58 +168,33 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VisualizarProntuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarAtestadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VisualizarProntuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarAtestadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VisualizarProntuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarAtestadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VisualizarProntuarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisualizarAtestadoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VisualizarProntuarioView().setVisible(true);
+                new VisualizarAtestadoView().setVisible(true);
             }
         });
     }
 
-    public void setTxtCPF(String txtCPF) {
-        this.txtCpf.setText(txtCPF);
-    }
-
-    public void setTxtDataNascimento(String txtDataNascimento) {
-        this.txtDataNascimento.setText(txtDataNascimento);
-    }
-
-    public void setTxtNome(String txtNome) {
-        this.txtlNome.setText(txtNome);
-    }
-
-    public void setTxtObservacoesMedicas(String txtObservacoesMedicas) {
-        this.txtObservacoesMedicas.setText(txtObservacoesMedicas);
-    }
-
-    public void setTxtPrescricoesRemedios(String txtPrescricoesRemedios) {
-        this.txtPrescricoesRemedios.setText(txtPrescricoesRemedios);
-    }
-
-    public void setTxtTelefone(String txtTelefone) {
-        this.txtTelefone.setText(txtTelefone);
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel txtCpf;
     private javax.swing.JLabel txtDataNascimento;
-    private javax.swing.JLabel txtObservacoesMedicas;
-    private javax.swing.JLabel txtPrescricoesRemedios;
+    private javax.swing.JLabel txtDataNascimento1;
+    private javax.swing.JLabel txtDataNascimento2;
+    private javax.swing.JLabel txtDataNascimento3;
     private javax.swing.JLabel txtTelefone;
     private javax.swing.JLabel txtlNome;
     // End of variables declaration//GEN-END:variables
