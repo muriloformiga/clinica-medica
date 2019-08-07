@@ -56,6 +56,7 @@ public class HomeView extends javax.swing.JFrame {
         setFocusTraversalPolicyProvider(true);
         setLocationByPlatform(true);
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setSize(new java.awt.Dimension(0, 0));
 
         jPanelSide.setBackground(new java.awt.Color(20, 182, 130));
         jPanelSide.setMaximumSize(new java.awt.Dimension(300, 436));
