@@ -6,6 +6,8 @@
 package br.ufs.view.panels;
 
 import br.ufs.view.buscar.BuscarPacienteCadastroView;
+import br.ufs.view.buscar.BuscarPacienteCadastrarProntuarioView;
+import br.ufs.view.buscar.BuscarPacienteVisualizarProntuarioView;
 import br.ufs.view.buscar.BuscarPacienteVisualizarView;
 import br.ufs.view.cadastros.CadastrarConsultaView;
 import br.ufs.view.cadastros.CadastrarPacienteView;
@@ -302,11 +304,11 @@ public class PacienteJPanelView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        new BuscarPacienteCadastrarProntuarioView().setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        new BuscarPacienteVisualizarProntuarioView().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
