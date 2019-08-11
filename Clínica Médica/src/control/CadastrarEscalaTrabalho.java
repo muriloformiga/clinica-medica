@@ -9,6 +9,6 @@ package control;
  *
  * @author rmdss
  */
-public class CadastrarEscala {
+public class CadastrarEscalaTrabalho {
     
 }

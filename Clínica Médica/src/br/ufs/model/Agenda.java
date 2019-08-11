@@ -26,24 +26,5 @@ public class Agenda {
         this.hora = hora;
     }
 
-    
-    
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public Date getHora() {
-        return hora;
-    }
-
-    public void setHora(Date hora) {
-        this.hora = hora;
-    }
-
-    
+       
 }

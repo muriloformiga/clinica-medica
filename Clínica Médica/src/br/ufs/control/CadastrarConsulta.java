@@ -1,5 +1,5 @@
 
-package control;
+package br.ufs.control;
 
 import br.ufs.model.Agenda;
 import br.ufs.model.Especialidade;

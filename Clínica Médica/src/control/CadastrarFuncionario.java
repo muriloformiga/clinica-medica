@@ -1,10 +1,9 @@
-
 package control;
 
 import br.ufs.model.Endereco;
 import br.ufs.model.Funcionario;
 
-public class CadastroFuncionario {
+public class CadastrarFuncionario{
     
     public void cadastrarFunc(){
         System.out.println("--------Clinica Medica--------");

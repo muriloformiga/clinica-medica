@@ -1,13 +1,13 @@
-package control;
+package br.ufs.control;
 
 import br.ufs.model.Agenda;
 import br.ufs.model.Especialidade;
 import br.ufs.model.Medico;
 import br.ufs.model.Paciente;
 
-public class CadastrarConsulta {
+public class CadastrarConsulta_1 {
 
-    public CadastrarConsulta(){
+    public CadastrarConsulta_1(){
     }
 
     public void cadastrarCon(){
