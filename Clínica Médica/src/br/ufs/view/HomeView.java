@@ -21,6 +21,7 @@ public class HomeView extends javax.swing.JFrame {
      */
     public HomeView() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -202,7 +203,7 @@ public class HomeView extends javax.swing.JFrame {
         jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(p);
         //p.setVisible(true);
-        this.pack(); 
+        this.pack();
     }//GEN-LAST:event_jPanelPacienteMouseClicked
 
     private void jPanelFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionarioMouseClicked

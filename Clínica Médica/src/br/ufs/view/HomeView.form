@@ -41,7 +41,7 @@
           <Group type="102" attributes="0">
               <Component id="jPanelSide" min="-2" pref="280" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelMain" pref="600" max="32767" attributes="0"/>
+              <Component id="jPanelMain" pref="514" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

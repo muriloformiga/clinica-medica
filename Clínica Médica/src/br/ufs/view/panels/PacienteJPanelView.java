@@ -5,17 +5,23 @@
  */
 package br.ufs.view.panels;
 
-import br.ufs.view.buscar.BuscarCadastrarAtestadoView;
-import br.ufs.view.buscar.BuscarMarcarExameView;
-import br.ufs.view.buscar.BuscarPacienteCadastroView;
-import br.ufs.view.buscar.BuscarPacienteCadastrarProntuarioView;
-import br.ufs.view.buscar.BuscarPacienteVisualizarProntuarioView;
-import br.ufs.view.buscar.BuscarPacienteVisualizarView;
-import br.ufs.view.buscar.BuscarVisualizarAtestadoView;
+import br.ufs.view.HomeView;
+import br.ufs.view.buscar.paciente.BuscarCadastrarAtestadoView;
+import br.ufs.view.buscar.paciente.BuscarMarcarExameView;
+import br.ufs.view.buscar.paciente.BuscarPacienteCadastroView;
+import br.ufs.view.buscar.paciente.BuscarPacienteCadastrarProntuarioView;
+import br.ufs.view.buscar.paciente.BuscarPacienteVisualizarProntuarioView;
+import br.ufs.view.buscar.paciente.BuscarPacienteVisualizarView;
+import br.ufs.view.buscar.paciente.BuscarVisualizarAtestadoView;
+import br.ufs.view.buscar.paciente.BuscarVisualizarExameView;
 import br.ufs.view.cadastros.CadastrarConsultaView;
 import br.ufs.view.cadastros.CadastrarPacienteView;
 import br.ufs.view.cadastros.MarcarExameView;
 import java.awt.Color;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -28,15 +34,14 @@ public class PacienteJPanelView extends javax.swing.JPanel {
      */
     public PacienteJPanelView() {
         initComponents();
-        jButton1.setBackground(new Color(20, 150, 90));
-        jButton2.setBackground(new Color(20, 150, 90));
-        jButton3.setBackground(new Color(20, 150, 90));
-        jButton4.setBackground(new Color(20, 150, 90));
-        jButton5.setBackground(new Color(20, 150, 90));
-        jButton6.setBackground(new Color(20, 150, 90));
-        jButton7.setBackground(new Color(20, 150, 90));
-        jButton8.setBackground(new Color(20, 150, 90));
-        jButton9.setBackground(new Color(20, 150, 90));
+        btnCadastrarConsulta.setBackground(new Color(20, 150, 90));
+        btnVisualizarConsulta.setBackground(new Color(20, 150, 90));
+        btnVisualizarExame.setBackground(new Color(20, 150, 90));
+        btnCriarAtestado.setBackground(new Color(20, 150, 90));
+        btnVisualizarAtestado.setBackground(new Color(20, 150, 90));
+        btnCadastrarProntuario.setBackground(new Color(20, 150, 90));
+        btnVisualizarProntuario.setBackground(new Color(20, 150, 90));
+        btnMarcarExame.setBackground(new Color(20, 150, 90));
         btnCadastrarPaciente.setBackground(new Color(20, 150, 90));
     }
 
@@ -51,23 +56,23 @@ public class PacienteJPanelView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCadastrarConsulta = new javax.swing.JButton();
+        btnVisualizarConsulta = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnVisualizarExame = new javax.swing.JButton();
+        btnMarcarExame = new javax.swing.JButton();
         jPanel26 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnCriarAtestado = new javax.swing.JButton();
+        btnVisualizarAtestado = new javax.swing.JButton();
         jPanel33 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnCadastrarProntuario = new javax.swing.JButton();
+        btnVisualizarProntuario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnCadastrarPaciente = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 204));
-        setPreferredSize(new java.awt.Dimension(440, 460));
+        setRequestFocusEnabled(false);
+        setVerifyInputWhenFocusTarget(false);
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
         jPanel1.setOpaque(false);
@@ -77,25 +82,25 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel2.setOpaque(false);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cadastrar Consulta");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        btnCadastrarConsulta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCadastrarConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarConsulta.setText("Cadastrar Consulta");
+        btnCadastrarConsulta.setBorder(null);
+        btnCadastrarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarConsultaActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Visualizar Consulta");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        btnVisualizarConsulta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnVisualizarConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        btnVisualizarConsulta.setText("Visualizar Consulta");
+        btnVisualizarConsulta.setBorder(null);
+        btnVisualizarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnVisualizarConsultaActionPerformed(evt);
             }
         });
 
@@ -103,15 +108,15 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnVisualizarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVisualizarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 99, Short.MAX_VALUE))
         );
 
@@ -121,31 +126,25 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exame", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel21.setOpaque(false);
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Cadastrar Exame");
-        jButton3.setBorder(null);
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Visualizar Exame");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarExame.setBackground(new java.awt.Color(255, 255, 255));
+        btnVisualizarExame.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnVisualizarExame.setForeground(new java.awt.Color(255, 255, 255));
+        btnVisualizarExame.setText("Visualizar Exame");
+        btnVisualizarExame.setBorder(null);
+        btnVisualizarExame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnVisualizarExameActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Marcar Exame");
-        jButton9.setBorder(null);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnMarcarExame.setBackground(new java.awt.Color(255, 255, 255));
+        btnMarcarExame.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnMarcarExame.setForeground(new java.awt.Color(255, 255, 255));
+        btnMarcarExame.setText("Marcar Exame");
+        btnMarcarExame.setBorder(null);
+        btnMarcarExame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnMarcarExameActionPerformed(evt);
             }
         });
 
@@ -156,19 +155,16 @@ public class PacienteJPanelView extends javax.swing.JPanel {
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)))
+                    .addComponent(btnVisualizarExame, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                    .addComponent(btnMarcarExame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 60, Short.MAX_VALUE))
+                .addComponent(btnVisualizarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 99, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel21);
@@ -177,25 +173,25 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Atestado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel26.setOpaque(false);
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Criar Atestado");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCriarAtestado.setBackground(new java.awt.Color(255, 255, 255));
+        btnCriarAtestado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCriarAtestado.setForeground(new java.awt.Color(255, 255, 255));
+        btnCriarAtestado.setText("Criar Atestado");
+        btnCriarAtestado.setBorder(null);
+        btnCriarAtestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCriarAtestadoActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Visualizar Atestado");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarAtestado.setBackground(new java.awt.Color(255, 255, 255));
+        btnVisualizarAtestado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnVisualizarAtestado.setForeground(new java.awt.Color(255, 255, 255));
+        btnVisualizarAtestado.setText("Visualizar Atestado");
+        btnVisualizarAtestado.setBorder(null);
+        btnVisualizarAtestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnVisualizarAtestadoActionPerformed(evt);
             }
         });
 
@@ -203,15 +199,15 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(btnCriarAtestado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnVisualizarAtestado, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel26Layout.createSequentialGroup()
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCriarAtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVisualizarAtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 99, Short.MAX_VALUE))
         );
 
@@ -221,25 +217,25 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prontuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel33.setOpaque(false);
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Cadastrar Prontuário");
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarProntuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnCadastrarProntuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCadastrarProntuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrarProntuario.setText("Cadastrar Prontuário");
+        btnCadastrarProntuario.setBorder(null);
+        btnCadastrarProntuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnCadastrarProntuarioActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Visualizar Prontuário");
-        jButton8.setBorder(null);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnVisualizarProntuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnVisualizarProntuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnVisualizarProntuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnVisualizarProntuario.setText("Visualizar Prontuário");
+        btnVisualizarProntuario.setBorder(null);
+        btnVisualizarProntuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnVisualizarProntuarioActionPerformed(evt);
             }
         });
 
@@ -247,15 +243,15 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel33.setLayout(jPanel33Layout);
         jPanel33Layout.setHorizontalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCadastrarProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addComponent(btnVisualizarProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel33Layout.setVerticalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel33Layout.createSequentialGroup()
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadastrarProntuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVisualizarProntuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 99, Short.MAX_VALUE))
         );
 
@@ -281,7 +277,7 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(240, Short.MAX_VALUE)
+                .addContainerGap(342, Short.MAX_VALUE)
                 .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -296,55 +292,78 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         add(jPanel3);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnVisualizarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarExameActionPerformed
+    new BuscarVisualizarExameView().setVisible(true);
+    //btnVisualizarExame.setEnabled(false);
+    }//GEN-LAST:event_btnVisualizarExameActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnCriarAtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarAtestadoActionPerformed
      new BuscarCadastrarAtestadoView().setVisible(true);
+     //btnCriarAtestado.setEnabled(false);
      
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnCriarAtestadoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnVisualizarAtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAtestadoActionPerformed
      new BuscarVisualizarAtestadoView().setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
+     //btnCadastrarProntuario.setEnabled(false);
+    }//GEN-LAST:event_btnVisualizarAtestadoActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnCadastrarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProntuarioActionPerformed
         new BuscarPacienteCadastrarProntuarioView().setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+        //btnCadastrarProntuario.setEnabled(false);
+    }//GEN-LAST:event_btnCadastrarProntuarioActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        new BuscarPacienteVisualizarProntuarioView().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void btnVisualizarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarProntuarioActionPerformed
+        new BuscarPacienteVisualizarProntuarioView().setVisible(true);   
+        //btnVisualizarAtestado.setEnabled(false);
+    }//GEN-LAST:event_btnVisualizarProntuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastrarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarConsultaActionPerformed
        new BuscarPacienteCadastroView().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //btnCadastrarConsulta.setEnabled(false);
+    }//GEN-LAST:event_btnCadastrarConsultaActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void btnMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarExameActionPerformed
         new BuscarMarcarExameView().setVisible(true);
-    }//GEN-LAST:event_jButton9ActionPerformed
+        //btnMarcarExame.setEnabled(false);
+    }//GEN-LAST:event_btnMarcarExameActionPerformed
 
     private void btnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPacienteActionPerformed
         new CadastrarPacienteView().setVisible(true);
+        //btnCadastrarPaciente.setEnabled(false);
     }//GEN-LAST:event_btnCadastrarPacienteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnVisualizarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarConsultaActionPerformed
         new BuscarPacienteVisualizarView().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+        //btnVisualizarConsulta.setEnabled(false);
+    }//GEN-LAST:event_btnVisualizarConsultaActionPerformed
+    
+    public void ativarJButton(){
+    ActionListener ativarBotoes = new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        btnCadastrarConsulta.setEnabled(true);
+        btnCadastrarPaciente.setEnabled(true);
+        btnCadastrarProntuario.setEnabled(true);
+        btnCriarAtestado.setEnabled(true);
+        btnMarcarExame.setEnabled(true);
+        btnVisualizarAtestado.setEnabled(true);
+        btnVisualizarConsulta.setEnabled(true);
+        btnVisualizarExame.setEnabled(true);
+        btnVisualizarProntuario.setEnabled(true);
+      }
+    };   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarConsulta;
     private javax.swing.JButton btnCadastrarPaciente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btnCadastrarProntuario;
+    private javax.swing.JButton btnCriarAtestado;
+    private javax.swing.JButton btnMarcarExame;
+    private javax.swing.JButton btnVisualizarAtestado;
+    private javax.swing.JButton btnVisualizarConsulta;
+    private javax.swing.JButton btnVisualizarExame;
+    private javax.swing.JButton btnVisualizarProntuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;
@@ -352,4 +371,5 @@ public class PacienteJPanelView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel33;
     // End of variables declaration//GEN-END:variables
+
 }
