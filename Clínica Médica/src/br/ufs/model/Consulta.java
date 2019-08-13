@@ -1,27 +1,16 @@
+
 package br.ufs.model;
 
 import java.util.Date;
 
 
 public class Consulta {
-    private int idConsulta;
     private Date data;
     private Date hora;
     private boolean situacao;
     private String descricao;
     private String diagnostico;
 
-    public Consulta(){
-    }    
-
-    public int getIdConsulta() {
-        return idConsulta;
-    }
-
-    public void setIdConsulta(int idConsulta) {
-        this.idConsulta = idConsulta;
-    }
-       
     public Date getData() {
         return data;
     }

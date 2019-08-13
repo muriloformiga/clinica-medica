@@ -1,25 +1,14 @@
+
 package br.ufs.model;
 
 import java.util.Date;
 
 public class ItemPatrimonio {
-    private int idItemPatrimonio;
     private String descricao;
     private String localizacao;
     private Date anoAquisicao;
     private int numPatrimonio;
 
-    public ItemPatrimonio(){
-    }    
-
-    public int getIdItemPatrimonio() {
-        return idItemPatrimonio;
-    }
-
-    public void setIdItemPatrimonio(int idItemPatrimonio) {
-        this.idItemPatrimonio = idItemPatrimonio;
-    }        
-    
     public String getDescricao() {
         return descricao;
     }

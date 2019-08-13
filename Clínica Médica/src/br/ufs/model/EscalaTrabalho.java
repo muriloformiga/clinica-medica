@@ -1,25 +1,14 @@
+
 package br.ufs.model;
 
 import java.util.Date;
 
 
 public class EscalaTrabalho {
-    private int idEscalaTrabalho;
     private String diasTrabalhar;
     private Date hora;
     private String cargaHoraria;
 
-    public EscalaTrabalho(){
-    }    
-
-    public int getIdEscalaTrabalho() {
-        return idEscalaTrabalho;
-    }
-
-    public void setIdEscalaTrabalho(int idEscalaTrabalho) {
-        this.idEscalaTrabalho = idEscalaTrabalho;
-    }
-        
     public String getDiasTrabalhar() {
         return diasTrabalhar;
     }
@@ -43,5 +32,7 @@ public class EscalaTrabalho {
     public void setCargaHoraria(String cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
-        
+    
+    
+    
 }

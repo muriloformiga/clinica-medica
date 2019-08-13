@@ -1,65 +1,76 @@
+
 package br.ufs.model;
 
-import java.util.Date;
+import br.ufs.dao.PacienteDAO;
+import javax.swing.JOptionPane;
 
 
 public class Paciente {
-    private int idPaciente;
-    private String nome;
-    private String cpf;
-    private int cod_pac;
-    private String fone;
-    private Date dt_nasc;
+    private String nomeModelPaciente;
+    private String cpfModelPaciente;
+    private int idEnderecoModelPaciente;
+    private String telefoneModelPaciente;
+    private String dataNascimentoModelPaciente;
+    private int prontuarioIdModelPaciente;
 
-    public Paciente(){
-    }    
-
-    public int getIdPaciente() {
-        return idPaciente;
+    public int getProntuarioIdModelPaciente() {
+        return prontuarioIdModelPaciente;
     }
 
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = idPaciente;
-    }    
+    public void setProntuarioIdModelPaciente(int prontuarioIdModelPaciente) {
+        this.prontuarioIdModelPaciente = prontuarioIdModelPaciente;
+    }
     
-    public String getNome() {
-        return nome;
+
+    public String getNomeModelPaciente() {
+        return nomeModelPaciente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeModelPaciente(String nomeModelPaciente) {
+        this.nomeModelPaciente = nomeModelPaciente;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfModelPaciente() {
+        return cpfModelPaciente;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfModelPaciente(String cpfModelPaciente) {
+        this.cpfModelPaciente = cpfModelPaciente;
     }
 
-    public int getCod_pac() {
-        return cod_pac;
+    public int getIdEnderecoModelPaciente() {
+        return idEnderecoModelPaciente;
     }
 
-    public void setCod_pac(int cod_pac) {
-        this.cod_pac = cod_pac;
+    public void setIdEnderecoModelPaciente(int idEnderecoModelPaciente) {
+        this.idEnderecoModelPaciente = idEnderecoModelPaciente;
     }
 
-    public String getFone() {
-        return fone;
+    public String getTelefoneModelPaciente() {
+        return telefoneModelPaciente;
     }
 
-    public void setFone(String fone) {
-        this.fone = fone;
+    public void setTelefoneModelPaciente(String telefoneModelPaciente) {
+        this.telefoneModelPaciente = telefoneModelPaciente;
     }
 
-    public Date getDt_nasc() {
-        return dt_nasc;
+    public String getDataNascimentoModelPaciente() {
+        return dataNascimentoModelPaciente;
     }
 
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
+    public void setDataNascimentoModelPaciente(String dataNascimentoModelPaciente) {
+        this.dataNascimentoModelPaciente = dataNascimentoModelPaciente;
     }
-     
+
+    public void salvar(Paciente paciente){
+        try {
+            PacienteDAO pacDAO = new PacienteDAO();
+            pacDAO.add(paciente);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    
 }
