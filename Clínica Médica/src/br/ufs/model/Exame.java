@@ -1,16 +1,27 @@
-
 package br.ufs.model;
 
 import java.util.Date;
 
 
 public class Exame {
-    private static Date data;
-    private static String hora;
+    private int idExame;
+    private Date data;
+    private String hora;
     private boolean situacao;
     private static String diagnostico;
 
-    public static Date getData() {
+    public Exame(){
+    }    
+
+    public int getIdExame() {
+        return idExame;
+    }
+
+    public void setIdExame(int idExame) {
+        this.idExame = idExame;
+    }
+        
+    public Date getData() {
         return data;
     }
 
@@ -18,7 +29,7 @@ public class Exame {
         this.data = data;
     }
 
-    public static String getHora() {
+    public String getHora() {
         return hora;
     }
 
@@ -34,14 +45,12 @@ public class Exame {
         this.situacao = situacao;
     }
 
-    public static String getDiagnostico() {
+    public String getDiagnostico() {
         return diagnostico;
     }
 
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
     }
-    
-    
-    
+       
 }

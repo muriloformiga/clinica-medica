@@ -1,17 +1,28 @@
-
 package br.ufs.model;
 
 import java.util.Date;
 
 
 public class Paciente {
-    private static String nome;
-    private static String cpf;
-    private static int cod_pac;
-    private static String fone;
-    private static Date dt_nasc;
+    private int idPaciente;
+    private String nome;
+    private String cpf;
+    private int cod_pac;
+    private String fone;
+    private Date dt_nasc;
 
-    public static String getNome() {
+    public Paciente(){
+    }    
+
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }    
+    
+    public String getNome() {
         return nome;
     }
 
@@ -19,7 +30,7 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public static String getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -27,7 +38,7 @@ public class Paciente {
         this.cpf = cpf;
     }
 
-    public static int getCod_pac() {
+    public int getCod_pac() {
         return cod_pac;
     }
 
@@ -35,7 +46,7 @@ public class Paciente {
         this.cod_pac = cod_pac;
     }
 
-    public static String getFone() {
+    public String getFone() {
         return fone;
     }
 
@@ -43,13 +54,12 @@ public class Paciente {
         this.fone = fone;
     }
 
-    public static Date getDt_nasc() {
+    public Date getDt_nasc() {
         return dt_nasc;
     }
 
     public void setDt_nasc(Date dt_nasc) {
         this.dt_nasc = dt_nasc;
     }
-    
-    
+     
 }
