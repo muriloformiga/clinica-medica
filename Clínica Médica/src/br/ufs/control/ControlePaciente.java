@@ -139,7 +139,7 @@ public class ControlePaciente implements ActionListener{
                 modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
                 modelPaciente.setTelefoneModelPaciente(getControleTelefonePaciente());
                 modelPaciente.setDataNascimentoModelPaciente(getControleDataNascimentoPaciente());
-                modelPaciente.setIdEnderecoModelPaciente(1);//esta incompleto
+                modelPaciente.setIdEnderecoModelPaciente(2);//esta incompleto
                 modelPaciente.salvar(modelPaciente);
             }
         catch(Exception ex)
