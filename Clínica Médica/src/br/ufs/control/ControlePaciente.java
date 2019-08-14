@@ -139,23 +139,11 @@ public class ControlePaciente implements ActionListener{
                 modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
                 modelPaciente.setTelefoneModelPaciente(getControleTelefonePaciente());
                 modelPaciente.setDataNascimentoModelPaciente(getControleDataNascimentoPaciente());
-                modelPaciente.setIdEnderecoModelPaciente(1);
+                modelPaciente.setIdEnderecoModelPaciente(1);//esta incompleto
                 modelPaciente.salvar(modelPaciente);
             }
         catch(Exception ex)
             {
-                System.out.println(
-                (getControleNomePaciente())+
-                (getControleDataNascimentoPaciente())+
-                (getControleCpfPaciente())+
-                (getControleTelefonePaciente())+
-                (getControleLogradouroPaciente())+
-                (getControleNumPaciente())+
-     //           (Integer.parseInt(getControleEndereco_Id()))+
-                (getControleBairroPaciente())+
-                (getControleCidadePaciente())+
-                (getControleEstadoPaciente())+
-                (getControleCepPaciente()));
                 JOptionPane.showMessageDialog(null, ex+" controle");
             } 
     }
