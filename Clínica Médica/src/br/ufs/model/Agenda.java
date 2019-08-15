@@ -1,29 +1,41 @@
 
 package br.ufs.model;
 
-import java.util.Date;
+import br.ufs.dao.AgendaDAO;
+import javax.swing.JOptionPane;
 
 public class Agenda {
-    private Date data;
-    private Date hora;
+    private String dataModelAgenda;
+    private String horaModelAgenda;
     
     public Agenda(){
     }
 
-    public Date getData() {
-        return data;
+    public String getDataModelAgenda() {
+        return dataModelAgenda;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataModelAgenda(String dataModelAgenda) {
+        this.dataModelAgenda = dataModelAgenda;
     }
 
-    public Date getHora() {
-        return hora;
+    public String getHoraModelAgenda() {
+        return horaModelAgenda;
     }
 
-    public void setHora(Date hora) {
-        this.hora = hora;
+    public void setHoraModelAgenda(String horaModelAgenda) {
+        this.horaModelAgenda = horaModelAgenda;
     }
+    
+    public void salvar(Agenda agenda){
+        try{
+            AgendaDAO agDAO = new AgendaDAO();
+            agDAO.add(agenda);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
 
 }

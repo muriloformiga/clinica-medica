@@ -22,7 +22,7 @@ public class EspecialidadeDAO {
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setString(1, especialidade.getNome());
+           stmt.setString(1, especialidade.getNomeModelEspecialidade());
            //stmt.setInt(2, especialidade.getMedico().getId()); //Chave estrangeira de Medico
 
            stmt.execute();

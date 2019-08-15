@@ -1,56 +1,66 @@
 
 package br.ufs.model;
 
-import java.util.Date;
-
+import br.ufs.dao.ConsultaDAO;
+import javax.swing.JOptionPane;
 
 public class Consulta {
-    private Date data;
-    private Date hora;
-    private boolean situacao;
-    private String descricao;
-    private String diagnostico;
+    private String dataModelConsulta;
+    private String horaModelConsulta;
+    private boolean situacaoModelConsulta;
+    private String descricaoModelConsulta;
+    private String diagnosticoModelConsulta;
 
-    public Date getData() {
-        return data;
+    public String getDataModelConsulta() {
+        return dataModelConsulta;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataModelConsulta(String dataModelConsulta) {
+        this.dataModelConsulta = dataModelConsulta;
     }
 
-    public Date getHora() {
-        return hora;
+    public String getHoraModelConsulta() {
+        return horaModelConsulta;
     }
 
-    public void setHora(Date hora) {
-        this.hora = hora;
+    public void setHoraModelConsulta(String horaModelConsulta) {
+        this.horaModelConsulta = horaModelConsulta;
     }
 
-    public boolean isSituacao() {
-        return situacao;
+    public boolean isSituacaoModelConsulta() {
+        return situacaoModelConsulta;
     }
 
-    public void setSituacao(boolean situacao) {
-        this.situacao = situacao;
+    public void setSituacaoModelConsulta(boolean situacaoModelConsulta) {
+        this.situacaoModelConsulta = situacaoModelConsulta;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoModelConsulta() {
+        return descricaoModelConsulta;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoModelConsulta(String descricaoModelConsulta) {
+        this.descricaoModelConsulta = descricaoModelConsulta;
     }
 
-    public String getDiagnostico() {
-        return diagnostico;
+    public String getDiagnosticoModelConsulta() {
+        return diagnosticoModelConsulta;
     }
 
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
+    public void setDiagnosticoModelConsulta(String diagnosticoModelConsulta) {
+        this.diagnosticoModelConsulta = diagnosticoModelConsulta;
     }
     
+    public void salvar(Consulta consulta){
+        try{
+            ConsultaDAO conDAO = new ConsultaDAO();
+            conDAO.add(consulta);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
     
     
 }

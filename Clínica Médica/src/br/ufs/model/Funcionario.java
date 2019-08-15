@@ -1,53 +1,66 @@
 
 package br.ufs.model;
 
-import java.util.Date;
+import br.ufs.dao.FuncionarioDAO;
+import javax.swing.JOptionPane;
 
 public class Funcionario {
-    protected static String nome;
-    protected static String cpf;
-    protected static int matricula;
-    protected static String telefone;
-    protected static Date dt_nasc;
+    protected String nomeModelFuncionario;
+    protected String cpfModelFuncionario;
+    protected int matriculaModelFuncionario;
+    protected String telefoneModelFuncionario;
+    protected String dt_nascModelFuncionario;
 
-    public static String getNome() {
-        return nome;
+    public String getNomeModelFuncionario() {
+        return nomeModelFuncionario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeModelFuncionario(String nomeModelFuncionario) {
+        this.nomeModelFuncionario = nomeModelFuncionario;
     }
 
-    public static String getCpf() {
-        return cpf;
+    public String getCpfModelFuncionario() {
+        return cpfModelFuncionario;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfModelFuncionario(String cpfModelFuncionario) {
+        this.cpfModelFuncionario = cpfModelFuncionario;
     }
 
-    public static int getMatricula() {
-        return matricula;
+    public int getMatriculaModelFuncionario() {
+        return matriculaModelFuncionario;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setMatriculaModelFuncionario(int matriculaModelFuncionario) {
+        this.matriculaModelFuncionario = matriculaModelFuncionario;
     }
 
-    public static String getTelefone() {
-        return telefone;
+    public String getTelefoneModelFuncionario() {
+        return telefoneModelFuncionario;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefoneModelFuncionario(String telefoneModelFuncionario) {
+        this.telefoneModelFuncionario = telefoneModelFuncionario;
     }
 
-    public static Date getDt_nasc() {
-        return dt_nasc;
+    public String getDt_nascModelFuncionario() {
+        return dt_nascModelFuncionario;
     }
 
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
+    public void setDt_nascModelFuncionario(String dt_nascModelFuncionario) {
+        this.dt_nascModelFuncionario = dt_nascModelFuncionario;
+    }
+    
+   
+    public void salvar(Funcionario funcionario){
+        try{
+            FuncionarioDAO funcDAO = new FuncionarioDAO();
+            funcDAO.add(funcionario);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }
     
     

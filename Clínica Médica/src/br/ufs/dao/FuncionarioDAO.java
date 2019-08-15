@@ -22,11 +22,11 @@ public class FuncionarioDAO {
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setString(1, funcionario.getNome());
-           stmt.setString(2, funcionario.getCpf());
-           stmt.setInt(3, funcionario.getMatricula());
-           stmt.setString(4, funcionario.getTelefone());
-           stmt.setDate(5, new java.sql.Date(funcionario.getDt_nasc().getTime()));
+           stmt.setString(1, funcionario.getNomeModelFuncionario());
+           stmt.setString(2, funcionario.getCpfModelFuncionario());
+           stmt.setInt(3, funcionario.getMatriculaModelFuncionario());
+           stmt.setString(4, funcionario.getTelefoneModelFuncionario());
+           stmt.setString(5, funcionario.getDt_nascModelFuncionario());
            //stmt.setString(6, funcionario.getEndereco());
 
            stmt.execute();

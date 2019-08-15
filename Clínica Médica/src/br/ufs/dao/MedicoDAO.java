@@ -22,7 +22,7 @@ public class MedicoDAO {
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setInt(1, medico.getCrm());
+           stmt.setInt(1, medico.getCrmModelMedico());
            //stmt.setInt(2, medico.getFuncionario().getId()); //Chave estrangeira de Funcionario
 
            stmt.execute();

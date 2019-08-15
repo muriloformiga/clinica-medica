@@ -22,11 +22,11 @@ public class ConsultaDAO {
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setDate(1, new java.sql.Date(consulta.getData().getTime()));
-           stmt.setDate(2, new java.sql.Date(consulta.getHora().getTime())); //OBS: Horario do tipo Time ou Date?
-           stmt.setBoolean(3, consulta.isSituacao());
-           stmt.setString(4, consulta.getDescricao());
-           stmt.setString(5, consulta.getDiagnostico());
+           stmt.setString(1, consulta.getDataModelConsulta());
+           stmt.setString(2, consulta.getHoraModelConsulta()); //OBS: Horario do tipo Time ou Date?
+           stmt.setBoolean(3, consulta.isSituacaoModelConsulta());
+           stmt.setString(4, consulta.getDescricaoModelConsulta());
+           stmt.setString(5, consulta.getDiagnosticoModelConsulta());
            //stmt.setInt(6, consulta.getMedico().getId()); //Chave estrangeira de Medico
            //stmt.setInt(7, consulta.getPaciente().getId()); //Chave estrangeira de Paciente
            //stmt.setInt(8, consulta.getConsulta().getId()); //Chave estrangeira de Consulta(?)

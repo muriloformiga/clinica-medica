@@ -1,63 +1,27 @@
 
 package br.ufs.model;
-
-import java.util.Date;
-
+import br.ufs.dao.MedicoDAO;
+import javax.swing.JOptionPane;
 
 public class Medico extends Funcionario {
-    private int crm;
+    private int crmModelMedico;
 
-
-    public int getCrm() {
-        return crm;
+    public int getCrmModelMedico() {
+        return crmModelMedico;
     }
 
-    public void setCrm(int crm) {
-        this.crm = crm;
-    }
-
-    public static String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public static String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public static int getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
-
-    public static String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public static Date getDt_nasc() {
-        return dt_nasc;
-    }
-
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
+    public void setCrmModelMedico(int crmModelMedico) {
+        this.crmModelMedico = crmModelMedico;
     }
     
-    
-    
-    
+    public void salvar(Medico medico){
+        try{
+            MedicoDAO medDAO = new MedicoDAO();
+            medDAO.add(medico);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     
 }
