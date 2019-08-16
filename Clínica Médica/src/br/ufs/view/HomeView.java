@@ -5,6 +5,7 @@
  */
 package br.ufs.view;
 
+import br.ufs.view.panels.AgendaJPanelView;
 import br.ufs.view.panels.FuncionarioJPanelView;
 import br.ufs.view.panels.PacienteJPanelView;
 import br.ufs.view.panels.PatrimonioJPanelView;
@@ -198,6 +199,7 @@ public class HomeView extends javax.swing.JFrame {
     private void jPanelPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelPacienteMouseClicked
         jPanelPaciente.setBackground(Color.GREEN);
         jPanelFuncionario.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+        jPanelAgenda.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         jPanelPatrimonio.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         PacienteJPanelView p = new PacienteJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
@@ -209,6 +211,7 @@ public class HomeView extends javax.swing.JFrame {
     private void jPanelFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionarioMouseClicked
         jPanelFuncionario.setBackground(Color.GREEN);
         jPanelPatrimonio.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+       jPanelAgenda.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         jPanelPaciente.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         FuncionarioJPanelView f = new FuncionarioJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
@@ -220,6 +223,7 @@ public class HomeView extends javax.swing.JFrame {
        jPanelPatrimonio.setBackground(Color.GREEN);
        jPanelPaciente.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
        jPanelFuncionario.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+       jPanelAgenda.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
         PatrimonioJPanelView p = new PatrimonioJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(p);
@@ -227,7 +231,14 @@ public class HomeView extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelPatrimonioMouseClicked
 
     private void jPanelAgendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAgendaMouseClicked
-        // TODO add your handling code here:
+       jPanelAgenda.setBackground(Color.GREEN);
+       jPanelPatrimonio.setBackground(new Color(20, 208, 130));
+       jPanelPaciente.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+       jPanelFuncionario.setBackground(new Color(20, 208, 130));//Alterar Cor de fundo
+        AgendaJPanelView ag = new AgendaJPanelView();
+        jPanelMain.removeAll();//limpar Jpanel
+        jPanelMain.add(ag);
+        this.pack();
     }//GEN-LAST:event_jPanelAgendaMouseClicked
 
     /**

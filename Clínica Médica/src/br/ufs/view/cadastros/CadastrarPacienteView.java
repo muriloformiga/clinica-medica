@@ -5,9 +5,9 @@
  */
 package br.ufs.view.cadastros;
 
+import br.ufs.control.ControlePaciente;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -263,7 +263,24 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPacienteActionPerformed
-        // TODO add your handling code here:
+        try{
+            ControlePaciente con = new ControlePaciente();
+            con.setControleLogradouroPaciente(txtLogradouroPaciente.getText());
+            con.setControleNumPaciente(Integer.parseInt(txtNumPaciente.getText()));
+            con.setControleBairroPaciente(txtBairroPaciente.getText());
+            con.setControleCidadePaciente(txtCidadePaciente.getText());
+            con.setControleEstadoPaciente(txtEstadoPaciente.getText());
+            con.setControleCepPaciente(txtCepPaciente.getText());
+            con.setControleNomePaciente(txtNomePaciente.getText());
+            con.setControleCpfPaciente(txtCpfPaciente.getText());
+            con.setControleTelefonePaciente(txtTelefonePaciente.getText());
+            con.setControleDataNascimentoPaciente(txtDataNascimentoPaciente.getText());
+            con.actionPerformed(evt);
+        }catch(Exception exc){
+            JOptionPane.showMessageDialog(null, exc+" cadastrar");
+        }finally{
+            System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
+        }  
     }//GEN-LAST:event_btnCadastrarPacienteActionPerformed
 
     private void txtNomePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePacienteActionPerformed
@@ -332,50 +349,6 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
                 new CadastrarPacienteView().setVisible(true);
             }
         });
-    }
-
-    public JButton getBtnCadastrarPaciente() {
-        return btnCadastrarPaciente;
-    }
-
-    public JTextField getTxtBairroPaciente() {
-        return txtBairroPaciente;
-    }
-
-    public JTextField getTxtCepPaciente() {
-        return txtCepPaciente;
-    }
-
-    public JTextField getTxtCidadePaciente() {
-        return txtCidadePaciente;
-    }
-
-    public JTextField getTxtCpfPaciente() {
-        return txtCpfPaciente;
-    }
-
-    public JTextField getTxtDataNascimentoPaciente() {
-        return txtDataNascimentoPaciente;
-    }
-
-    public JTextField getTxtEstadoPaciente() {
-        return txtEstadoPaciente;
-    }
-
-    public JTextField getTxtLogradouroPaciente() {
-        return txtLogradouroPaciente;
-    }
-
-    public JTextField getTxtNomePaciente() {
-        return txtNomePaciente;
-    }
-
-    public JTextField getTxtNumPaciente() {
-        return txtNumPaciente;
-    }
-
-    public JTextField getTxtTelefonePaciente() {
-        return txtTelefonePaciente;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
