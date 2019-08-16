@@ -5,6 +5,7 @@ import br.ufs.model.Endereco;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,5 +39,23 @@ public class EnderecoDAO {
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
+    }
+    public int getLastID(){
+        int id = 0;
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT ID FROM endereco ORDER BY ID DESC LIMIT 1";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               id = rs.getInt("ID");
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return -1;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return id;
     }
 }
