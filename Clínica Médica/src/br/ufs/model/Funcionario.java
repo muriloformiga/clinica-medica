@@ -6,7 +6,7 @@ import java.util.Date;
 public class Funcionario {
     protected String nome;
     protected String cpf;
-    protected int matricula;
+    protected String matricula;
     protected String telefone;
     protected Date dt_nasc;
 
@@ -26,11 +26,11 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 

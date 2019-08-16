@@ -2,14 +2,14 @@
 package br.ufs.model;
 
 
-public class Medico {
-    private int crm;
+public class Medico extends Funcionario{
+    private String crm;
 
-    public int getCrm() {
+    public String getCrm() {
         return crm;
     }
 
-    public void setCrm(int crm) {
+    public void setCrm(String crm) {
         this.crm = crm;
     }
     

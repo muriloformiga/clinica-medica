@@ -5,7 +5,10 @@ import br.ufs.model.EscalaTrabalho;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,5 +38,29 @@ public class EscalaTrabalhoDAO {
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
+    }
+    
+    public List<EscalaTrabalho> get(String matricula){
+        List<EscalaTrabalho> escala = new ArrayList<>();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM escala_trabalho AS e_t JOIN funcionario AS f ON(e_t.funcionario_ID = f.ID) WHERE MATRICULA = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, matricula);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               EscalaTrabalho esc = new EscalaTrabalho();
+               esc.setCargaHoraria(rs.getString("CARGA_HORARIA"));
+               esc.setDiasTrabalhar(rs.getString("DIAS_TRABALHO"));
+               esc.setHora(rs.getDate("HORA"));
+               escala.add(esc);
+           }   
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+       return escala;
     }
 }
