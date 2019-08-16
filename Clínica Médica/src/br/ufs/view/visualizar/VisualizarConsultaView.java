@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package br.ufs.view.visualizar;
-
-import java.awt.Color.*;
-import javax.swing.JSeparator;
-
 /**
  *
  * @author Ivisson

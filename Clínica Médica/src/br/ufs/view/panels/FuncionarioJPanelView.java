@@ -6,12 +6,9 @@
 package br.ufs.view.panels;
 
 
-import br.ufs.view.buscar.paciente.BuscarMarcarExameView;
-import br.ufs.view.buscar.paciente.BuscarPacienteCadastroView;
-import br.ufs.view.buscar.paciente.BuscarPacienteVisualizarView;
-import br.ufs.view.buscar.paciente.BuscarVisualizarExameView;
+import br.ufs.view.buscar.funcionario.BuscarCadastrarEscalaTrabalhoView;
+import br.ufs.view.buscar.funcionario.BuscarVisualizarEscalaTrabalhoView;
 import br.ufs.view.cadastros.CadastrarFuncionarioView;
-import br.ufs.view.cadastros.CadastrarPacienteView;
 import java.awt.Color;
 
 /**
@@ -64,7 +61,7 @@ public class FuncionarioJPanelView extends javax.swing.JPanel {
         btnCadastrarEscalaTrabalho.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastrarEscalaTrabalho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCadastrarEscalaTrabalho.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarEscalaTrabalho.setText("Consultar");
+        btnCadastrarEscalaTrabalho.setText("Cadastrar");
         btnCadastrarEscalaTrabalho.setBorder(null);
         btnCadastrarEscalaTrabalho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +185,7 @@ public class FuncionarioJPanelView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarEscalaTrabalhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEscalaTrabalhoActionPerformed
-       
+        new BuscarCadastrarEscalaTrabalhoView().setVisible(true);
         //btnCadastrarConsulta.setEnabled(false);
     }//GEN-LAST:event_btnCadastrarEscalaTrabalhoActionPerformed
 
@@ -198,7 +195,7 @@ public class FuncionarioJPanelView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCadastrarFuncionarioActionPerformed
 
     private void btnVisualizarEscalaTrabalhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarEscalaTrabalhoActionPerformed
-        
+        new BuscarVisualizarEscalaTrabalhoView().setVisible(true);
         //btnVisualizarConsulta.setEnabled(false);
     }//GEN-LAST:event_btnVisualizarEscalaTrabalhoActionPerformed
 
