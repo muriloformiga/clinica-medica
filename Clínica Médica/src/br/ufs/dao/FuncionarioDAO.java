@@ -63,5 +63,24 @@ public class FuncionarioDAO {
     return func;
     }
     
+    public int getID(String CPF){
+        int id = 0;
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT ID FROM funcionario WHERE CPF = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, CPF);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               id = rs.getInt("ID");
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return -1;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+    return id;
+    }
 }
 

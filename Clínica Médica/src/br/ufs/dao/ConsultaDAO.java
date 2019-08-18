@@ -5,6 +5,7 @@ import br.ufs.model.Consulta;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,8 +18,8 @@ public class ConsultaDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Consulta consulta){
-       String sql = "INSERT INTO consulta(DT, HORA, SITUACAO, DESCRICAO, DIAGNOSTICO, medico_ID, paciente_ID, consulta_ID) VALUES (?,?,?,?,?,?,?,?)";
+    public boolean add(Consulta consulta, int paciente_ID, int medico_ID){
+       String sql = "INSERT INTO consulta(DT, HORA, SITUACAO, DESCRICAO, DIAGNOSTICO, medico_ID, paciente_ID) VALUES (?,?,?,?,?,?,?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
@@ -27,9 +28,8 @@ public class ConsultaDAO {
            stmt.setBoolean(3, consulta.isSituacao());
            stmt.setString(4, consulta.getDescricao());
            stmt.setString(5, consulta.getDiagnostico());
-           //stmt.setInt(6, consulta.getMedico().getId()); //Chave estrangeira de Medico
-           //stmt.setInt(7, consulta.getPaciente().getId()); //Chave estrangeira de Paciente
-           //stmt.setInt(8, consulta.getConsulta().getId()); //Chave estrangeira de Consulta(?)
+           stmt.setInt(6, medico_ID); //Chave estrangeira de Medico
+           stmt.setInt(7, paciente_ID); //Chave estrangeira de Paciente
            
            stmt.execute();
            return true;
@@ -40,5 +40,51 @@ public class ConsultaDAO {
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
+    }
+    
+    public Consulta get(int paciente_ID, int medico_ID){
+        Consulta consulta = new Consulta();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? ORDER BY DT DESC LIMIT 1";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,paciente_ID);
+           stmt.setInt(2, medico_ID);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               consulta.setData(rs.getDate("DT"));
+               consulta.setDescricao(rs.getString("DESCRICAO"));
+               consulta.setDiagnostico(rs.getString("DIAGNOSTICO"));
+               consulta.setHora(rs.getDate("HORA"));
+               consulta.setSituacao(rs.getBoolean("SITUACAO"));
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return consulta;
+    }
+    
+    public int getID(int paciente_ID, int medico_ID){
+        int id = 0;
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? ORDER BY DT DESC LIMIT 1";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,paciente_ID);
+           stmt.setInt(2, medico_ID);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               id = rs.getInt("ID");
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return -1;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return id;
     }
 }

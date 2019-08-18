@@ -6,9 +6,10 @@ import java.util.Date;
 
 public class Exame {
     private Date data;
-    private String hora;
+    private Date hora;
     private boolean situacao;
     private String diagnostico;
+    private String tipo;
 
     public Date getData() {
         return data;
@@ -18,11 +19,11 @@ public class Exame {
         this.data = data;
     }
 
-    public String getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 
@@ -42,6 +43,12 @@ public class Exame {
         this.diagnostico = diagnostico;
     }
     
+    public String getTipo() {
+        return tipo;
+    }
     
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
     
 }

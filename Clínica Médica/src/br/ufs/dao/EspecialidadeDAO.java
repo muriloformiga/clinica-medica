@@ -5,7 +5,10 @@ import br.ufs.model.Especialidade;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,5 +37,27 @@ public class EspecialidadeDAO {
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
+    }
+    
+    public List<Especialidade> get(int medico_ID){
+        List<Especialidade> especialidade = new ArrayList<>();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM especialidade WHERE medico_ID = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1, medico_ID);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               Especialidade esp = new Especialidade();
+               esp.setNome(rs.getString("NOME"));
+               especialidade.add(esp);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EspecialidadeDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return especialidade;
     }
 }

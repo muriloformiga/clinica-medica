@@ -8,6 +8,8 @@ public class ItemPatrimonio {
     private String localizacao;
     private Date anoAquisicao;
     private int numPatrimonio;
+    private String tipo;
+    private String status;
 
     public String getDescricao() {
         return descricao;
@@ -41,5 +43,19 @@ public class ItemPatrimonio {
         this.numPatrimonio = numPatrimonio;
     }
  
+    public String getTipo() {
+        return tipo;
+    }
     
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+    
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
