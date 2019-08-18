@@ -11,6 +11,7 @@ public class Endereco {
     private String cidadeModelEndereco;
     private String estadoModelEndereco;
     private String cepModelEndereco;
+    private int idFkPaciente;
     
 
     public String getLogradouroModelEndereco() {
@@ -56,6 +57,16 @@ public class Endereco {
     public String getCepModelEndereco() {
         return cepModelEndereco;
     }
+
+    public int getIdFkPaciente() {
+        return idFkPaciente;
+    }
+
+    public void setIdFkPaciente(int idFkPaciente) {
+        
+        this.idFkPaciente = idFkPaciente;
+    }
+    
     
     public String tratandoDados(String str){
         String tratado = str;

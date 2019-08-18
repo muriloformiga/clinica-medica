@@ -5,8 +5,10 @@
  */
 package br.ufs.view.buscar.paciente;
 
+import br.ufs.control.ControlePaciente;
 import br.ufs.view.cadastros.*;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -126,6 +128,13 @@ public class BuscarPacienteCadastroView extends javax.swing.JFrame {
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
         new CadastrarConsultaView().setVisible(true);
+        try {
+            ControlePaciente con = new ControlePaciente();
+            con.setIdentificadorFonte(getClass().getSimpleName());
+            con.actionPerformed(evt);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e+" buscarPacienteCadastro");
+        }
         this.dispose();
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 

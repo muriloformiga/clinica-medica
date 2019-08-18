@@ -6,8 +6,10 @@
 package br.ufs.view.buscar.paciente;
 
 
+import br.ufs.control.ControlePaciente;
 import br.ufs.view.visualizar.VisualizarConsultaView;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -127,6 +129,14 @@ public class BuscarPacienteVisualizarView extends javax.swing.JFrame {
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
         new VisualizarConsultaView().setVisible(true);
+        try {
+            ControlePaciente con = new ControlePaciente();
+            con.setControleCpfPaciente(txtNomePaciente.getText());
+            con.setIdentificadorFonte(getClass().getSimpleName());
+            con.actionPerformed(evt);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e+" ");
+        }
         this.dispose();
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 

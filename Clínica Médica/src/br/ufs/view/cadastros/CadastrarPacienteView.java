@@ -275,11 +275,12 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
             con.setControleCpfPaciente(txtCpfPaciente.getText());
             con.setControleTelefonePaciente(txtTelefonePaciente.getText());
             con.setControleDataNascimentoPaciente(txtDataNascimentoPaciente.getText());
+            con.setIdentificadorFonte(getClass().getSimpleName());
             con.actionPerformed(evt);
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");
         }finally{
-            System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
+          //  System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
         }  
     }//GEN-LAST:event_btnCadastrarPacienteActionPerformed
 
