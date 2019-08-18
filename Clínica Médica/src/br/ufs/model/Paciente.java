@@ -7,7 +7,6 @@ import java.util.Date;
 public class Paciente {
     private String nome;
     private String cpf;
-    private int cod_pac;
     private String fone;
     private Date dt_nasc;
 
@@ -25,14 +24,6 @@ public class Paciente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public int getCod_pac() {
-        return cod_pac;
-    }
-
-    public void setCod_pac(int cod_pac) {
-        this.cod_pac = cod_pac;
     }
 
     public String getFone() {

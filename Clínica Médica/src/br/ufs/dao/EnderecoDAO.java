@@ -58,4 +58,30 @@ public class EnderecoDAO {
        }
         return id;
     }
+    
+    public Endereco get(int id){
+        Endereco end = new Endereco();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM endereco WHERE ID = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1, id);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               end.setBairro(rs.getString("BAIRRO"));
+               end.setCep(rs.getString("CEP"));
+               end.setCidade(rs.getString("CIDADE"));
+               end.setEstado(rs.getString("ESTADO"));
+               end.setLogradouro(rs.getString("LOGRADOURO"));
+               end.setNumero(rs.getInt("NUMERO"));
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return end;
+    }
+    
 }
