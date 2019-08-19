@@ -6,6 +6,8 @@
 package br.ufs.view.buscar.funcionario;
 
 
+import br.ufs.view.visualizar.VisualizarAtestadoView;
+import br.ufs.view.visualizar.VisualizarEscalaTrabalhoFuncionarioView;
 import java.awt.Color;
 
 /**
@@ -39,7 +41,7 @@ public class BuscarVisualizarEscalaTrabalhoView extends javax.swing.JFrame {
         btnBuscarFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Buscar Paciente");
+        setTitle("Buscar Funcionário");
         setBackground(new java.awt.Color(153, 255, 153));
         setResizable(false);
 
@@ -125,7 +127,7 @@ public class BuscarVisualizarEscalaTrabalhoView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMatriculaFuncionarioActionPerformed
 
     private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
-        
+        new VisualizarEscalaTrabalhoFuncionarioView().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 

@@ -6,11 +6,10 @@
 package br.ufs.view.cadastros;
 
 import java.awt.Color;
-import javax.swing.SwingConstants;
 
 /**
  *
- * @author Ivisson
+ * 
  */
 public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
 

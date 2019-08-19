@@ -5,6 +5,7 @@
  */
 package br.ufs.view.panels;
 
+import br.ufs.view.buscar.patrinomio.BuscarItemPatrimonioView;
 import br.ufs.view.cadastros.CadastrarItemPatrimonioView;
 import java.awt.Color;
 
@@ -85,6 +86,11 @@ public class PatrimonioJPanelView extends javax.swing.JPanel {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Visualizar Item");
         jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -159,6 +165,10 @@ public class PatrimonioJPanelView extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new CadastrarItemPatrimonioView().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new BuscarItemPatrimonioView().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
