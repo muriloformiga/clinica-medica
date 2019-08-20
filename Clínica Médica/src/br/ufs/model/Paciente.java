@@ -1,6 +1,7 @@
 
 package br.ufs.model;
 
+import br.ufs.dao.EnderecoDAO;
 import br.ufs.dao.PacienteDAO;
 import javax.swing.JOptionPane;
 
@@ -8,20 +9,13 @@ import javax.swing.JOptionPane;
 public class Paciente {
     private String nomeModelPaciente;
     private String cpfModelPaciente;
-    private int idEnderecoModelPaciente;
     private String telefoneModelPaciente;
     private String dataNascimentoModelPaciente;
-    private int prontuarioIdModelPaciente;
+    private int idFkModelPaciente;
 
-    public int getProntuarioIdModelPaciente() {
-        return prontuarioIdModelPaciente;
-    }
-
-    public void setProntuarioIdModelPaciente(int prontuarioIdModelPaciente) {
-        this.prontuarioIdModelPaciente = prontuarioIdModelPaciente;
+    public Paciente() {
     }
     
-
     public String getNomeModelPaciente() {
         return nomeModelPaciente;
     }
@@ -38,14 +32,13 @@ public class Paciente {
         this.cpfModelPaciente = cpfModelPaciente;
     }
 
-    public int getIdEnderecoModelPaciente() {
-        return idEnderecoModelPaciente;
+    public int getIdFkModelPaciente() {
+        return idFkModelPaciente;
     }
 
-    public void setIdEnderecoModelPaciente(int idEnderecoModelPaciente) {
-        this.idEnderecoModelPaciente = idEnderecoModelPaciente;
+    public void setIdFkModelPaciente(int idFkModelPaciente) {
+        this.idFkModelPaciente = idFkModelPaciente;
     }
-
     public String getTelefoneModelPaciente() {
         return telefoneModelPaciente;
     }
@@ -62,6 +55,23 @@ public class Paciente {
         this.dataNascimentoModelPaciente = dataNascimentoModelPaciente;
     }
 
+    public int saidaId (){
+        int i = 1;
+        EnderecoDAO endDao = new EnderecoDAO();
+        i = endDao.getLastID();
+        return i;
+    }
+    //metodo aguardando metodos classe pacienteDAO
+//    public String compareBusca(){
+//        PacienteDAO pDAO = new PacienteDAO();
+//        String cpfSolcitado = this.getCpfModelPaciente();
+////        String cpfBanco = pDAO.get"metodoDAO";
+////        if(cpfSolcitado.equals(cfpBanco)){
+////            return metodoDaBuscaDAO();
+//        }
+//    
+//    return cpfSolcitado;
+//    }
     public void salvar(Paciente paciente){
         try {
             PacienteDAO pacDAO = new PacienteDAO();

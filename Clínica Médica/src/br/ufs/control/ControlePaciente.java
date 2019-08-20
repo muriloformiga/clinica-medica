@@ -18,6 +18,7 @@ public class ControlePaciente implements ActionListener{
     private String controleEstadoPaciente;
     private String controleCepPaciente;
     private String controleEndereco_Id;
+    private String identificadorFonte;
     
     //Construtor
     public ControlePaciente()
@@ -111,17 +112,41 @@ public class ControlePaciente implements ActionListener{
     public void setControleEndereco_Id(String ControleEndereco_Id) {
         this.controleEndereco_Id = ControleEndereco_Id;
     }
+
+    public String getIdentificadorFonte() {
+        return identificadorFonte;
+    }
+
+    public void setIdentificadorFonte(String identificadorFonte) {
+        this.identificadorFonte = identificadorFonte;
+    }
     
     
    
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        CadastrarPac();
+        System.out.println(getIdentificadorFonte());
+        try {            
+            if(getIdentificadorFonte().equals(("CadastrarPacienteView"))) 
+            { 
+                cadastrarPac();
+            }
+            if(getIdentificadorFonte().equals(("BuscarPacienteVisualizarView"))) 
+            {
+                visualizarPac();
+            }
+            if(getIdentificadorFonte().equals(("BuscarPacienteCadastroView"))) 
+            {
+               // atualizarPac()
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
        
     }
-
-    public void CadastrarPac()
+    
+    public void cadastrarPac()
     {        
         Paciente modelPaciente = new Paciente();
         Endereco modelEndereco = new Endereco();
@@ -139,16 +164,24 @@ public class ControlePaciente implements ActionListener{
                 modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
                 modelPaciente.setTelefoneModelPaciente(getControleTelefonePaciente());
                 modelPaciente.setDataNascimentoModelPaciente(getControleDataNascimentoPaciente());
-                modelPaciente.setIdEnderecoModelPaciente(2);//esta incompleto
+                modelPaciente.setIdFkModelPaciente(modelPaciente.saidaId());
                 modelPaciente.salvar(modelPaciente);
             }
         catch(Exception ex)
             {
-                JOptionPane.showMessageDialog(null, ex+" controle");
+                JOptionPane.showMessageDialog(null, ex+" controlecadastrarPac()");
             } 
     }
 
     public void visualizarPac(){        
+        Paciente modelPaciente = new Paciente();        
+        try {
+            modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
+//            System.out.println(modelPaciente.getCpfModelPaciente()); 
+            JOptionPane.showMessageDialog(null, "voce chegou ate o visual paciente obr");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e+" controleVisualizaPac()");
+        }
         
 
     }

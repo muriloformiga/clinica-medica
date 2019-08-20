@@ -265,21 +265,24 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
     private void btnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPacienteActionPerformed
         try{
             ControlePaciente con = new ControlePaciente();
+            //Referente a classe model Endereco
             con.setControleLogradouroPaciente(txtLogradouroPaciente.getText());
             con.setControleNumPaciente(Integer.parseInt(txtNumPaciente.getText()));
             con.setControleBairroPaciente(txtBairroPaciente.getText());
             con.setControleCidadePaciente(txtCidadePaciente.getText());
             con.setControleEstadoPaciente(txtEstadoPaciente.getText());
             con.setControleCepPaciente(txtCepPaciente.getText());
+            //Referente a classe model Paciente
             con.setControleNomePaciente(txtNomePaciente.getText());
             con.setControleCpfPaciente(txtCpfPaciente.getText());
             con.setControleTelefonePaciente(txtTelefonePaciente.getText());
             con.setControleDataNascimentoPaciente(txtDataNascimentoPaciente.getText());
+            con.setIdentificadorFonte(getClass().getSimpleName());
             con.actionPerformed(evt);
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");
         }finally{
-            System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
+          //  System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
         }  
     }//GEN-LAST:event_btnCadastrarPacienteActionPerformed
 
