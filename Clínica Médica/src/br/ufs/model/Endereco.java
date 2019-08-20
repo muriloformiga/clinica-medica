@@ -10,9 +10,7 @@ public class Endereco {
     private String bairroModelEndereco;
     private String cidadeModelEndereco;
     private String estadoModelEndereco;
-    private String cepModelEndereco;
-    private int idFkPaciente;
-    
+    private String cepModelEndereco;   
 
     public String getLogradouroModelEndereco() {
         return logradouroModelEndereco;
@@ -57,17 +55,7 @@ public class Endereco {
     public String getCepModelEndereco() {
         return cepModelEndereco;
     }
-
-    public int getIdFkPaciente() {
-        return idFkPaciente;
-    }
-
-    public void setIdFkPaciente(int idFkPaciente) {
-        
-        this.idFkPaciente = idFkPaciente;
-    }
-    
-    
+   
     public String tratandoDados(String str){
         String tratado = str;
         String let = tratado.replaceAll("\\D","");

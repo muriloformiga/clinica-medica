@@ -130,6 +130,7 @@ public class BuscarPacienteCadastroView extends javax.swing.JFrame {
         new CadastrarConsultaView().setVisible(true);
         try {
             ControlePaciente con = new ControlePaciente();
+            
             con.setIdentificadorFonte(getClass().getSimpleName());
             con.actionPerformed(evt);
         } catch (Exception e) {

@@ -164,7 +164,7 @@ public class ControlePaciente implements ActionListener{
                 modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
                 modelPaciente.setTelefoneModelPaciente(getControleTelefonePaciente());
                 modelPaciente.setDataNascimentoModelPaciente(getControleDataNascimentoPaciente());
-                modelPaciente.setIdEnderecoModelPaciente(4);//esta incompleto
+                modelPaciente.setIdFkModelPaciente(modelPaciente.saidaId());
                 modelPaciente.salvar(modelPaciente);
             }
         catch(Exception ex)
@@ -174,13 +174,10 @@ public class ControlePaciente implements ActionListener{
     }
 
     public void visualizarPac(){        
-        Paciente modelPaciente = new Paciente();
-        
-        
+        Paciente modelPaciente = new Paciente();        
         try {
-
-               modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
-               System.out.println(modelPaciente.getCpfModelPaciente()); 
+            modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
+//            System.out.println(modelPaciente.getCpfModelPaciente()); 
             JOptionPane.showMessageDialog(null, "voce chegou ate o visual paciente obr");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e+" controleVisualizaPac()");

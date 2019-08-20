@@ -27,10 +27,9 @@ public class PacienteDAO {
            stmt.setString(2, paciente.getCpfModelPaciente());
            stmt.setString(3, paciente.getTelefoneModelPaciente());
            stmt.setString(4, paciente.getDataNascimentoModelPaciente());
-           stmt.setInt(5, paciente.getIdEnderecoModelPaciente());
+           stmt.setInt(5, paciente.getIdFkModelPaciente());
            
            stmt.executeUpdate();
-        //   ConnectionFactory.closeConnection(con,stmt);
            JOptionPane.showMessageDialog(null, "Gravado com sucesso!");
            return true;
            

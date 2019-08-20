@@ -43,10 +43,10 @@ public class EnderecoDAO {
        }
     }
         public int getLastID(){
-        int id = 0;
+        int id = 1;
         try{
            ResultSet rs = null;
-           String sql = "SELECT ID FROM endereco ORDER BY ID DESC LIMIT 1";
+           String sql = "SELECT ID FROM clinica.endereco ORDER BY ID DESC LIMIT 1";
            PreparedStatement stmt = con.prepareStatement(sql);
            rs = stmt.executeQuery();
            while(rs.next()){
