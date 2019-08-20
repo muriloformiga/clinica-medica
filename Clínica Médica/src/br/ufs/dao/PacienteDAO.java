@@ -5,6 +5,7 @@ import br.ufs.model.Paciente;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,5 +42,29 @@ public class PacienteDAO {
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
+    }
+    public Paciente getPAC(int id){
+        Paciente pac = new Paciente();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM clinica.paciente WHERE ID = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1, id);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               pac.setNomeModelPaciente(rs.getString("NOME"));
+               pac.setCpfModelPaciente(rs.getString("CPF"));
+               pac.setDataNascimentoModelPaciente(rs.getString("DT_NASC"));
+               pac.setTelefoneModelPaciente(rs.getString("TELEFONE"));
+               pac.setIdFkModelPaciente(rs.getInt("ENDERECO_ID"));
+              
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return pac;
     }
 }
