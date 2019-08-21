@@ -7,6 +7,10 @@ package br.ufs.view.cadastros;
 
 import br.ufs.control.ControlePaciente;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -98,9 +102,10 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(txtDataNascimentoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtCpfPaciente)
+                .addGap(27, 27, 27)
+                .addComponent(txtCpfPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addGap(8, 8, 8))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(txtNomePaciente)
@@ -115,10 +120,10 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(txtNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDataNascimentoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCpfPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCpfPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataNascimentoPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefonePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -213,13 +218,13 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +235,7 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
                 .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -266,19 +271,22 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
         try{
             ControlePaciente con = new ControlePaciente();
             //Referente a classe model Endereco
-            con.setControleLogradouroPaciente(txtLogradouroPaciente.getText());
-            con.setControleNumPaciente(Integer.parseInt(txtNumPaciente.getText()));
-            con.setControleBairroPaciente(txtBairroPaciente.getText());
-            con.setControleCidadePaciente(txtCidadePaciente.getText());
-            con.setControleEstadoPaciente(txtEstadoPaciente.getText());
-            con.setControleCepPaciente(txtCepPaciente.getText());
+            con.endereco.setLogradouro(txtLogradouroPaciente.getText());
+            con.endereco.setNumero(Integer.parseInt(txtNumPaciente.getText()));
+            con.endereco.setBairro(txtBairroPaciente.getText());
+            con.endereco.setCidade(txtCidadePaciente.getText());
+            con.endereco.setEstado(txtEstadoPaciente.getText());
+            con.endereco.setCep(txtCepPaciente.getText());
             //Referente a classe model Paciente
-            con.setControleNomePaciente(txtNomePaciente.getText());
-            con.setControleCpfPaciente(txtCpfPaciente.getText());
-            con.setControleTelefonePaciente(txtTelefonePaciente.getText());
-            con.setControleDataNascimentoPaciente(txtDataNascimentoPaciente.getText());
-            con.setIdentificadorFonte(getClass().getSimpleName());
-            con.actionPerformed(evt);
+            con.paciente.setNome(txtNomePaciente.getText());
+            con.paciente.setCpf(txtCpfPaciente.getText());
+            con.paciente.setFone(txtTelefonePaciente.getText());
+            String string = txtDataNascimentoPaciente.getText();
+            DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+            Date date = format.parse(string);
+            con.paciente.setDt_nasc(date);
+            con.cadastrarPaciente();
+            //con.actionPerformed(evt);
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");
         }finally{
