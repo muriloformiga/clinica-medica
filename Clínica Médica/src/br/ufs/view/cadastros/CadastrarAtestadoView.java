@@ -44,7 +44,7 @@ public class CadastrarAtestadoView extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Atestado");
+        setTitle("Cadastrar Atestado");
         setBackground(new java.awt.Color(153, 255, 153));
         setResizable(false);
 

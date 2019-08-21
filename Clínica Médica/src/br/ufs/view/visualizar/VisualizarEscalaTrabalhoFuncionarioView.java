@@ -41,7 +41,7 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Visualizar Funcionário");
+        setTitle("Visualizar Escala de Trabalho");
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(20, 150, 90));

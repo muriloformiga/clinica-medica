@@ -6,6 +6,8 @@
 package br.ufs.view.panels;
 
 
+import br.ufs.view.visualizar.VisualizarAgendaConsultaView;
+import br.ufs.view.visualizar.VisualizarAgendaExameView;
 import java.awt.Color;
 
 /**
@@ -19,12 +21,8 @@ public class AgendaJPanelView extends javax.swing.JPanel {
      */
     public AgendaJPanelView() {
         initComponents();
-        btnConsultasMarcadas.setBackground(new Color(20, 150, 90));
-        btnConsultasRealizadas.setBackground(new Color(20, 150, 90));
-        btnExamesRealizados.setBackground(new Color(20, 150, 90));
-        btnExamesMarcados.setBackground(new Color(20, 150, 90));
-        btnCadastrarAgendaFuncionario.setBackground(new Color(20, 150, 90));
-        btnConsultarAgendaFuncionario.setBackground(new Color(20, 150, 90));
+        btnConsultas.setBackground(new Color(20, 150, 90));
+        btnExames.setBackground(new Color(20, 150, 90));
     }
 
     /**
@@ -38,14 +36,10 @@ public class AgendaJPanelView extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnConsultasMarcadas = new javax.swing.JButton();
-        btnConsultasRealizadas = new javax.swing.JButton();
+        btnConsultas = new javax.swing.JButton();
+        btnExames = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
-        btnExamesRealizados = new javax.swing.JButton();
-        btnExamesMarcados = new javax.swing.JButton();
         jPanel26 = new javax.swing.JPanel();
-        btnConsultarAgendaFuncionario = new javax.swing.JButton();
-        btnCadastrarAgendaFuncionario = new javax.swing.JButton();
         jPanel33 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 204));
@@ -57,28 +51,28 @@ public class AgendaJPanelView extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.GridLayout(2, 2));
 
         jPanel2.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda de Consutas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel2.setOpaque(false);
 
-        btnConsultasMarcadas.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultasMarcadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnConsultasMarcadas.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultasMarcadas.setText("Marcadas");
-        btnConsultasMarcadas.setBorder(null);
-        btnConsultasMarcadas.addActionListener(new java.awt.event.ActionListener() {
+        btnConsultas.setBackground(new java.awt.Color(255, 255, 255));
+        btnConsultas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnConsultas.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultas.setText("Consultas");
+        btnConsultas.setBorder(null);
+        btnConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultasMarcadasActionPerformed(evt);
+                btnConsultasActionPerformed(evt);
             }
         });
 
-        btnConsultasRealizadas.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultasRealizadas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnConsultasRealizadas.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultasRealizadas.setText("Realizadas");
-        btnConsultasRealizadas.setBorder(null);
-        btnConsultasRealizadas.addActionListener(new java.awt.event.ActionListener() {
+        btnExames.setBackground(new java.awt.Color(255, 255, 255));
+        btnExames.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnExames.setForeground(new java.awt.Color(255, 255, 255));
+        btnExames.setText("Exames");
+        btnExames.setBorder(null);
+        btnExames.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultasRealizadasActionPerformed(evt);
+                btnExamesActionPerformed(evt);
             }
         });
 
@@ -86,108 +80,50 @@ public class AgendaJPanelView extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnConsultasRealizadas, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-            .addComponent(btnConsultasMarcadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnExames, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addComponent(btnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(btnConsultasMarcadas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConsultasRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExames, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 127, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
 
         jPanel21.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda de Exames", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "...", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel21.setOpaque(false);
-
-        btnExamesRealizados.setBackground(new java.awt.Color(255, 255, 255));
-        btnExamesRealizados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnExamesRealizados.setForeground(new java.awt.Color(255, 255, 255));
-        btnExamesRealizados.setText("Realizados");
-        btnExamesRealizados.setBorder(null);
-        btnExamesRealizados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExamesRealizadosActionPerformed(evt);
-            }
-        });
-
-        btnExamesMarcados.setBackground(new java.awt.Color(255, 255, 255));
-        btnExamesMarcados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnExamesMarcados.setForeground(new java.awt.Color(255, 255, 255));
-        btnExamesMarcados.setText("Marcados");
-        btnExamesMarcados.setBorder(null);
-        btnExamesMarcados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExamesMarcadosActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExamesRealizados, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                    .addComponent(btnExamesMarcados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGap(0, 259, Short.MAX_VALUE)
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addComponent(btnExamesMarcados, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExamesRealizados, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 127, Short.MAX_VALUE))
+            .addGap(0, 199, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel21);
 
         jPanel26.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda de Funcionários", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "...", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel26.setOpaque(false);
-
-        btnConsultarAgendaFuncionario.setBackground(new java.awt.Color(255, 255, 255));
-        btnConsultarAgendaFuncionario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnConsultarAgendaFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultarAgendaFuncionario.setText("Consultar");
-        btnConsultarAgendaFuncionario.setBorder(null);
-        btnConsultarAgendaFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarAgendaFuncionarioActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarAgendaFuncionario.setBackground(new java.awt.Color(255, 255, 255));
-        btnCadastrarAgendaFuncionario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCadastrarAgendaFuncionario.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarAgendaFuncionario.setText("Cadastrar");
-        btnCadastrarAgendaFuncionario.setBorder(null);
-        btnCadastrarAgendaFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarAgendaFuncionarioActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnConsultarAgendaFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-            .addComponent(btnCadastrarAgendaFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addGap(0, 259, Short.MAX_VALUE)
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnConsultarAgendaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrarAgendaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+            .addGap(0, 199, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel26);
@@ -212,33 +148,15 @@ public class AgendaJPanelView extends javax.swing.JPanel {
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExamesRealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamesRealizadosActionPerformed
-    
-    //btnVisualizarExame.setEnabled(false);
-    }//GEN-LAST:event_btnExamesRealizadosActionPerformed
-
-    private void btnConsultasMarcadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasMarcadasActionPerformed
-       
+    private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
+        new VisualizarAgendaConsultaView().setVisible(true);
         //btnCadastrarConsulta.setEnabled(false);
-    }//GEN-LAST:event_btnConsultasMarcadasActionPerformed
+    }//GEN-LAST:event_btnConsultasActionPerformed
 
-    private void btnExamesMarcadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamesMarcadosActionPerformed
-        
-        //btnMarcarExame.setEnabled(false);
-    }//GEN-LAST:event_btnExamesMarcadosActionPerformed
-
-    private void btnConsultasRealizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasRealizadasActionPerformed
-        
+    private void btnExamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamesActionPerformed
+        new VisualizarAgendaExameView().setVisible(true);
         //btnVisualizarConsulta.setEnabled(false);
-    }//GEN-LAST:event_btnConsultasRealizadasActionPerformed
-
-    private void btnConsultarAgendaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarAgendaFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConsultarAgendaFuncionarioActionPerformed
-
-    private void btnCadastrarAgendaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarAgendaFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarAgendaFuncionarioActionPerformed
+    }//GEN-LAST:event_btnExamesActionPerformed
 
     /*public void ativarJButton(){
         btnCadastrarConsulta.setEnabled(true);
@@ -253,12 +171,8 @@ public class AgendaJPanelView extends javax.swing.JPanel {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrarAgendaFuncionario;
-    private javax.swing.JButton btnConsultarAgendaFuncionario;
-    private javax.swing.JButton btnConsultasMarcadas;
-    private javax.swing.JButton btnConsultasRealizadas;
-    private javax.swing.JButton btnExamesMarcados;
-    private javax.swing.JButton btnExamesRealizados;
+    private javax.swing.JButton btnConsultas;
+    private javax.swing.JButton btnExames;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;

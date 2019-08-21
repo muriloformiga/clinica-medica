@@ -42,7 +42,7 @@ public class BuscarVisualizarAtestadoView extends javax.swing.JFrame {
         btnBuscarPaciente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Buscar Paciente");
+        setTitle("Buscar Atestado");
         setBackground(new java.awt.Color(153, 255, 153));
         setResizable(false);
 
