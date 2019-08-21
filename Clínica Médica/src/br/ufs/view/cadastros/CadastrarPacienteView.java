@@ -282,11 +282,13 @@ public class CadastrarPacienteView extends javax.swing.JFrame {
             con.paciente.setCpf(txtCpfPaciente.getText());
             con.paciente.setFone(txtTelefonePaciente.getText());
             String string = txtDataNascimentoPaciente.getText();
-            DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+            DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
             Date date = format.parse(string);
             con.paciente.setDt_nasc(date);
-            con.cadastrarPaciente();
-            //con.actionPerformed(evt);
+           // con.cadastrarPaciente();
+            con.setIdentificadorFonte(getClass().getSimpleName());
+
+            con.actionPerformed(evt);
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");
         }finally{
