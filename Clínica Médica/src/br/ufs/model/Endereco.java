@@ -1,84 +1,70 @@
 
 package br.ufs.model;
 
-import br.ufs.dao.EnderecoDAO;
-
 
 public class Endereco {
-    private String logradouroModelEndereco;
-    private int numeroModelEndereco;
-    private String bairroModelEndereco;
-    private String cidadeModelEndereco;
-    private String estadoModelEndereco;
-    private String cepModelEndereco;   
+    private String logradouro;
+    private int numero;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private String cep;
+    private int id;
 
-    public String getLogradouroModelEndereco() {
-        return logradouroModelEndereco;
-    }
-
-    public void setLogradouroModelEndereco(String logradouroModelEndereco) {
-        this.logradouroModelEndereco = logradouroModelEndereco;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public int getNumeroModelEndereco() {
-        return numeroModelEndereco;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
-    public void setNumeroModelEndereco(int numeroModelEndereco) {
-        this.numeroModelEndereco = numeroModelEndereco;
+    public int getNumero() {
+        return numero;
     }
 
-    public String getBairroModelEndereco() {
-        return bairroModelEndereco;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public void setBairroModelEndereco(String bairroModelEndereco) {
-        this.bairroModelEndereco = bairroModelEndereco;
+    public String getBairro() {
+        return bairro;
     }
 
-    public String getCidadeModelEndereco() {
-        return cidadeModelEndereco;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    public void setCidadeModelEndereco(String cidadeModelEndereco) {
-        this.cidadeModelEndereco = cidadeModelEndereco;
+    public String getCidade() {
+        return cidade;
     }
 
-    public String getEstadoModelEndereco() {
-        return estadoModelEndereco;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public void setEstadoModelEndereco(String estadoModelEndereco) {
-        this.estadoModelEndereco = estadoModelEndereco;
+    public String getEstado() {
+        return estado;
     }
 
-    public String getCepModelEndereco() {
-        return cepModelEndereco;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
-   
-    public String tratandoDados(String str){
-        String tratado = str;
-        String let = tratado.replaceAll("\\D","");
-        System.out.println(str+"<<str\n"+tratado+"<<tratado\n"+let+"<<let");
-        if(let.equals("")){
-        }
-        else{
-            return str;
-        }
-        return let;
-    }
-    public void setCepModelEndereco(String cepModelEndereco) {
-        this.cepModelEndereco = cepModelEndereco;
-    }
-    public void salvar(Endereco endereco){
-            try {
-                EnderecoDAO endDAO = new EnderecoDAO();
-                endDAO.add(endereco);
 
-            } catch (Exception e) {
-                System.out.println("ERRO Endereco \n "+ e);
-            }
+    public String getCep() {
+        return cep;
     }
- 
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
     
 }

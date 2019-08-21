@@ -8,6 +8,7 @@ public class Atestado {
     private Date dt_Inicio;
     private int qt_Dias;
     private String cid;
+    private int id;
 
     public Date getDt_Inicio() {
         return dt_Inicio;
@@ -33,6 +34,12 @@ public class Atestado {
         this.cid = cid;
     }
     
+    public int getId(){
+        return id;
+    }
     
+    public void setId(int id){
+        this.id = id;
+    }
     
 }

@@ -3,9 +3,11 @@ package br.ufs.model;
 
 
 public class Especialidade {
-    private static String nome;
+    private String nome;
+    private int id;
+    private int medico_id;
 
-    public static String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -13,6 +15,20 @@ public class Especialidade {
         this.nome = nome;
     }
     
+    public int getId(){
+        return id;
+    }
     
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getMedicoId(){
+        return medico_id;
+    }
+    
+    public void setMedicoId(int medico_id){
+        this.medico_id = medico_id;
+    }
     
 }

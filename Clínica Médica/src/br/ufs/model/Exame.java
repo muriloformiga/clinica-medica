@@ -5,12 +5,16 @@ import java.util.Date;
 
 
 public class Exame {
-    private static Date data;
-    private static String hora;
+    private Date data;
+    private Date hora;
     private boolean situacao;
-    private static String diagnostico;
+    private String diagnostico;
+    private String tipo;
+    private int id;
+    private int atestado_id;
+    private int consulta_id;
 
-    public static Date getData() {
+    public Date getData() {
         return data;
     }
 
@@ -18,11 +22,11 @@ public class Exame {
         this.data = data;
     }
 
-    public static String getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 
@@ -34,7 +38,7 @@ public class Exame {
         this.situacao = situacao;
     }
 
-    public static String getDiagnostico() {
+    public String getDiagnostico() {
         return diagnostico;
     }
 
@@ -42,6 +46,36 @@ public class Exame {
         this.diagnostico = diagnostico;
     }
     
+    public String getTipo() {
+        return tipo;
+    }
     
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getAtestadoId(){
+        return atestado_id;
+    }
+    
+    public void setAtestadoId(int atestado_id){
+        this.atestado_id = atestado_id;
+    }
+    
+    public int getConsultaId(){
+        return consulta_id;
+    }
+    
+    public void setConsultaId(int consulta_id){
+        this.consulta_id = consulta_id;
+    }
     
 }

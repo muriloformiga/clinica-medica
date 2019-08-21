@@ -1,63 +1,36 @@
 
 package br.ufs.model;
 
-import java.util.Date;
 
+public class Medico extends Funcionario{
+    private String crm;
+    private int id;
+    private int funcionario_id;
 
-public class Medico extends Funcionario {
-    private int crm;
-
-
-    public int getCrm() {
+    public String getCrm() {
         return crm;
     }
 
-    public void setCrm(int crm) {
+    public void setCrm(String crm) {
         this.crm = crm;
     }
-
-    public static String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public static String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public static int getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
-
-    public static String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public static Date getDt_nasc() {
-        return dt_nasc;
-    }
-
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
+    
+    @Override
+    public int getId(){
+        return id;
     }
     
+    @Override
+    public void setId(int id){
+        this.id = id;
+    }
     
+    public int getFuncionarioId(){
+        return funcionario_id;
+    }
     
-    
+    public void setFuncionarioId(int funcionario_id){
+        this.funcionario_id = funcionario_id;
+    }
     
 }

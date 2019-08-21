@@ -1,68 +1,13 @@
 
 package br.ufs.model;
 
-import java.util.Date;
-
 
 public class Prontuario {
-    private String nome;
-    private String cpf;
-    private String telefone;
-    private int cod_pac;
-    private Date dt_nasc;
-    private static String listExamesFeitos;
-    private static String prescricaoRemedios;
-    private static String observacoesMedicas;
+    private String prescricaoRemedios;
+    private String observacoesMedicas;
+    private int id;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public int getCod_pac() {
-        return cod_pac;
-    }
-
-    public void setCod_pac(int cod_pac) {
-        this.cod_pac = cod_pac;
-    }
-
-    public Date getDt_nasc() {
-        return dt_nasc;
-    }
-
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
-    }
-
-    public static String getListExamesFeitos() {
-        return listExamesFeitos;
-    }
-
-    public void setListExamesFeitos(String listExamesFeitos) {
-        this.listExamesFeitos = listExamesFeitos;
-    }
-
-    public static String getPrescricaoRemedios() {
+    public String getPrescricaoRemedios() {
         return prescricaoRemedios;
     }
 
@@ -70,7 +15,7 @@ public class Prontuario {
         this.prescricaoRemedios = prescricaoRemedios;
     }
 
-    public static String getObservacoesMedicas() {
+    public String getObservacoesMedicas() {
         return observacoesMedicas;
     }
 
@@ -78,6 +23,12 @@ public class Prontuario {
         this.observacoesMedicas = observacoesMedicas;
     }
     
+    public int getId(){
+        return id;
+    }
     
-       
+    public void setId(int id){
+        this.id = id;
+    }
+    
 }
