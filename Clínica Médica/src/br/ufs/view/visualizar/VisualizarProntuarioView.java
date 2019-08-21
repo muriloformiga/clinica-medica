@@ -21,6 +21,8 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
     public String cpf;
     public String telefone;
     public String data;
+    public String prescricoesRemedios;
+    public String observacoesMedicas;
         
     public void setNome(String nom){
        txtNome.setText(nom);
@@ -37,6 +39,15 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
     public void setDataNascimento(String nom){
        txtDataNascimento.setText(nom);
        this.data = nom;
+    }
+    public void setPrescricoesRemedios(String nom){
+       txtPrescricoesRemedios.setText(nom);
+       this.prescricoesRemedios = nom;
+    }
+    
+    public void setObservacoesMedicas(String nom){
+       txtObservacoesMedicas.setText(nom);
+       this.observacoesMedicas = nom;
     }
     
 
