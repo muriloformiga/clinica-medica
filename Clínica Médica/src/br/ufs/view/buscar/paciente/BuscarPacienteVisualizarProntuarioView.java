@@ -5,6 +5,7 @@
  */
 package br.ufs.view.buscar.paciente;
 import br.ufs.control.ControlePaciente;
+import br.ufs.control.ControleProntuario;
 
 
 import br.ufs.view.cadastros.CadastrarProntuarioView;
@@ -141,8 +142,10 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
 //       
 
        ControlePaciente con = new ControlePaciente();
+       ControleProntuario pron = new ControleProntuario();
        
        con.paciente = con.pacientedao.get(txtPacienteCPF.getText());
+       pron.prontuario = pron.prontuariodao.get(con.paciente.getProntuarioId()) ;
         
        
        
@@ -153,11 +156,13 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
        frm.setTelefone(con.paciente.getFone());
        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
        frm.setDataNascimento(df.format(con.paciente.getDt_nasc()));
+       frm.setPrescricoesRemedios(pron.prontuario.getPrescricaoRemedios());
+       frm.setObservacoesMedicas(pron.prontuario.getObservacoesMedicas());
        
        
        frm.setVisible(true);
        // System.out.println(this.nome);
-      this.dispose();
+       this.dispose();
  
         //new VisualizarProntuarioView().setVisible(true);
 
