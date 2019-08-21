@@ -20,7 +20,7 @@ public class ExameDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Exame exame, int consulta_ID){
+    public boolean add(Exame exame){
        String sql = "INSERT INTO exame(DT, HORA, SITUACAO, DIAGNOSTICO, TIPO, consulta_ID) VALUES (?,?,?,?,?,?)";
        
        try{
@@ -30,7 +30,7 @@ public class ExameDAO {
            stmt.setBoolean(3, exame.isSituacao());
            stmt.setString(4, exame.getDiagnostico());
            stmt.setString(5, exame.getTipo());
-           stmt.setInt(6, consulta_ID);
+           stmt.setInt(6, exame.getConsultaId());
            
            stmt.execute();
            return true;
@@ -58,7 +58,9 @@ public class ExameDAO {
                ex.setHora(rs.getDate("HORA"));
                ex.setSituacao(rs.getBoolean("SITUACAO"));
                ex.setTipo(rs.getString("TIPO"));
-               
+               ex.setId(rs.getInt("ID"));
+               ex.setConsultaId(rs.getInt("consulta_ID"));
+               ex.setAtestadoId(rs.getInt("atestado_ID"));
                exame.add(ex);
            }
        } catch (SQLException e) {

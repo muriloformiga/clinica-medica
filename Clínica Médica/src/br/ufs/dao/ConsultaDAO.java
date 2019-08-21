@@ -18,7 +18,7 @@ public class ConsultaDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Consulta consulta, int paciente_ID, int medico_ID){
+    public boolean add(Consulta consulta){
        String sql = "INSERT INTO consulta(DT, HORA, SITUACAO, DESCRICAO, DIAGNOSTICO, medico_ID, paciente_ID) VALUES (?,?,?,?,?,?,?)";
        
        try{
@@ -28,8 +28,8 @@ public class ConsultaDAO {
            stmt.setBoolean(3, consulta.isSituacao());
            stmt.setString(4, consulta.getDescricao());
            stmt.setString(5, consulta.getDiagnostico());
-           stmt.setInt(6, medico_ID); //Chave estrangeira de Medico
-           stmt.setInt(7, paciente_ID); //Chave estrangeira de Paciente
+           stmt.setInt(6, consulta.getMedicoId()); //Chave estrangeira de Medico
+           stmt.setInt(7, consulta.getPacienteId()); //Chave estrangeira de Paciente
            
            stmt.execute();
            return true;
@@ -57,6 +57,10 @@ public class ConsultaDAO {
                consulta.setDiagnostico(rs.getString("DIAGNOSTICO"));
                consulta.setHora(rs.getDate("HORA"));
                consulta.setSituacao(rs.getBoolean("SITUACAO"));
+               consulta.setMedicoId(rs.getInt("medico_ID"));
+               consulta.setPacienteId(rs.getInt("paciente_ID"));
+               consulta.setId(rs.getInt("ID"));
+               consulta.setAtestadoId(rs.getInt("atestado_ID"));
            }
        } catch (SQLException e) {
            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -67,24 +71,4 @@ public class ConsultaDAO {
         return consulta;
     }
     
-    public int getID(int paciente_ID, int medico_ID){
-        int id = 0;
-        try{
-           ResultSet rs = null;
-           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? ORDER BY DT DESC LIMIT 1";
-           PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setInt(1,paciente_ID);
-           stmt.setInt(2, medico_ID);
-           rs = stmt.executeQuery();
-           while(rs.next()){
-               id = rs.getInt("ID");
-           }
-       } catch (SQLException e) {
-           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
-           return -1;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
-        return id;
-    }
 }

@@ -74,6 +74,7 @@ public class EnderecoDAO {
                end.setEstado(rs.getString("ESTADO"));
                end.setLogradouro(rs.getString("LOGRADOURO"));
                end.setNumero(rs.getInt("NUMERO"));
+               end.setId(rs.getInt("ID"));
            }
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);

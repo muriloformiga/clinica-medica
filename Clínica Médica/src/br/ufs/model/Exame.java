@@ -10,6 +10,9 @@ public class Exame {
     private boolean situacao;
     private String diagnostico;
     private String tipo;
+    private int id;
+    private int atestado_id;
+    private int consulta_id;
 
     public Date getData() {
         return data;
@@ -49,6 +52,30 @@ public class Exame {
     
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getAtestadoId(){
+        return atestado_id;
+    }
+    
+    public void setAtestadoId(int atestado_id){
+        this.atestado_id = atestado_id;
+    }
+    
+    public int getConsultaId(){
+        return consulta_id;
+    }
+    
+    public void setConsultaId(int consulta_id){
+        this.consulta_id = consulta_id;
     }
     
 }

@@ -18,12 +18,12 @@ public class GerenteDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Gerente gerente, int funcionario_ID){
+    public boolean add(Gerente gerente){
        String sql = "INSERT INTO gerente(funcionario_ID) VALUES (?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setInt(1, funcionario_ID); //Chave estrangeira de Funcionario
+           stmt.setInt(1, gerente.getFuncionarioId()); //Chave estrangeira de Funcionario
 
            stmt.execute();
            return true;
@@ -35,24 +35,31 @@ public class GerenteDAO {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
-    
-    public int getID(int funcionario_ID){
-        int id = 0;
+    //ID AMBIGUOS
+    public Gerente get(int funcionario_ID){
+        Gerente gerente = new Gerente();
         try{
            ResultSet rs = null;
-           String sql = "SELECT ID FROM gerente WHERE funcionario_ID = ?";
+           String sql = "SELECT g.ID, g.funcionario_ID, f.NOME, f.CPF, f.MATRICULA, f.TELEFONE, f.DT_NASC, f.endereco_ID FROM funcionario AS f JOIN gerente AS g ON(f.ID = g.funcionario_ID) WHERE funcionario_ID = ?";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1, funcionario_ID);
            rs = stmt.executeQuery();
            while(rs.next()){
-               id = rs.getInt("ID");
+               gerente.setId(rs.getInt("ID"));
+               gerente.setCpf(rs.getString("CPF"));
+               gerente.setDt_nasc(rs.getDate("DT_NASC"));
+               gerente.setEnderecoId(rs.getInt("endereco_ID"));
+               gerente.setNome(rs.getString("NOME"));
+               gerente.setMatricula(rs.getString("MATRICULA"));
+               gerente.setFuncionarioId(rs.getInt("funcionario_ID"));
+               gerente.setTelefone(rs.getString("TELEFONE"));
            }
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
-           return -1;
+           return null;
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
-    return id;
+    return gerente;
     }
 }

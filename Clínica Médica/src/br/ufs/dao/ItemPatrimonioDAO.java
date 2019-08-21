@@ -20,7 +20,7 @@ public class ItemPatrimonioDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(ItemPatrimonio itempatrimonio, int patrimonio_ID){
+    public boolean add(ItemPatrimonio itempatrimonio){
        String sql = "INSERT INTO patrimonio(DESCRICAO, LOCALIZACAO, ANO_AQUISICAO, NUM_PATRIMONIO, TIPO, STATUS, patrimonio_ID) VALUES (?,?,?,?,?,?,?)";
        
        try{
@@ -31,7 +31,7 @@ public class ItemPatrimonioDAO {
            stmt.setInt(4, itempatrimonio.getNumPatrimonio());
            stmt.setString(5, itempatrimonio.getTipo());
            stmt.setString(6, itempatrimonio.getStatus());
-           stmt.setInt(7, patrimonio_ID);
+           stmt.setInt(7, itempatrimonio.getPatrimonioId());
 
            stmt.execute();
            return true;
@@ -60,6 +60,8 @@ public class ItemPatrimonioDAO {
                item.setNumPatrimonio(rs.getInt("NUM_PATRIMONIO"));
                item.setStatus(rs.getString("status_item"));
                item.setTipo(rs.getString("tipo_patrimonio"));
+               item.setId(rs.getInt("ID"));
+               item.setPatrimonioId(rs.getInt("patrimonio_ID"));
                
                itempatrimonio.add(item);
            }

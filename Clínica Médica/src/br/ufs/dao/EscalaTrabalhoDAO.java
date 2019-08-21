@@ -21,13 +21,14 @@ public class EscalaTrabalhoDAO {
     }
     
     public boolean add(EscalaTrabalho escala){
-       String sql = "INSERT INTO funcionario(DIAS_TRABALHO, HORA, CARGA_HORARIA) VALUES (?,?,?)";
+       String sql = "INSERT INTO funcionario(DIAS_TRABALHO, HORA, CARGA_HORARIA, funcionario_ID) VALUES (?,?,?,?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, escala.getDiasTrabalhar());
            stmt.setDate(2, new java.sql.Date(escala.getHora().getTime())); //OBS: Horario do tipo Time ou Date?
            stmt.setString(3, escala.getCargaHoraria());
+           stmt.setInt(4, escala.getFuncionarioId());
            
            stmt.execute();
            return true;
@@ -53,6 +54,8 @@ public class EscalaTrabalhoDAO {
                esc.setCargaHoraria(rs.getString("CARGA_HORARIA"));
                esc.setDiasTrabalhar(rs.getString("DIAS_TRABALHO"));
                esc.setHora(rs.getDate("HORA"));
+               esc.setId(rs.getInt("ID"));
+               esc.setFuncionarioId(rs.getInt("funcionario_ID"));
                escala.add(esc);
            }   
        } catch (SQLException e) {

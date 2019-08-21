@@ -26,7 +26,7 @@ public class MedicoDAO {
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, medico.getCrm());
-           //stmt.setInt(2, medico.getFuncionario().getId()); //Chave estrangeira de Funcionario
+           stmt.setInt(2, medico.getFuncionarioId()); //Chave estrangeira de Funcionario
 
            stmt.execute();
            return true;
@@ -40,7 +40,7 @@ public class MedicoDAO {
     }
     public List<Medico> getALL(String especialidade){
         List<Medico> medico = new ArrayList<>();
-        String sql = "SELECT * FROM (medico AS m JOIN especialidade AS e ON(m.ID = e.medico_ID) AS me JOIN funcionario AS f ON(me.funcionario_ID = f.ID) AS mef JOIN escala_trabalho AS e_t ON(mef.funcionario_ID = e_t.funcionario_ID) WHERE e.NOME = ?)";
+        String sql = "SELECT f.NOME, f.CPF, f.MATRICULA, f.TELEFONE, f.DT_NASC, f.endereco_ID, m.ID, m.CRM, m.funcionario_ID FROM (medico AS m JOIN especialidade AS e ON(m.ID = e.medico_ID) AS me JOIN funcionario AS f ON(me.funcionario_ID = f.ID) AS mef JOIN escala_trabalho AS e_t ON(mef.funcionario_ID = e_t.funcionario_ID) WHERE e.NOME = ?)";
         try{
            ResultSet rs = null;
            PreparedStatement stmt = con.prepareStatement(sql);
@@ -54,7 +54,38 @@ public class MedicoDAO {
                med.setDt_nasc(rs.getDate("DT_NASC"));
                med.setMatricula(rs.getString("MATRICULA"));
                med.setTelefone(rs.getString("TELEFONE"));
+               med.setFuncionarioId(rs.getInt("funcionario_ID"));
+               med.setId(rs.getInt("ID"));
+               med.setEnderecoId(rs.getInt("endereco_ID"));
                medico.add(med);
+           }
+           
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return medico; 
+    }
+    public Medico get(String cpf){
+        Medico medico = new Medico();
+        String sql = "SELECT f.NOME, f.CPF, f.MATRICULA, f.TELEFONE, f.DT_NASC, f.endereco_ID, m.ID, m.CRM, m.funcionario_ID FROM medico AS m JOIN funcionario AS f ON(me.funcionario_ID = f.ID) WHERE f.CPF = ?";
+        try{
+           ResultSet rs = null;
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, cpf);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               medico.setCrm(rs.getString("CRM"));
+               medico.setNome(rs.getString("NOME"));
+               medico.setCpf(rs.getString("CPF"));
+               medico.setDt_nasc(rs.getDate("DT_NASC"));
+               medico.setMatricula(rs.getString("MATRICULA"));
+               medico.setTelefone(rs.getString("TELEFONE"));
+               medico.setFuncionarioId(rs.getInt("funcionario_ID"));
+               medico.setId(rs.getInt("ID"));
+               medico.setEnderecoId(rs.getInt("endereco_ID"));
            }
            
        } catch (SQLException e) {

@@ -9,6 +9,8 @@ public class Funcionario {
     protected String matricula;
     protected String telefone;
     protected Date dt_nasc;
+    protected int id;
+    protected int endereco_id;
 
     public String getNome() {
         return nome;
@@ -50,5 +52,20 @@ public class Funcionario {
         this.dt_nasc = dt_nasc;
     }
     
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getEnderecoId(){
+        return endereco_id;
+    }
+    
+    public void setEnderecoId(int endereco_id){
+        this.endereco_id = endereco_id;
+    }
     
 }

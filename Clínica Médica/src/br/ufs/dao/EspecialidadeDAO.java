@@ -26,7 +26,7 @@ public class EspecialidadeDAO {
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, especialidade.getNome());
-           //stmt.setInt(2, especialidade.getMedico().getId()); //Chave estrangeira de Medico
+           stmt.setInt(2, especialidade.getMedicoId()); //Chave estrangeira de Medico
 
            stmt.execute();
            return true;
@@ -50,6 +50,8 @@ public class EspecialidadeDAO {
            while(rs.next()){
                Especialidade esp = new Especialidade();
                esp.setNome(rs.getString("NOME"));
+               esp.setId(rs.getInt("ID"));
+               esp.setMedicoId(rs.getInt("medico_ID"));
                especialidade.add(esp);
            }
        } catch (SQLException e) {

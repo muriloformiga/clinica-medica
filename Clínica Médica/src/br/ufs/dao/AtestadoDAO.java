@@ -50,6 +50,7 @@ public class AtestadoDAO {
                atestado.setCid(rs.getString("CID"));
                atestado.setDt_Inicio(rs.getDate("DT_INICIO"));
                atestado.setQt_Dias(rs.getInt("QTD_DIAS"));
+               atestado.setId(rs.getInt("ID"));
            }
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);

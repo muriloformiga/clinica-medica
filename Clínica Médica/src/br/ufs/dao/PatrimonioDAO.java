@@ -20,14 +20,14 @@ public class PatrimonioDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Patrimonio patrimonio, int gerente_ID){
+    public boolean add(Patrimonio patrimonio){
        String sql = "INSERT INTO patrimonio(DT_ULTIMO_LEVANTAMENTO, QTD_ITEM, gerente_ID) VALUES (?,?,?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setDate(1, new java.sql.Date(patrimonio.getDataUltimoLevantamento().getTime()));
            stmt.setInt(2, patrimonio.getQuantItem());
-           stmt.setInt(3, gerente_ID);
+           stmt.setInt(3, patrimonio.getGerenteId());
 
            stmt.execute();
            return true;
@@ -52,6 +52,8 @@ public class PatrimonioDAO {
                Patrimonio patri = new Patrimonio();
                patri.setDataUltimoLevantamento(rs.getDate("DT_ULTIMO_LEVANTAMENTO"));
                patri.setQuantItem(rs.getInt("QTD_ITEM"));
+               patri.setId(rs.getInt("ID"));
+               patri.setGerenteId(rs.getInt("gerente_ID"));
                
                patrimonio.add(patri);
            }

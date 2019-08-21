@@ -9,6 +9,9 @@ public class Paciente {
     private String cpf;
     private String fone;
     private Date dt_nasc;
+    private int id;
+    private int endereco_id;
+    private int prontuario_id;
 
     public String getNome() {
         return nome;
@@ -42,5 +45,28 @@ public class Paciente {
         this.dt_nasc = dt_nasc;
     }
     
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getEnderecoId(){
+        return endereco_id;
+    }
+    
+    public void setEnderecoId(int endereco_id){
+        this.endereco_id = endereco_id;
+    }
+    
+    public int getProntuarioId(){
+        return prontuario_id;
+    }
+    
+    public void setProntuarioId(int prontuario_id){
+        this.prontuario_id = prontuario_id;
+    }
     
 }

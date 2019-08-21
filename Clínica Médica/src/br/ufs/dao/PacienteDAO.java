@@ -18,7 +18,7 @@ public class PacienteDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Paciente paciente, int endereco, int prontuario){
+    public boolean add(Paciente paciente){
        String sql = "INSERT INTO paciente(NOME, CPF, TELEFONE, DT_NASC, endereco_ID, prontuario_ID) VALUES (?,?,?,?,?,?)";
        
        try{
@@ -27,8 +27,8 @@ public class PacienteDAO {
            stmt.setString(2, paciente.getCpf());
            stmt.setString(3, paciente.getFone());
            stmt.setDate(4, new java.sql.Date(paciente.getDt_nasc().getTime()));
-           stmt.setInt(5, endereco);
-           stmt.setInt(6, prontuario);
+           stmt.setInt(5, paciente.getEnderecoId());
+           stmt.setInt(6, paciente.getProntuarioId());
            stmt.execute();
            return true;
            
@@ -53,6 +53,9 @@ public class PacienteDAO {
                pac.setDt_nasc(rs.getDate("DT_NASC"));
                pac.setFone(rs.getString("TELEFONE"));
                pac.setNome(rs.getString("NOME"));
+               pac.setId(rs.getInt("ID"));
+               pac.setEnderecoId(rs.getInt("endereco_ID"));
+               pac.setProntuarioId(rs.getInt("prontuario_ID"));
            }
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);

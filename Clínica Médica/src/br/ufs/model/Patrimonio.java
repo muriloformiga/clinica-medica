@@ -7,6 +7,8 @@ import java.util.Date;
 public class Patrimonio {
     private Date dataUltimoLevantamento;
     private int quantItem;
+    private int id;
+    private int gerente_id;
 
     public Date getDataUltimoLevantamento() {
         return dataUltimoLevantamento;
@@ -24,6 +26,20 @@ public class Patrimonio {
         this.quantItem = quantItem;
     }
     
+    public int getId(){
+        return id;
+    }
     
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getGerenteId(){
+        return gerente_id;
+    }
+    
+    public void setGerenteId(int gerente_id){
+        this.gerente_id = gerente_id;
+    }
     
 }

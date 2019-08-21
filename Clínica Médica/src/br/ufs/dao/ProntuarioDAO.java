@@ -67,6 +67,7 @@ public class ProntuarioDAO {
            while(rs.next()){
                pront.setObservacoesMedicas(rs.getString("OBSERVACOES_MEDICAS"));
                pront.setPrescricaoRemedios(rs.getString("PRESCRICAO_MEDICA"));
+               pront.setId(rs.getInt("ID"));
            }
        } catch (SQLException e) {
            Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);

@@ -19,7 +19,7 @@ public class FuncionarioDAO {
     }
     
     public boolean add(Funcionario funcionario){
-       String sql = "INSERT INTO funcionario(NOME, CPF, MATRICULA, TELEFONE, DT_NASC) VALUES (?,?,?,?,?)";
+       String sql = "INSERT INTO funcionario(NOME, CPF, MATRICULA, TELEFONE, DT_NASC, endereco_ID) VALUES (?,?,?,?,?,?)";
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, funcionario.getNome());
@@ -27,7 +27,7 @@ public class FuncionarioDAO {
            stmt.setString(3, funcionario.getMatricula());
            stmt.setString(4, funcionario.getTelefone());
            stmt.setDate(5, new java.sql.Date(funcionario.getDt_nasc().getTime()));
-           //stmt.setString(6, funcionario.getEndereco());
+           stmt.setInt(6, funcionario.getEnderecoId());
 
            stmt.execute();
            return true;
@@ -53,6 +53,9 @@ public class FuncionarioDAO {
                func.setDt_nasc(rs.getDate("DT_NASC"));
                func.setMatricula(rs.getString("MATRICULA"));
                func.setTelefone(rs.getString("TELEFONE"));
+               func.setId(rs.getInt("ID"));
+               func.setEnderecoId(rs.getInt("endereco_ID"));
+               func.setNome(rs.getString("NOME"));
            }
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -63,24 +66,5 @@ public class FuncionarioDAO {
     return func;
     }
     
-    public int getID(String CPF){
-        int id = 0;
-        try{
-           ResultSet rs = null;
-           String sql = "SELECT ID FROM funcionario WHERE CPF = ?";
-           PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setString(1, CPF);
-           rs = stmt.executeQuery();
-           while(rs.next()){
-               id = rs.getInt("ID");
-           }
-       } catch (SQLException e) {
-           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
-           return -1;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
-    return id;
-    }
 }
 
