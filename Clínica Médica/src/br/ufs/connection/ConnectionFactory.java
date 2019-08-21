@@ -11,11 +11,22 @@ import java.util.logging.Logger;
 //classe para conexão com o Banco de dados
 public class ConnectionFactory {
         private static final String DRIVER = "org.postgresql.Driver";
-        private static final String URL = "jdbc:postgresql://127.0.0.1:5432/BCM"; //jdbc:postgresql://hostname:porta/nomeDoBanco","usuario", "senha
+        private static final String URL = "jdbc:postgresql://127.0.0.1:5432/postgres"; //jdbc:postgresql://hostname:porta/nomeDoBanco","usuario", "senha
         private static final String USER = "postgres";//normalmente é esse
-        private static final String PASS = "123";//normalmente é esse
+        private static final String PASS = "postgres";//normalmente é esse
     
         public Connection getConnection(){
+//        String usuario = ""; //Inserir usuario do banco de dados
+//        String senha = ""; //Inserir senha de acesso ao banco de dados
+//        String nomeBanco = ""; //Inserir nome do banco de dados
+//        String EnderecoServer = ""; //Inserir endereco do servidor
+//        try {
+//            return DriverManager.getConnection("jdbc:postgresql://"+EnderecoServer+
+//                    "/"+nomeBanco, usuario, senha);        
+//        }catch(SQLException e) {
+//            System.out.println("Conexão não estabelecida");
+//            throw new RuntimeException(e);
+//        }
             try {
                     Class.forName(DRIVER);            
                     return DriverManager.getConnection(URL, USER, PASS);            
