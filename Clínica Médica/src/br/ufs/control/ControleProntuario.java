@@ -1,5 +1,6 @@
 package br.ufs.control;
 
+import br.ufs.dao.ProntuarioDAO;
 import br.ufs.model.Paciente;
 import br.ufs.model.Prontuario;
 import java.awt.event.ActionEvent;
@@ -10,12 +11,14 @@ public class ControleProntuario implements ActionListener{
     public Paciente paciente;
     public Prontuario prontuario;
     private String identificadorFonte;
+    public ProntuarioDAO prontuariodao;
     
     //Construtor
     public ControleProntuario()
     {        
         paciente = new Paciente();
         prontuario = new Prontuario();
+        prontuariodao = new ProntuarioDAO();
     }
     //get e set
    
