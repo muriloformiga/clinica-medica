@@ -23,46 +23,17 @@ public class ControlePaciente implements ActionListener{
         prontuario = new Prontuario();
         pacientedao = new PacienteDAO();
     }
-    //get e set
    
-    public String getIdentificadorFonte() {
-        return identificadorFonte;
-    }
-
-    public void setIdentificadorFonte(String identificadorFonte) {
-        this.identificadorFonte = identificadorFonte;
-    }
-    
     public Paciente buscarPaciente(String cpf){
         
         this.paciente = this.pacientedao.get(cpf);
-        return paciente;
+        return this.paciente;
     }
     
     
    
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        System.out.println(getIdentificadorFonte());
-        try {            
-            if(getIdentificadorFonte().equals(("CadastrarPacienteView"))) 
-            { 
-                cadastrarPac();
-            }
-            if(getIdentificadorFonte().equals(("BuscarPacienteVisualizarView"))) 
-            {
-                visualizarPac();
-            }
-            if(getIdentificadorFonte().equals(("BuscarPacienteCadastroView"))) 
-            {
-               // atualizarPac()
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-       
-    }
+    
     
     public void cadastrarPac()
     {        
@@ -110,6 +81,11 @@ public class ControlePaciente implements ActionListener{
 
     public void atualizarPac(){
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
