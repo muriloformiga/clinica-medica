@@ -5,6 +5,8 @@
  */
 package br.ufs.view.visualizar;
 
+import br.ufs.view.buscar.paciente.BuscarPacienteVisualizarProntuarioView;
+
 /**
  *
  * @author Murilo Formiga
@@ -14,8 +16,36 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
     /**
      * Creates new form VisualizarProntuarioView
      */
+    
+    public String nome;
+    public String cpf;
+    public String telefone;
+    public String data;
+        
+    public void setNome(String nom){
+       txtNome.setText(nom);
+       this.nome = nom;
+    }
+    public void setCpf(String nom){
+       txtCpf.setText(nom);
+       this.cpf = nom;
+    }
+    public void setTelefone(String nom){
+       txtTelefone.setText(nom);
+       this.telefone = nom;
+    }
+    public void setDataNascimento(String nom){
+       txtDataNascimento.setText(nom);
+       this.data = nom;
+    }
+    
+
     public VisualizarProntuarioView() {
         initComponents();
+    }
+
+    public VisualizarProntuarioView(BuscarPacienteVisualizarProntuarioView aThis, boolean b) {
+
     }
 
     /**
@@ -30,7 +60,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        txtlNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JLabel();
         txtCpf = new javax.swing.JLabel();
         txtDataNascimento = new javax.swing.JLabel();
@@ -53,7 +83,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
-        txtlNome.setText("txtNome");
+        txtNome.setText("txtNome");
 
         txtTelefone.setText("txtTelefone");
 
@@ -69,7 +99,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtlNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -83,7 +113,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtlNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -224,30 +254,7 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
         });
     }
 
-    public void setTxtCPF(String txtCPF) {
-        this.txtCpf.setText(txtCPF);
-    }
-
-    public void setTxtDataNascimento(String txtDataNascimento) {
-        this.txtDataNascimento.setText(txtDataNascimento);
-    }
-
-    public void setTxtNome(String txtNome) {
-        this.txtlNome.setText(txtNome);
-    }
-
-    public void setTxtObservacoesMedicas(String txtObservacoesMedicas) {
-        this.txtObservacoesMedicas.setText(txtObservacoesMedicas);
-    }
-
-    public void setTxtPrescricoesRemedios(String txtPrescricoesRemedios) {
-        this.txtPrescricoesRemedios.setText(txtPrescricoesRemedios);
-    }
-
-    public void setTxtTelefone(String txtTelefone) {
-        this.txtTelefone.setText(txtTelefone);
-    }
-    
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -256,9 +263,9 @@ public class VisualizarProntuarioView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel txtCpf;
     private javax.swing.JLabel txtDataNascimento;
+    private javax.swing.JLabel txtNome;
     private javax.swing.JLabel txtObservacoesMedicas;
     private javax.swing.JLabel txtPrescricoesRemedios;
     private javax.swing.JLabel txtTelefone;
-    private javax.swing.JLabel txtlNome;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,27 +1,21 @@
 package br.ufs.control;
 
-import br.ufs.model.Endereco;
 import br.ufs.model.Paciente;
-import br.ufs.dao.PacienteDAO;
 import br.ufs.model.Prontuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-public class ControlePaciente implements ActionListener{
+public class ControleProntuario implements ActionListener{
     public Paciente paciente;
-    public Endereco endereco;
     public Prontuario prontuario;
     private String identificadorFonte;
     
-    public PacienteDAO pacientedao;
     //Construtor
-    public ControlePaciente()
+    public ControleProntuario()
     {        
         paciente = new Paciente();
-        endereco = new Endereco();
         prontuario = new Prontuario();
-        pacientedao = new PacienteDAO();
     }
     //get e set
    
@@ -40,13 +34,13 @@ public class ControlePaciente implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         System.out.println(getIdentificadorFonte());
         try {            
-            if(getIdentificadorFonte().equals(("CadastrarPacienteView"))) 
+            if(getIdentificadorFonte().equals(("CadastrarProntuarioView"))) 
             { 
-                cadastrarPac();
+                cadastrarPro();
             }
             if(getIdentificadorFonte().equals(("BuscarPacienteVisualizarView"))) 
             {
-                visualizarPac();
+                visualizarPro();
             }
             if(getIdentificadorFonte().equals(("BuscarPacienteCadastroView"))) 
             {
@@ -58,11 +52,11 @@ public class ControlePaciente implements ActionListener{
        
     }
     
-    public void cadastrarPac()
+    public void cadastrarPro()
     {        
 //        Paciente modelPaciente = new Paciente();
 //        Endereco modelEndereco = new Endereco();;
-        System.out.println(paciente.getDt_nasc());
+        System.out.println(prontuario.getPrescricaoRemedios());
         try
             {
 //                modelEndereco.setLogradouroModelEndereco(getControleLogradouroPaciente());
@@ -86,7 +80,7 @@ public class ControlePaciente implements ActionListener{
             } 
     }
 
-    public void visualizarPac(){        
+    public void visualizarPro(){        
         Paciente modelPaciente = new Paciente();        
         try {
             //modelPaciente.setCpfModelPaciente(getControleCpfPaciente());

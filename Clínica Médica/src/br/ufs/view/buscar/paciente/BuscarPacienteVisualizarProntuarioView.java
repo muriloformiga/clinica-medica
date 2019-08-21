@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package br.ufs.view.buscar.paciente;
+import br.ufs.control.ControlePaciente;
 
 
 import br.ufs.view.cadastros.CadastrarProntuarioView;
 import br.ufs.view.visualizar.VisualizarConsultaView;
 import br.ufs.view.visualizar.VisualizarProntuarioView;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -20,11 +23,17 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
     /**
      * Creates new form CadastrarConsultaView
      */
+    
+
     public BuscarPacienteVisualizarProntuarioView() {
         initComponents();
         btnBuscarPaciente.setBackground(new Color(20, 150, 90));
         
         
+    }
+
+    public BuscarPacienteVisualizarProntuarioView(VisualizarProntuarioView aThis, boolean b) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -38,7 +47,7 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        txtNomePaciente = new javax.swing.JTextField();
+        txtPacienteCPF = new javax.swing.JTextField();
         btnBuscarPaciente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -52,10 +61,10 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 102, 51), new java.awt.Color(0, 102, 51), new java.awt.Color(0, 102, 51), new java.awt.Color(0, 102, 51)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 102, 0));
 
-        txtNomePaciente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 0)), "Insira o CPF do paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
-        txtNomePaciente.addActionListener(new java.awt.event.ActionListener() {
+        txtPacienteCPF.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 0)), "Insira o CPF do paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        txtPacienteCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomePacienteActionPerformed(evt);
+                txtPacienteCPFActionPerformed(evt);
             }
         });
 
@@ -76,7 +85,7 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -86,7 +95,7 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -123,13 +132,36 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePacienteActionPerformed
+    private void txtPacienteCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPacienteCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomePacienteActionPerformed
+    }//GEN-LAST:event_txtPacienteCPFActionPerformed
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
-        new VisualizarProntuarioView().setVisible(true);
-        this.dispose();
+        
+//       
+
+       ControlePaciente con = new ControlePaciente();
+       
+       con.paciente = con.pacientedao.get(txtPacienteCPF.getText());
+        
+       
+       
+               
+       VisualizarProntuarioView frm = new VisualizarProntuarioView();
+       frm.setNome(con.paciente.getNome());
+       frm.setCpf(con.paciente.getCpf());
+       frm.setTelefone(con.paciente.getFone());
+       DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+       frm.setDataNascimento(df.format(con.paciente.getDt_nasc()));
+       
+       
+       frm.setVisible(true);
+       // System.out.println(this.nome);
+      this.dispose();
+ 
+        //new VisualizarProntuarioView().setVisible(true);
+
+
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 
     /**
@@ -234,6 +266,6 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtNomePaciente;
+    private javax.swing.JTextField txtPacienteCPF;
     // End of variables declaration//GEN-END:variables
 }
