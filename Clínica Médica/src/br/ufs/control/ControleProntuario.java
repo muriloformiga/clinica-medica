@@ -21,6 +21,12 @@ public class ControleProntuario implements ActionListener{
         prontuariodao = new ProntuarioDAO();
     }
     //get e set
+    
+    public Prontuario buscarProntuario(Integer prontuario_id){
+        
+        this.prontuario = this.prontuariodao.get(prontuario_id);
+        return prontuario;
+    }
    
     public String getIdentificadorFonte() {
         return identificadorFonte;

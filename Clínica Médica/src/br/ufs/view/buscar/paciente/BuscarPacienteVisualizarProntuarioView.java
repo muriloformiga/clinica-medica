@@ -151,28 +151,29 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
         
 //       
         
-       ControlePaciente con = new ControlePaciente();
-       ControleProntuario pron = new ControleProntuario();
+       ControlePaciente pac = new ControlePaciente();
        
-       con.paciente = con.pacientedao.get(txtPacienteCPF.getText());
-       
-       if(con.paciente.getCpf() == null){
+       pac.paciente = pac.buscarPaciente(txtPacienteCPF.getText());
+              
+       if(pac.paciente.getCpf() == null){
            txtErro.setText("Paciente não encontrado!");
        }else{
-        pron.prontuario = pron.prontuariodao.get(con.paciente.getProntuarioId());
-        VisualizarProntuarioView frm = new VisualizarProntuarioView();
-        frm.setNome(con.paciente.getNome());
-        frm.setCpf(con.paciente.getCpf());
-        frm.setTelefone(con.paciente.getFone());
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        frm.setDataNascimento(df.format(con.paciente.getDt_nasc()));
-        frm.setPrescricoesRemedios(pron.prontuario.getPrescricaoRemedios());
-        frm.setObservacoesMedicas(pron.prontuario.getObservacoesMedicas());
+            ControleProntuario pron = new ControleProntuario();
+
+            pron.prontuario = pron.buscarProntuario(pac.paciente.getProntuarioId());
+            VisualizarProntuarioView frm = new VisualizarProntuarioView();
+            frm.setNome(pac.paciente.getNome());
+            frm.setCpf(pac.paciente.getCpf());
+            frm.setTelefone(pac.paciente.getFone());
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            frm.setDataNascimento(df.format(pac.paciente.getDt_nasc()));
+            frm.setPrescricoesRemedios(pron.prontuario.getPrescricaoRemedios());
+            frm.setObservacoesMedicas(pron.prontuario.getObservacoesMedicas());
 
 
-        frm.setVisible(true);
-        // System.out.println(this.nome);
-        this.dispose();
+            frm.setVisible(true);
+            // System.out.println(this.nome);
+            this.dispose();
        }
         
        

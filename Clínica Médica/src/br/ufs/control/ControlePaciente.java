@@ -33,6 +33,12 @@ public class ControlePaciente implements ActionListener{
         this.identificadorFonte = identificadorFonte;
     }
     
+    public Paciente buscarPaciente(String cpf){
+        
+        this.paciente = this.pacientedao.get(cpf);
+        return paciente;
+    }
+    
     
    
 
