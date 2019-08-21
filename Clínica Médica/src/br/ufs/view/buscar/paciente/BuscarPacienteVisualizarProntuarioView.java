@@ -50,6 +50,7 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtPacienteCPF = new javax.swing.JTextField();
         btnBuscarPaciente = new javax.swing.JButton();
+        txtErro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Paciente");
@@ -80,16 +81,23 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
             }
         });
 
+        txtErro.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +106,9 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtErro, javax.swing.GroupLayout.DEFAULT_SIZE, 13, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -140,29 +150,38 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
         
 //       
-
+        
        ControlePaciente con = new ControlePaciente();
        ControleProntuario pron = new ControleProntuario();
        
        con.paciente = con.pacientedao.get(txtPacienteCPF.getText());
-       pron.prontuario = pron.prontuariodao.get(con.paciente.getProntuarioId()) ;
+       
+       if(con.paciente.getCpf() == null){
+           txtErro.setText("Paciente não encontrado!");
+       }else{
+        pron.prontuario = pron.prontuariodao.get(con.paciente.getProntuarioId());
+        VisualizarProntuarioView frm = new VisualizarProntuarioView();
+        frm.setNome(con.paciente.getNome());
+        frm.setCpf(con.paciente.getCpf());
+        frm.setTelefone(con.paciente.getFone());
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        frm.setDataNascimento(df.format(con.paciente.getDt_nasc()));
+        frm.setPrescricoesRemedios(pron.prontuario.getPrescricaoRemedios());
+        frm.setObservacoesMedicas(pron.prontuario.getObservacoesMedicas());
+
+
+        frm.setVisible(true);
+        // System.out.println(this.nome);
+        this.dispose();
+       }
+        
+       
+       
         
        
        
                
-       VisualizarProntuarioView frm = new VisualizarProntuarioView();
-       frm.setNome(con.paciente.getNome());
-       frm.setCpf(con.paciente.getCpf());
-       frm.setTelefone(con.paciente.getFone());
-       DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-       frm.setDataNascimento(df.format(con.paciente.getDt_nasc()));
-       frm.setPrescricoesRemedios(pron.prontuario.getPrescricaoRemedios());
-       frm.setObservacoesMedicas(pron.prontuario.getObservacoesMedicas());
        
-       
-       frm.setVisible(true);
-       // System.out.println(this.nome);
-       this.dispose();
  
         //new VisualizarProntuarioView().setVisible(true);
 
@@ -271,6 +290,7 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarPaciente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel txtErro;
     private javax.swing.JTextField txtPacienteCPF;
     // End of variables declaration//GEN-END:variables
 }

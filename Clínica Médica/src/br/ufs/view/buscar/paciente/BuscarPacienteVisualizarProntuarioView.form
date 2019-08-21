@@ -97,10 +97,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtPacienteCPF" min="-2" pref="346" max="-2" attributes="0"/>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
-                      <Component id="btnBuscarPaciente" min="-2" pref="159" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="txtErro" min="-2" pref="301" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="txtPacienteCPF" min="-2" pref="346" max="-2" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
+                              <Component id="btnBuscarPaciente" min="-2" pref="159" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -112,7 +120,9 @@
                           <Component id="txtPacienteCPF" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           <Component id="btnBuscarPaciente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtErro" pref="13" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -156,6 +166,13 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarPacienteActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="txtErro">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
