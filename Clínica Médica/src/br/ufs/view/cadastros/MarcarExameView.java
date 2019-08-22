@@ -227,8 +227,8 @@ public class MarcarExameView extends javax.swing.JFrame {
                 ControleExame ex = new ControleExame();
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 Date data = df.parse(txtDataExame.getText());
-                DateFormat dh = new SimpleDateFormat("HH:mm");
-                Date hora = dh.parse(txtHora.getText());
+                DateFormat dh = new SimpleDateFormat("HH:mm:ss");
+                Date hora = dh.parse(txtHora.getText()+":00");
 
                 //Referente a classe model Endereco
                 ex.exame.setConsultaId(this.consulta_id);
