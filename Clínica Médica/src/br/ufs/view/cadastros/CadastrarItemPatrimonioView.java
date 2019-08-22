@@ -103,7 +103,7 @@ public class CadastrarItemPatrimonioView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel1.setText("Marque a opção referente ao STATUS do Patrimônio Cadastrado.");
 
-        txtCpf.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 0)), "CPF do Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        txtCpf.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 0)), "N° Patrimônio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         txtCpf.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class CadastrarItemPatrimonioView extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(326, 326, 326)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCadastrarItemPatrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(86, Short.MAX_VALUE))
         );
@@ -215,6 +215,10 @@ public class CadastrarItemPatrimonioView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboStatusActionPerformed
+
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
@@ -245,7 +249,7 @@ public class CadastrarItemPatrimonioView extends javax.swing.JFrame {
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");
         }finally{
-          //  System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
+            //  System.exit(0);//colocar aqui opcao de retorno ou fazer retorno automatico para tela anterior
         }
     }//GEN-LAST:event_btnCadastrarItemPatrimonioActionPerformed
 
@@ -260,10 +264,6 @@ public class CadastrarItemPatrimonioView extends javax.swing.JFrame {
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescricaoActionPerformed
-
-    private void comboStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboStatusActionPerformed
 
     /**
      * @param args the command line arguments
