@@ -4,7 +4,7 @@ package br.ufs.model;
 import java.util.Date;
 
 public class ItemPatrimonio {
-    enum Status{
+    public enum Status_item{
         EM_USO,
         OCIOSO,
         RECOLHIDO,
@@ -12,7 +12,7 @@ public class ItemPatrimonio {
         IRRECUPERAVEL,
         INDISPONIVEL
     }
-    enum Tipo{
+    public enum Tipo_item{
         TANGIVEL,
         INTANGIVEL,
         MOVEL,
@@ -22,8 +22,8 @@ public class ItemPatrimonio {
     private String localizacao;
     private Date anoAquisicao;
     private int numPatrimonio;
-    private Tipo tipo;
-    private Status status;
+    private Tipo_item tipo;
+    private Status_item status;
     private int id;
     private int patrimonio_id;
     
@@ -66,16 +66,16 @@ public class ItemPatrimonio {
     public void setTipo(String tipo) {
         switch (tipo) {
             case "Tangível":
-                this.tipo = Tipo.TANGIVEL;
+                this.tipo = Tipo_item.TANGIVEL;
                 break;
             case "Intangível":
-                this.tipo = Tipo.INTANGIVEL;
+                this.tipo = Tipo_item.INTANGIVEL;
                 break;
             case "Móvel":
-                this.tipo = Tipo.MOVEL;
+                this.tipo = Tipo_item.MOVEL;
                 break;
             case "Imóvel":
-                this.tipo = Tipo.IMOVEL;
+                this.tipo = Tipo_item.IMOVEL;
                 break;
             default:
                 break;
@@ -89,22 +89,22 @@ public class ItemPatrimonio {
     public void setStatus(String status) {
         switch (status) {
             case "Em uso":
-                this.status = Status.EM_USO;
+                this.status = Status_item.EM_USO;
                 break;
             case "Ocioso":
-                this.status = Status.OCIOSO;
+                this.status = Status_item.OCIOSO;
                 break;
             case "Recolhido":
-                this.status = Status.RECOLHIDO;
+                this.status = Status_item.RECOLHIDO;
                 break;
             case "Em Manutenção":
-                this.status = Status.EM_MANUTENCAO;
+                this.status = Status_item.EM_MANUTENCAO;
                 break;
             case "Irrecuperável":
-                this.status = Status.IRRECUPERAVEL;
+                this.status = Status_item.IRRECUPERAVEL;
                 break;
             case "Indisponível":
-                this.status = Status.INDISPONIVEL;
+                this.status = Status_item.INDISPONIVEL;
                 break;
             default:
                 break;
