@@ -35,9 +35,7 @@ public class FuncionarioDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
     }
     
     public Funcionario get(String CPF){
@@ -60,11 +58,12 @@ public class FuncionarioDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
     return func;
     }
     
+    public void closeConnection(){
+        ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+    }
 }
 
