@@ -2,6 +2,7 @@ package br.ufs.dao;
 //classes
 import br.ufs.connection.ConnectionFactory;
 import br.ufs.model.Paciente;
+import java.awt.List;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,28 +44,36 @@ public class PacienteDAO {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
-    public Paciente getPAC(int id){
+    public Paciente getPAC(){
         Paciente pac = new Paciente();
+       // String cpf = "";
+        int cpf = 1;
         try{
            ResultSet rs = null;
            String sql = "SELECT * FROM clinica.paciente WHERE ID = ?";
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setInt(1, id);
+           //stmt.setString(1, cpf);
+           stmt.setInt(1, cpf);
            rs = stmt.executeQuery();
            while(rs.next()){
                pac.setNomeModelPaciente(rs.getString("NOME"));
-               pac.setCpfModelPaciente(rs.getString("CPF"));
+            //   pac.setCpfModelPaciente(rs.getString("CPF"));
+               pac.setCpfBanco(rs.getString("CPF"));
                pac.setDataNascimentoModelPaciente(rs.getString("DT_NASC"));
                pac.setTelefoneModelPaciente(rs.getString("TELEFONE"));
                pac.setIdFkModelPaciente(rs.getInt("ENDERECO_ID"));
-              
+               
+//               MinhaClasseDAO dao = new MinhaClasseDAO(); 
+//               List<Colaborador> listaColaboradores = dao.recuperaColaborador();
            }
+//           pac.trataCpf();
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
+        System.out.println(pac.getCpfBanco());
         return pac;
     }
 }

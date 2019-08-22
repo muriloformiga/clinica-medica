@@ -1,5 +1,6 @@
 package br.ufs.control;
 
+import br.ufs.dao.PacienteDAO;
 import br.ufs.model.Endereco;
 import br.ufs.model.Paciente;
 import java.awt.event.ActionEvent;
@@ -174,11 +175,11 @@ public class ControlePaciente implements ActionListener{
     }
 
     public void visualizarPac(){        
-        Paciente modelPaciente = new Paciente();        
+        Paciente modelPaciente = new Paciente();
         try {
             modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
-//            System.out.println(modelPaciente.getCpfModelPaciente()); 
-            JOptionPane.showMessageDialog(null, "voce chegou ate o visual paciente obr");
+            modelPaciente.compareBusca();
+            System.out.println(modelPaciente.getCpfModelPaciente()); 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e+" controleVisualizaPac()");
         }

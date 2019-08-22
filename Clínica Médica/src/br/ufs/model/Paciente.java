@@ -12,6 +12,7 @@ public class Paciente {
     private String telefoneModelPaciente;
     private String dataNascimentoModelPaciente;
     private int idFkModelPaciente;
+    private String cpfBanco;
 
     public Paciente() {
     }
@@ -55,23 +56,40 @@ public class Paciente {
         this.dataNascimentoModelPaciente = dataNascimentoModelPaciente;
     }
 
+    public String getCpfBanco() {
+        return cpfBanco;
+    }
+
+    public void setCpfBanco(String cpfBanco) {
+        this.cpfBanco = cpfBanco;
+    }
+    
+
     public int saidaId (){
         int i = 1;
         EnderecoDAO endDao = new EnderecoDAO();
         i = endDao.getLastID();
         return i;
     }
-    //metodo aguardando metodos classe pacienteDAO
-//    public String compareBusca(){
-//        PacienteDAO pDAO = new PacienteDAO();
-//        String cpfSolcitado = this.getCpfModelPaciente();
-////        String cpfBanco = pDAO.get"metodoDAO";
-////        if(cpfSolcitado.equals(cfpBanco)){
-////            return metodoDaBuscaDAO();
-//        }
-//    
-//    return cpfSolcitado;
-//    }
+//    metodo aguardando metodos classe pacienteDAO
+    public String compareBusca(){
+        PacienteDAO pDAO = new PacienteDAO();
+        String sPAC = pDAO.getPAC().getCpfBanco();
+        JOptionPane.showMessageDialog(null, sPAC+" oo1");
+        String cpfSolcitado = this.getCpfModelPaciente();
+        JOptionPane.showMessageDialog(null, cpfSolcitado+" oo2");
+        String cpfBancoEntra = this.getCpfBanco();
+        JOptionPane.showMessageDialog(null, cpfBancoEntra+" oo3");
+        
+        if(cpfSolcitado.equals(cpfBancoEntra)){
+            JOptionPane.showMessageDialog(null, "sao iguais");
+        }else{
+            JOptionPane.showMessageDialog(null, "nao existe cpf");
+            
+        }
+        return cpfSolcitado;
+    }
+    
     public void salvar(Paciente paciente){
         try {
             PacienteDAO pacDAO = new PacienteDAO();
