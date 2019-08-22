@@ -2,6 +2,7 @@ package br.ufs.dao;
 //classes
 import br.ufs.connection.ConnectionFactory;
 import br.ufs.model.Consulta;
+import br.ufs.model.Prontuario;
 import java.sql.Array;
 //pacotes
 import java.sql.Connection;
@@ -44,6 +45,23 @@ public class ConsultaDAO {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
+    public void inserirAtestado(Consulta consulta){
+       String sql = "UPDATE consulta SET atestado_id= ? WHERE id = ?";
+       
+       try{
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1, consulta.getAtestadoId());
+           stmt.setInt(2,consulta.getId());
+
+           int i = stmt.executeUpdate();
+           if(i == 1){System.out.println("Okay");}
+           //return true;
+           
+       } catch (SQLException e) {
+           Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+           //return false;
+       } 
+    }
     
     public Consulta get(int paciente_ID, int medico_ID){
         Consulta consulta = new Consulta();
@@ -85,7 +103,7 @@ public class ConsultaDAO {
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,paciente_ID);
            stmt.setInt(2, medico_ID);
-           stmt.setBoolean(3, true);
+           stmt.setBoolean(3, false);
            rs = stmt.executeQuery();
            while(rs.next()){
                consulta.setData(rs.getDate("DT"));
@@ -107,5 +125,7 @@ public class ConsultaDAO {
        }
         return consultas;
     }
+
+   
     
 }
