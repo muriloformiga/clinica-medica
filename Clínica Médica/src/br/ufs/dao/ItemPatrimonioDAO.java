@@ -21,7 +21,7 @@ public class ItemPatrimonioDAO {
     }
     
     public boolean add(ItemPatrimonio itempatrimonio){
-       String sql = "INSERT INTO patrimonio(DESCRICAO, LOCALIZACAO, ANO_AQUISICAO, NUM_PATRIMONIO, TIPO, STATUS, patrimonio_ID) VALUES (?,?,?,?,?,?,?)";
+       String sql = "INSERT INTO item_patrimonio(DESCRICAO, LOCALIZACAO, ANO_AQUISICAO, NUM_PATRIMONIO, TIPO, STATUS, patrimonio_ID) VALUES (?,?,?,?,?,?,?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
