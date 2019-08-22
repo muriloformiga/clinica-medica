@@ -7,7 +7,10 @@ import br.ufs.model.Prontuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author wesley
+ */
 public class ControleProntuario implements ActionListener{
     public Paciente paciente;
     public Prontuario prontuario;

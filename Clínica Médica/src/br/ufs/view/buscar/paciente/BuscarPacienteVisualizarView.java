@@ -163,14 +163,15 @@ public class BuscarPacienteVisualizarView extends javax.swing.JFrame {
             List<Consulta> consultas = new ArrayList();
             ControleConsulta consulta = new ControleConsulta();
             
-            consultas = consulta.allConsultas();
+            consultas = consulta.consultasMarcadas();
             
   
             VisualizarConsultaView frm = new VisualizarConsultaView();
            
             DefaultTableModel model =(DefaultTableModel) frm.getTable().getModel();
             model.setNumRows(0);
-            DateFormat df = new SimpleDateFormat("HH:mm:ss");
+            DateFormat dtd = new SimpleDateFormat("dd/MM/yyyy");
+            DateFormat df = new SimpleDateFormat("hh:mm:ss");
 
             for (Consulta ob : consultas) {
                 
@@ -178,7 +179,7 @@ public class BuscarPacienteVisualizarView extends javax.swing.JFrame {
                 {
                               //retorna os dados da tabela do BD, cada campo e um coluna.
                     ob.getId(),
-                    ob.getData(),
+                    dtd.format(ob.getData()),
                     df.format(ob.getHora()),
                     ob.getDescricao(),
                     ob.getDiagnostico()
@@ -190,6 +191,7 @@ public class BuscarPacienteVisualizarView extends javax.swing.JFrame {
             frm.setNome(pac.paciente.getNome());
             frm.setCpf(pac.paciente.getCpf());
             frm.setTelefone(pac.paciente.getFone());
+            frm.setDataNascimento(dtd.format(pac.paciente.getDt_nasc()));
             frm.setVisible(true);
             this.dispose();
        }

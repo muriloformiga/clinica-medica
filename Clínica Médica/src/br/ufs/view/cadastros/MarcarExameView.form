@@ -52,7 +52,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" pref="534" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
               </Group>
@@ -109,12 +109,11 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField3" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="txtDataExame" min="-2" pref="130" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="jTextField4" min="-2" pref="130" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtHora" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
+                                  <Component id="txtCombo" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jPanel3" min="-2" pref="510" max="-2" attributes="0"/>
@@ -130,13 +129,13 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="39" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDataExame" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtHora" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="33" max="-2" attributes="0"/>
@@ -146,7 +145,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="txtDataExame">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -162,7 +161,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="txtHora">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -198,7 +197,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="txtCombo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="9">
@@ -217,6 +216,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtComboActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -247,14 +249,14 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelNomePaciente2" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txtNome" min="-2" pref="300" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelCpfPaciente2" min="-2" pref="275" max="-2" attributes="0"/>
+                                  <Component id="txtCpf" min="-2" pref="275" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelNomePaciente3" min="-2" pref="152" max="-2" attributes="0"/>
+                                  <Component id="txtTelefone" min="-2" pref="152" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLabelCpfPaciente3" min="-2" pref="275" max="-2" attributes="0"/>
+                                  <Component id="txtData" min="-2" pref="275" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -266,13 +268,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelNomePaciente2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabelCpfPaciente2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtNome" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtCpf" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelNomePaciente3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabelCpfPaciente3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtTelefone" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtData" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
@@ -280,22 +282,22 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelNomePaciente2">
+                <Component class="javax.swing.JLabel" name="txtNome">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aqui aparecerar o nome do Paciente"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelNomePaciente3">
+                <Component class="javax.swing.JLabel" name="txtTelefone">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aqui aparecerar o Telefone "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelCpfPaciente2">
+                <Component class="javax.swing.JLabel" name="txtCpf">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aqui aparecerar o Cpf do Paciente"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelCpfPaciente3">
+                <Component class="javax.swing.JLabel" name="txtData">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data de nascimento"/>
                   </Properties>

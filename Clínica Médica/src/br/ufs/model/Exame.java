@@ -5,11 +5,21 @@ import java.util.Date;
 
 
 public class Exame {
+      enum Tipo{
+        Sangue,
+        LDL,
+        Glicose,
+        Albumina,
+        Urina,
+        Fezes,
+        T4Livre
+    }
+      
     private Date data;
     private Date hora;
     private boolean situacao;
     private String diagnostico;
-    private String tipo;
+    private Tipo tipo;
     private int id;
     private int atestado_id;
     private int consulta_id;
@@ -47,11 +57,35 @@ public class Exame {
     }
     
     public String getTipo() {
-        return tipo;
+        return tipo.toString();
     }
     
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        switch (tipo) {
+            case "Sangue":
+                this.tipo = Tipo.Sangue;
+                break;
+            case "LDL":
+                this.tipo = Tipo.LDL;
+                break;
+            case "Glicose":
+                this.tipo = Tipo.Glicose;
+                break;
+            case "Albumina":
+                this.tipo = Tipo.Albumina;
+                break;
+            case "Urina":
+                this.tipo = Tipo.Urina;
+                break;
+            case "Fezes":
+                this.tipo = Tipo.Fezes;
+            case "T4Livre":
+                this.tipo = Tipo.T4Livre;
+                break;
+
+            default:
+                break;
+        }
     }
     
     public int getId(){

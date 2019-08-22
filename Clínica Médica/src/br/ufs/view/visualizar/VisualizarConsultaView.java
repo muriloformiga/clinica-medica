@@ -5,7 +5,13 @@
  */
 package br.ufs.view.visualizar;
 
+import br.ufs.control.ControlePaciente;
+import br.ufs.control.ControleProntuario;
+import br.ufs.view.cadastros.CadastrarProntuarioView;
+import br.ufs.view.cadastros.MarcarExameView;
 import java.awt.Color.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JList;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
@@ -22,18 +28,20 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
     public String nome;
     public String cpf;
     public String telefone;
+    public String data;
+    public Integer consulta_id;
     
     public void setNome(String nom){
        txtNome.setText(nom);
-       this.nome = nom;
     }
     public void setCpf(String nom){
        txtCpf.setText(nom);
-       this.cpf = nom;
     }
     public void setTelefone(String nom){
        txtTelefone.setText(nom);
-       this.telefone = nom;
+    }
+    public void setDataNascimento(String nom){
+       this.data = nom;
     }
     
     public JTable getTable(){
@@ -71,7 +79,8 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jSeparator2 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        txtError = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,7 +149,7 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "", "Data", "Hora", "Descrição", "Diagnostico"
+                "Id", "Data", "Hora", "Descrição", "Diagnostico"
             }
         ) {
             Class[] types = new Class [] {
@@ -158,20 +167,38 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jTabbedPane1.addTab("Consultas Marcadas", jScrollPane2);
-        jTabbedPane1.addTab("Consultas Realizadas", jSeparator2);
+
+        jButton1.setText("Marcar Exame");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        txtError.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtError)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -179,7 +206,11 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(txtError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -211,6 +242,29 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int linha = jTable2.getSelectedRow();
+
+        this.consulta_id = Integer.parseInt(jTable2.getValueAt(linha,0).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        if(this.consulta_id != null){
+            MarcarExameView frm = new MarcarExameView();
+            frm.setNome(txtNome.getText());
+            frm.setConsulta(this.consulta_id);
+            frm.setCpf(txtCpf.getText());
+            frm.setTelefone(txtTelefone.getText());
+            frm.setDataNascimento(this.data);
+
+            frm.setVisible(true);
+            this.dispose();
+        }else{
+            txtError.setText("Selecione uma consulta.");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,16 +306,17 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel txtCpf;
+    private javax.swing.JLabel txtError;
     private javax.swing.JLabel txtNome;
     private javax.swing.JLabel txtTelefone;
     // End of variables declaration//GEN-END:variables

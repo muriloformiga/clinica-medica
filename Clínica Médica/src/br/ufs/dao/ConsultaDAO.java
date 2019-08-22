@@ -74,17 +74,18 @@ public class ConsultaDAO {
         return consulta;
     }
     
-    public List<Consulta> getAll(int paciente_ID, int medico_ID){
+    public List<Consulta> getConsultasMarcadas(int paciente_ID, int medico_ID){
         
         List<Consulta> consultas = new ArrayList();
         Consulta consulta = new Consulta();
 
         try{
            ResultSet rs = null;
-           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? ORDER BY DT DESC";;
+           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,paciente_ID);
            stmt.setInt(2, medico_ID);
+           stmt.setBoolean(3, true);
            rs = stmt.executeQuery();
            while(rs.next()){
                consulta.setData(rs.getDate("DT"));

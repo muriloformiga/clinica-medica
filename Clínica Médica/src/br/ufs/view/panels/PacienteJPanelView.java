@@ -36,12 +36,10 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         initComponents();
         btnCadastrarConsulta.setBackground(new Color(20, 150, 90));
         btnVisualizarConsulta.setBackground(new Color(20, 150, 90));
-        btnVisualizarExame.setBackground(new Color(20, 150, 90));
         btnCriarAtestado.setBackground(new Color(20, 150, 90));
         btnVisualizarAtestado.setBackground(new Color(20, 150, 90));
         btnCadastrarProntuario.setBackground(new Color(20, 150, 90));
         btnVisualizarProntuario.setBackground(new Color(20, 150, 90));
-        btnMarcarExame.setBackground(new Color(20, 150, 90));
         btnCadastrarPaciente.setBackground(new Color(20, 150, 90));
     }
 
@@ -58,9 +56,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnCadastrarConsulta = new javax.swing.JButton();
         btnVisualizarConsulta = new javax.swing.JButton();
-        jPanel21 = new javax.swing.JPanel();
-        btnVisualizarExame = new javax.swing.JButton();
-        btnMarcarExame = new javax.swing.JButton();
         jPanel26 = new javax.swing.JPanel();
         btnCriarAtestado = new javax.swing.JButton();
         btnVisualizarAtestado = new javax.swing.JButton();
@@ -121,53 +116,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         );
 
         jPanel1.add(jPanel2);
-
-        jPanel21.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exame", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jPanel21.setOpaque(false);
-
-        btnVisualizarExame.setBackground(new java.awt.Color(255, 255, 255));
-        btnVisualizarExame.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnVisualizarExame.setForeground(new java.awt.Color(255, 255, 255));
-        btnVisualizarExame.setText("Visualizar Exame");
-        btnVisualizarExame.setBorder(null);
-        btnVisualizarExame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarExameActionPerformed(evt);
-            }
-        });
-
-        btnMarcarExame.setBackground(new java.awt.Color(255, 255, 255));
-        btnMarcarExame.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnMarcarExame.setForeground(new java.awt.Color(255, 255, 255));
-        btnMarcarExame.setText("Marcar Exame");
-        btnMarcarExame.setBorder(null);
-        btnMarcarExame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMarcarExameActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVisualizarExame, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                    .addComponent(btnMarcarExame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addComponent(btnMarcarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVisualizarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 99, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel21);
 
         jPanel26.setBackground(new java.awt.Color(20, 182, 130));
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Atestado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
@@ -292,11 +240,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         add(jPanel3);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVisualizarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarExameActionPerformed
-    new BuscarVisualizarExameView().setVisible(true);
-    //btnVisualizarExame.setEnabled(false);
-    }//GEN-LAST:event_btnVisualizarExameActionPerformed
-
     private void btnCriarAtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarAtestadoActionPerformed
      new BuscarCadastrarAtestadoView().setVisible(true);
      //btnCriarAtestado.setEnabled(false);
@@ -323,11 +266,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         //btnCadastrarConsulta.setEnabled(false);
     }//GEN-LAST:event_btnCadastrarConsultaActionPerformed
 
-    private void btnMarcarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarExameActionPerformed
-        new BuscarMarcarExameView().setVisible(true);
-        //btnMarcarExame.setEnabled(false);
-    }//GEN-LAST:event_btnMarcarExameActionPerformed
-
     private void btnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarPacienteActionPerformed
         new CadastrarPacienteView().setVisible(true);
         //btnCadastrarPaciente.setEnabled(false);
@@ -345,10 +283,8 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         btnCadastrarPaciente.setEnabled(true);
         btnCadastrarProntuario.setEnabled(true);
         btnCriarAtestado.setEnabled(true);
-        btnMarcarExame.setEnabled(true);
         btnVisualizarAtestado.setEnabled(true);
         btnVisualizarConsulta.setEnabled(true);
-        btnVisualizarExame.setEnabled(true);
         btnVisualizarProntuario.setEnabled(true);
       }
     };   
@@ -359,14 +295,11 @@ public class PacienteJPanelView extends javax.swing.JPanel {
     private javax.swing.JButton btnCadastrarPaciente;
     private javax.swing.JButton btnCadastrarProntuario;
     private javax.swing.JButton btnCriarAtestado;
-    private javax.swing.JButton btnMarcarExame;
     private javax.swing.JButton btnVisualizarAtestado;
     private javax.swing.JButton btnVisualizarConsulta;
-    private javax.swing.JButton btnVisualizarExame;
     private javax.swing.JButton btnVisualizarProntuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel33;

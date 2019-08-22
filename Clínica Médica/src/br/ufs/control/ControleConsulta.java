@@ -25,10 +25,10 @@ public class ControleConsulta {
         consultadao = new ConsultaDAO();
     }
     
-    public List<Consulta> allConsultas(){
+    public List<Consulta> consultasMarcadas(){
          List<Consulta> consultas = new ArrayList();
         
-        consultas = this.consultadao.getAll(1,1);
+        consultas = this.consultadao.getConsultasMarcadas(1,1);
         
         return consultas;
        
