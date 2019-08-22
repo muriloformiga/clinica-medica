@@ -40,8 +40,8 @@ public class PatrimonioDAO {
        }
     }
     
-    public List<Patrimonio> get(int gerente_ID){
-        List<Patrimonio> patrimonio = new ArrayList<>();
+    public Patrimonio get(int gerente_ID){
+        Patrimonio patrimonio = new Patrimonio();
         try{
            ResultSet rs = null;
            String sql = "SELECT * FROM patrimonio WHERE gerente_ID = ?";
@@ -49,13 +49,11 @@ public class PatrimonioDAO {
            stmt.setInt(1,gerente_ID);
            rs = stmt.executeQuery();
            while(rs.next()){
-               Patrimonio patri = new Patrimonio();
-               patri.setDataUltimoLevantamento(rs.getDate("DT_ULTIMO_LEVANTAMENTO"));
-               patri.setQuantItem(rs.getInt("QTD_ITEM"));
-               patri.setId(rs.getInt("ID"));
-               patri.setGerenteId(rs.getInt("gerente_ID"));
+               patrimonio.setDataUltimoLevantamento(rs.getDate("DT_ULTIMO_LEVANTAMENTO"));
+               patrimonio.setQuantItem(rs.getInt("QTD_ITEM"));
+               patrimonio.setId(rs.getInt("ID"));
+               patrimonio.setGerenteId(rs.getInt("gerente_ID"));
                
-               patrimonio.add(patri);
            }
        } catch (SQLException e) {
            Logger.getLogger(ExameDAO.class.getName()).log(Level.SEVERE, null, e);
