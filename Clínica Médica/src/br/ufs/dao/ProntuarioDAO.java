@@ -35,6 +35,25 @@ public class ProntuarioDAO {
        } 
     }
     
+      public void up(int id,Prontuario prontuario){
+       String sql = "UPDATE prontuario SET prescricao_medica= ?, observacoes_medicas=? WHERE id = ?";
+       
+       try{
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, prontuario.getPrescricaoRemedios());
+           stmt.setString(2, prontuario.getObservacoesMedicas());
+           stmt.setInt(3,id);
+
+           int i = stmt.executeUpdate();
+           if(i == 1){System.out.println("Okay");}
+           //return true;
+           
+       } catch (SQLException e) {
+           Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+           //return false;
+       } 
+    }
+    
     public int getLastID(){
         int id = 0;
         try{

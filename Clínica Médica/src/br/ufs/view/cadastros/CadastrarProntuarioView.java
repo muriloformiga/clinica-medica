@@ -25,9 +25,21 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
      */
     public CadastrarProntuarioView() {
         initComponents();
-        txtPacienteNome.setText("wespro");
         btnCadastrarProntuario.setBackground(new Color(20, 150, 90));
         
+    }
+    
+    public void setNome(String nom){
+       txtNome.setText(nom);
+    }
+    public void setCpf(String nom){
+       txtCpf.setText(nom);
+    }
+    public void setTelefone(String nom){
+       txtTelefone.setText(nom);
+    }
+    public void setDataNascimento(String nom){
+       txtDataNascimento.setText(nom);
     }
 
     /**
@@ -43,10 +55,10 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnCadastrarProntuario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        txtPacienteNome = new javax.swing.JLabel();
-        txtPacienteFone = new javax.swing.JLabel();
-        txtPacienteCPF = new javax.swing.JLabel();
-        txtPacienteData = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JLabel();
+        txtCpf = new javax.swing.JLabel();
+        txtDataNascimento = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtPrescricaoRemedios = new javax.swing.JTextPane();
@@ -79,13 +91,13 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
-        txtPacienteNome.setText("Aqui aparecerar o nome do Paciente");
+        txtNome.setText("Aqui aparecerar o nome do Paciente");
 
-        txtPacienteFone.setText("Aqui aparecerar o Telefone ");
+        txtTelefone.setText("Aqui aparecerar o Telefone ");
 
-        txtPacienteCPF.setText("Aqui aparecerar o Cpf do Paciente");
+        txtCpf.setText("Aqui aparecerar o Cpf do Paciente");
 
-        txtPacienteData.setText("Data de nascimento");
+        txtDataNascimento.setText("Data de nascimento");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -95,13 +107,13 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtPacienteNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtPacienteFone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPacienteData, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -109,12 +121,12 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPacienteNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPacienteCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPacienteFone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPacienteData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -223,13 +235,12 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
          try{
             ControleProntuario con = new ControleProntuario();
             //Referente a classe model Endereco
+            con.paciente.setCpf(txtCpf.getText());
             con.prontuario.setPrescricaoRemedios(txtPrescricaoRemedios.getText());
-            con.prontuario.setPrescricaoRemedios(txtObservacoesMedicas.getText());
+            con.prontuario.setObservacoesMedicas(txtObservacoesMedicas.getText());
             
-           // con.cadastrarPaciente();
-            con.setIdentificadorFonte(getClass().getSimpleName());
+           con.cadastrarPro();
 
-            con.actionPerformed(evt);
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");
         }finally{
@@ -284,11 +295,11 @@ public class CadastrarProntuarioView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel txtCpf;
+    private javax.swing.JLabel txtDataNascimento;
+    private javax.swing.JLabel txtNome;
     private javax.swing.JTextPane txtObservacoesMedicas;
-    private javax.swing.JLabel txtPacienteCPF;
-    private javax.swing.JLabel txtPacienteData;
-    private javax.swing.JLabel txtPacienteFone;
-    private javax.swing.JLabel txtPacienteNome;
     private javax.swing.JTextPane txtPrescricaoRemedios;
+    private javax.swing.JLabel txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

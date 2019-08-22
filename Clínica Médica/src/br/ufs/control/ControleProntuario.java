@@ -1,5 +1,6 @@
 package br.ufs.control;
 
+import br.ufs.dao.PacienteDAO;
 import br.ufs.dao.ProntuarioDAO;
 import br.ufs.model.Paciente;
 import br.ufs.model.Prontuario;
@@ -10,7 +11,7 @@ import javax.swing.JOptionPane;
 public class ControleProntuario implements ActionListener{
     public Paciente paciente;
     public Prontuario prontuario;
-    private String identificadorFonte;
+    public PacienteDAO pacientedao;
     public ProntuarioDAO prontuariodao;
     
     //Construtor
@@ -19,6 +20,7 @@ public class ControleProntuario implements ActionListener{
         paciente = new Paciente();
         prontuario = new Prontuario();
         prontuariodao = new ProntuarioDAO();
+        pacientedao = new PacienteDAO();
     }
     //get e set
     
@@ -28,60 +30,22 @@ public class ControleProntuario implements ActionListener{
         return prontuario;
     }
    
-    public String getIdentificadorFonte() {
-        return identificadorFonte;
-    }
-
-    public void setIdentificadorFonte(String identificadorFonte) {
-        this.identificadorFonte = identificadorFonte;
-    }
     
     
    
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        System.out.println(getIdentificadorFonte());
-        try {            
-            if(getIdentificadorFonte().equals(("CadastrarProntuarioView"))) 
-            { 
-                cadastrarPro();
-            }
-            if(getIdentificadorFonte().equals(("BuscarPacienteVisualizarView"))) 
-            {
-                visualizarPro();
-            }
-            if(getIdentificadorFonte().equals(("BuscarPacienteCadastroView"))) 
-            {
-               // atualizarPac()
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        
        
     }
     
     public void cadastrarPro()
     {        
-//        Paciente modelPaciente = new Paciente();
-//        Endereco modelEndereco = new Endereco();;
-        System.out.println(prontuario.getPrescricaoRemedios());
         try
             {
-//                modelEndereco.setLogradouroModelEndereco(getControleLogradouroPaciente());
-//                modelEndereco.setNumeroModelEndereco(getControleNumPaciente());
-//                modelEndereco.setBairroModelEndereco(getControleBairroPaciente());
-//                modelEndereco.setCidadeModelEndereco(getControleCidadePaciente());
-//                modelEndereco.setEstadoModelEndereco(getControleEstadoPaciente());
-//                modelEndereco.setCepModelEndereco(getControleCepPaciente());
-//                modelEndereco.salvar(modelEndereco);
-//                
-//                modelPaciente.setNomeModelPaciente(getControleNomePaciente());
-//                modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
-//                modelPaciente.setTelefoneModelPaciente(getControleTelefonePaciente());
-//                modelPaciente.setDataNascimentoModelPaciente(getControleDataNascimentoPaciente());
-//                modelPaciente.setIdFkModelPaciente(modelPaciente.saidaId());
-//                modelPaciente.salvar(modelPaciente);
+                paciente = pacientedao.get(paciente.getCpf());
+                prontuariodao.up(paciente.getProntuarioId(),prontuario);
             }
         catch(Exception ex)
             {

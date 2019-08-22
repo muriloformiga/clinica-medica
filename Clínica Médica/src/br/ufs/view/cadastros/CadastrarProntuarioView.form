@@ -169,14 +169,14 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtPacienteNome" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txtNome" min="-2" pref="300" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtPacienteCPF" min="-2" pref="275" max="-2" attributes="0"/>
+                                  <Component id="txtCpf" min="-2" pref="275" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtPacienteFone" min="-2" pref="152" max="-2" attributes="0"/>
+                                  <Component id="txtTelefone" min="-2" pref="152" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtPacienteData" min="-2" pref="275" max="-2" attributes="0"/>
+                                  <Component id="txtDataNascimento" min="-2" pref="275" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="67" max="32767" attributes="0"/>
@@ -188,13 +188,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtPacienteNome" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtPacienteCPF" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtNome" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtCpf" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtPacienteFone" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtPacienteData" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtTelefone" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtDataNascimento" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
@@ -202,22 +202,22 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="txtPacienteNome">
+                <Component class="javax.swing.JLabel" name="txtNome">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aqui aparecerar o nome do Paciente"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtPacienteFone">
+                <Component class="javax.swing.JLabel" name="txtTelefone">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aqui aparecerar o Telefone "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtPacienteCPF">
+                <Component class="javax.swing.JLabel" name="txtCpf">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aqui aparecerar o Cpf do Paciente"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtPacienteData">
+                <Component class="javax.swing.JLabel" name="txtDataNascimento">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Data de nascimento"/>
                   </Properties>
