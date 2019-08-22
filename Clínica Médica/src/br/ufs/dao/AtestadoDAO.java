@@ -18,9 +18,11 @@ public class AtestadoDAO {
         this.con = new ConnectionFactory().getConnection();
     }
     
-    public boolean add(Atestado atestado){
-       String sql = "INSERT INTO atestado(DT_INICIO, QTD_DIAS, CID) VALUES (?,?,?)";
-       
+    public int add(Atestado atestado){
+       String sql = "INSERT INTO atestado(DT_INICIO,QTD_DIAS, CID) VALUES (?,?,?)";
+       ResultSet rs = null;
+       int id = 0;
+
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setDate(1, new java.sql.Date(atestado.getDt_Inicio().getTime()));
@@ -28,11 +30,20 @@ public class AtestadoDAO {
            stmt.setString(3, atestado.getCid());
 
            stmt.execute();
-           return true;
+           sql = "SELECT * FROM atestado ORDER BY ID DESC";
+           stmt = con.prepareStatement(sql);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               
+               id = rs.getInt("ID");
+               break;
+           }
+           
+           return id;
            
        } catch (SQLException e) {
            Logger.getLogger(AtestadoDAO.class.getName()).log(Level.SEVERE, null, e);
-           return false;
+           return id;
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
@@ -59,5 +70,25 @@ public class AtestadoDAO {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
         return atestado;
+    }
+
+    public int getLastId() {
+        int id = 0;
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM atestado ORDER BY DESC";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               
+               id = rs.getInt("ID");
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return 0;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return id;
     }
 }
