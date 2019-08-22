@@ -1,8 +1,10 @@
 package br.ufs.control;
 
+import br.ufs.dao.EnderecoDAO;
 import br.ufs.model.Endereco;
 import br.ufs.model.Paciente;
 import br.ufs.dao.PacienteDAO;
+import br.ufs.dao.ProntuarioDAO;
 import br.ufs.model.Prontuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,9 +14,11 @@ public class ControlePaciente implements ActionListener{
     public Paciente paciente;
     public Endereco endereco;
     public Prontuario prontuario;
+    private final PacienteDAO pacientedao;
+    private final ProntuarioDAO prontuariodao;
+    private EnderecoDAO enderecodao;
     private String identificadorFonte;
     
-    public PacienteDAO pacientedao;
     //Construtor
     public ControlePaciente()
     {        
@@ -22,8 +26,18 @@ public class ControlePaciente implements ActionListener{
         endereco = new Endereco();
         prontuario = new Prontuario();
         pacientedao = new PacienteDAO();
+        prontuariodao = new ProntuarioDAO();
+        enderecodao = new EnderecoDAO();
     }
    
+    public String getIdentificadorFonte() {
+        return identificadorFonte;
+    }
+
+    public void setIdentificadorFonte(String identificadorFonte) {
+        this.identificadorFonte = identificadorFonte;
+    }
+    
     public Paciente buscarPaciente(String cpf){
         
         this.paciente = this.pacientedao.get(cpf);
@@ -37,30 +51,22 @@ public class ControlePaciente implements ActionListener{
     
     public void cadastrarPac()
     {        
-//        Paciente modelPaciente = new Paciente();
-//        Endereco modelEndereco = new Endereco();;
-        System.out.println(paciente.getDt_nasc());
-        try
-            {
-//                modelEndereco.setLogradouroModelEndereco(getControleLogradouroPaciente());
-//                modelEndereco.setNumeroModelEndereco(getControleNumPaciente());
-//                modelEndereco.setBairroModelEndereco(getControleBairroPaciente());
-//                modelEndereco.setCidadeModelEndereco(getControleCidadePaciente());
-//                modelEndereco.setEstadoModelEndereco(getControleEstadoPaciente());
-//                modelEndereco.setCepModelEndereco(getControleCepPaciente());
-//                modelEndereco.salvar(modelEndereco);
-//                
-//                modelPaciente.setNomeModelPaciente(getControleNomePaciente());
-//                modelPaciente.setCpfModelPaciente(getControleCpfPaciente());
-//                modelPaciente.setTelefoneModelPaciente(getControleTelefonePaciente());
-//                modelPaciente.setDataNascimentoModelPaciente(getControleDataNascimentoPaciente());
-//                modelPaciente.setIdFkModelPaciente(modelPaciente.saidaId());
-//                modelPaciente.salvar(modelPaciente);
-            }
-        catch(Exception ex)
-            {
-                JOptionPane.showMessageDialog(null, ex+" controlecadastrarPac()");
-            } 
+        try{
+            int id = 0;
+            enderecodao.add(endereco);
+            id = enderecodao.getLastID();
+            paciente.setEnderecoId(id);
+            prontuariodao.add(prontuario);
+            id = prontuariodao.getLastID();
+            paciente.setProntuarioId(id);
+            pacientedao.add(paciente);
+            enderecodao.closeConnection();
+            prontuariodao.closeConnection();
+            pacientedao.closeConnection();
+            JOptionPane.showMessageDialog(null, "Paciente cadastrado com sucesso!");
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e+" controleVisualizaPac()");
+        }
     }
 
     public void visualizarPac(){        
@@ -85,7 +91,14 @@ public class ControlePaciente implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {            
+            if(getIdentificadorFonte().equals(("CadastrarPacienteView"))) 
+            { 
+                cadastrarPac();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
 
