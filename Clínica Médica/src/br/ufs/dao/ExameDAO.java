@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,12 +23,12 @@ public class ExameDAO {
     }
     
     public boolean add(Exame exame){
-       String sql = "INSERT INTO exame(DT, HORA, SITUACAO, DIAGNOSTICO, TIPO, consulta_ID) VALUES (?,?,?,?,?,?)";
-       
+       String sql = "INSERT INTO exame(DT, HORA, SITUACAO, DIAGNOSTICO, TIPO, consulta_ID) VALUES (?,?::TIME,?,?,?::tipo_exame,?)";
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setDate(1, new java.sql.Date(exame.getData().getTime()));
-           stmt.setDate(2, new java.sql.Date(exame.getHora().getTime())); //Este tipo deverá ser Date
+           DateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+           stmt.setString(2, sdf.format(exame.getHora()));
            stmt.setBoolean(3, exame.isSituacao());
            stmt.setString(4, exame.getDiagnostico());
            stmt.setString(5, exame.getTipo());
