@@ -148,9 +148,7 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPacienteCPFActionPerformed
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
-        
-//       
-        
+                
        ControlePaciente pac = new ControlePaciente();
        
        pac.paciente = pac.buscarPaciente(txtPacienteCPF.getText());
@@ -172,7 +170,6 @@ public class BuscarPacienteVisualizarProntuarioView extends javax.swing.JFrame {
 
 
             frm.setVisible(true);
-            // System.out.println(this.nome);
             this.dispose();
        }
         

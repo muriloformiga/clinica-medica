@@ -2,11 +2,14 @@ package br.ufs.dao;
 //classes
 import br.ufs.connection.ConnectionFactory;
 import br.ufs.model.Consulta;
+import java.sql.Array;
 //pacotes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,6 +72,39 @@ public class ConsultaDAO {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
         return consulta;
+    }
+    
+    public List<Consulta> getAll(int paciente_ID, int medico_ID){
+        
+        List<Consulta> consultas = new ArrayList();
+        Consulta consulta = new Consulta();
+
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? ORDER BY DT DESC";;
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,paciente_ID);
+           stmt.setInt(2, medico_ID);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               consulta.setData(rs.getDate("DT"));
+               consulta.setDescricao(rs.getString("DESCRICAO"));
+               consulta.setDiagnostico(rs.getString("DIAGNOSTICO"));
+               consulta.setHora(rs.getDate("HORA"));
+               consulta.setSituacao(rs.getBoolean("SITUACAO"));
+               consulta.setMedicoId(rs.getInt("medico_ID"));
+               consulta.setPacienteId(rs.getInt("paciente_ID"));
+               consulta.setId(rs.getInt("ID"));
+               consulta.setAtestadoId(rs.getInt("atestado_ID"));;
+               consultas.add(consulta);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return consultas;
     }
     
 }
