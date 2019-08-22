@@ -7,6 +7,7 @@ package br.ufs.view.visualizar;
 
 import br.ufs.control.ControlePaciente;
 import br.ufs.control.ControleProntuario;
+import br.ufs.view.cadastros.CadastrarAtestadoView;
 import br.ufs.view.cadastros.CadastrarProntuarioView;
 import br.ufs.view.cadastros.MarcarExameView;
 import java.awt.Color.*;
@@ -79,8 +80,9 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btn_exame = new javax.swing.JButton();
         txtError = new javax.swing.JLabel();
+        btn_atestado = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,7 +129,7 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,14 +178,26 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consultas Marcadas", jScrollPane2);
 
-        jButton1.setText("Marcar Exame");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_exame.setText("Marcar Exame");
+        btn_exame.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btn_exameMouseClicked(evt);
             }
         });
 
         txtError.setForeground(new java.awt.Color(255, 0, 51));
+
+        btn_atestado.setText("Criar Atestado");
+        btn_atestado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_atestadoMouseClicked(evt);
+            }
+        });
+        btn_atestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atestadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -195,7 +209,9 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btn_exame)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_atestado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtError)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -208,9 +224,10 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(txtError))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btn_exame, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(txtError)
+                    .addComponent(btn_atestado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -220,7 +237,7 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
+                .addGap(0, 94, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -249,7 +266,7 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         this.consulta_id = Integer.parseInt(jTable2.getValueAt(linha,0).toString());
     }//GEN-LAST:event_jTable2MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btn_exameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_exameMouseClicked
         // TODO add your handling code here:
         if(this.consulta_id != null){
             MarcarExameView frm = new MarcarExameView();
@@ -264,7 +281,28 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         }else{
             txtError.setText("Selecione uma consulta.");
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btn_exameMouseClicked
+
+    private void btn_atestadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_atestadoMouseClicked
+        // TODO add your handling code here:
+        if(this.consulta_id != null){
+            CadastrarAtestadoView frm = new CadastrarAtestadoView();
+            frm.setNome(txtNome.getText());
+            frm.setConsulta(this.consulta_id);
+            frm.setCpf(txtCpf.getText());
+            frm.setTelefone(txtTelefone.getText());
+            frm.setDataNascimento(this.data);
+
+            frm.setVisible(true);
+            this.dispose();
+        }else{
+            txtError.setText("Selecione uma consulta.");
+        }
+    }//GEN-LAST:event_btn_atestadoMouseClicked
+
+    private void btn_atestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_atestadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,7 +344,8 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_atestado;
+    private javax.swing.JButton btn_exame;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
