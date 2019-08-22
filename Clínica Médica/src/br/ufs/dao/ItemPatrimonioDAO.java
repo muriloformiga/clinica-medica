@@ -21,8 +21,9 @@ public class ItemPatrimonioDAO {
     }
     
     public boolean add(ItemPatrimonio itempatrimonio){
-       String sql = "INSERT INTO item_patrimonio(DESCRICAO, LOCALIZACAO, ANO_AQUISICAO, NUM_PATRIMONIO, TIPO, STATUS, patrimonio_ID) VALUES (?,?,?,?,?,?,?)";
-       
+       //String sql = "INSERT INTO item_patrimonio(DESCRICAO, LOCALIZACAO, ANO_AQUISICAO, NUM_PATRIMONIO, TIPO, STATUS, patrimonio_ID) VALUES (?,?,?,?,?,?,?)";
+       String sql = "INSERT INTO item_patrimonio(descricao, localizacao, ano_aquisicao, num_patrimonio, tipo, status, patrimonio_id) VALUES (?, ?, ?, ?, ?::tipo_patrimonio, ?::status_item, ?)";
+       System.out.println(itempatrimonio.getTipo());
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, itempatrimonio.getDescricao());           
