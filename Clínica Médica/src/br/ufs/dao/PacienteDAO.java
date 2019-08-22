@@ -35,9 +35,7 @@ public class PacienteDAO {
        } catch (SQLException e) {
            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
     }
     
     public Paciente get(String CPF){
@@ -60,9 +58,11 @@ public class PacienteDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
     return pac;
+    }
+    
+    public void closeConnection(){
+        ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
     }
 }

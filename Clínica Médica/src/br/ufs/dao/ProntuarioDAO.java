@@ -32,9 +32,7 @@ public class ProntuarioDAO {
        } catch (SQLException e) {
            Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
     }
     
     public int getLastID(){
@@ -50,9 +48,7 @@ public class ProntuarioDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return -1;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
         return id;
     }
     
@@ -72,9 +68,11 @@ public class ProntuarioDAO {
        } catch (SQLException e) {
            Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
-       }
+       } 
         return pront;
+    }
+    
+    public void closeConnection(){
+        ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
     }
 }
