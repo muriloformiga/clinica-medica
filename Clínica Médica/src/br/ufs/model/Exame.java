@@ -6,13 +6,16 @@ import java.util.Date;
 
 public class Exame {
       enum Tipo{
-        Sangue,
+        SANGUE,
         LDL,
-        Glicose,
-        Albumina,
-        Urina,
-        Fezes,
-        T4Livre
+        VLDL,
+        HDL,
+        GLICOSE,
+        ALBUMINA,
+        URINA,
+        FEZES,
+        T4LIVRE,
+        TSH
     }
       
     private Date data;
@@ -63,24 +66,24 @@ public class Exame {
     public void setTipo(String tipo) {
         switch (tipo) {
             case "Sangue":
-                this.tipo = Tipo.Sangue;
+                this.tipo = Tipo.SANGUE;
                 break;
             case "LDL":
                 this.tipo = Tipo.LDL;
                 break;
             case "Glicose":
-                this.tipo = Tipo.Glicose;
+                this.tipo = Tipo.GLICOSE;
                 break;
             case "Albumina":
-                this.tipo = Tipo.Albumina;
+                this.tipo = Tipo.ALBUMINA;
                 break;
             case "Urina":
-                this.tipo = Tipo.Urina;
+                this.tipo = Tipo.URINA;
                 break;
             case "Fezes":
-                this.tipo = Tipo.Fezes;
+                this.tipo = Tipo.FEZES;
             case "T4Livre":
-                this.tipo = Tipo.T4Livre;
+                this.tipo = Tipo.T4LIVRE;
                 break;
 
             default:
