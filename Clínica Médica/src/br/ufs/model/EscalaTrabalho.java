@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class EscalaTrabalho {
     private String diasTrabalhar;
-    private Date hora;
+    private String hora;
     private String cargaHoraria;
     private int id;
     private int funcionario_id;
@@ -19,11 +19,11 @@ public class EscalaTrabalho {
         this.diasTrabalhar = diasTrabalhar;
     }
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
