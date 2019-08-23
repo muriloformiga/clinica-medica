@@ -34,8 +34,6 @@ public class EspecialidadeDAO {
        } catch (SQLException e) {
            Logger.getLogger(EspecialidadeDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
     
@@ -57,9 +55,29 @@ public class EspecialidadeDAO {
        } catch (SQLException e) {
            Logger.getLogger(EspecialidadeDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
         return especialidade;
+    }
+    
+    public List<Integer> get(String especialidade){
+        List<Integer> lista = new ArrayList<>();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT medico_ID FROM especialidade WHERE NOME = ? group by(medico_ID)";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setString(1, especialidade);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               lista.add(rs.getInt("medico_ID"));
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(EspecialidadeDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       }
+        return lista;
+    }
+    
+    public void closeConnection(){
+        ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
     }
 }
