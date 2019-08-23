@@ -127,7 +127,9 @@ public class BuscarPacienteCadastroView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomePacienteActionPerformed
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
-        new CadastrarConsultaView().setVisible(true);
+        CadastrarConsultaView tela = new CadastrarConsultaView();
+        tela.CPF = txtNomePaciente.getText();
+        tela.setVisible(true);
         try {
            ControlePaciente con = new ControlePaciente();
             
