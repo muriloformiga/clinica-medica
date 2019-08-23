@@ -34,8 +34,6 @@ public class MedicoDAO {
        } catch (SQLException e) {
            Logger.getLogger(MedicoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
     public List<Medico> getALL(String especialidade){
@@ -63,8 +61,6 @@ public class MedicoDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
         return medico; 
     }
@@ -91,9 +87,38 @@ public class MedicoDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
         return medico; 
+    }
+    
+    public Medico getMed(int id){
+        Medico medico = new Medico();
+        String sql = "SELECT f.NOME, f.CPF, f.MATRICULA, f.TELEFONE, f.DT_NASC, f.endereco_ID, m.ID, m.CRM, m.funcionario_ID FROM medico AS m JOIN funcionario AS f ON(m.funcionario_ID = f.ID) WHERE m.ID = ?";
+        try{
+           ResultSet rs = null;
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1, id);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               medico.setCrm(rs.getString("CRM"));
+               medico.setNome(rs.getString("NOME"));
+               medico.setCpf(rs.getString("CPF"));
+               medico.setDt_nasc(rs.getDate("DT_NASC"));
+               medico.setMatricula(rs.getString("MATRICULA"));
+               medico.setTelefone(rs.getString("TELEFONE"));
+               medico.setFuncionarioId(rs.getInt("funcionario_ID"));
+               medico.setId(rs.getInt("ID"));
+               medico.setEnderecoId(rs.getInt("endereco_ID"));
+           }
+           
+       } catch (SQLException e) {
+           Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       }
+        return medico; 
+    }
+    
+    public void closeConnection(){
+        ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
     }
 }
