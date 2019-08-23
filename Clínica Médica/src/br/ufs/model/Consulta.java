@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Consulta {
     private Date data;
-    private Date hora;
+    private String hora;
     private boolean situacao;
     private String descricao;
     private String diagnostico;
@@ -23,11 +23,11 @@ public class Consulta {
         this.data = data;
     }
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
