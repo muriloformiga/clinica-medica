@@ -23,12 +23,12 @@ public class ConsultaDAO {
     }
     
     public boolean add(Consulta consulta){
-       String sql = "INSERT INTO consulta(DT, HORA, SITUACAO, DESCRICAO, DIAGNOSTICO, medico_ID, paciente_ID) VALUES (?,?,?,?,?,?,?)";
+       String sql = "INSERT INTO consulta(DT, HORA, SITUACAO, DESCRICAO, DIAGNOSTICO, medico_ID, paciente_ID) VALUES (?,?::TIME,?,?,?,?,?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setDate(1, new java.sql.Date(consulta.getData().getTime()));
-           stmt.setDate(2, new java.sql.Date(consulta.getHora().getTime())); //OBS: Horario do tipo Time ou Date?
+           stmt.setString(2, consulta.getHora()); //OBS: Horario do tipo Time ou Date?
            stmt.setBoolean(3, consulta.isSituacao());
            stmt.setString(4, consulta.getDescricao());
            stmt.setString(5, consulta.getDiagnostico());
@@ -76,7 +76,7 @@ public class ConsultaDAO {
                consulta.setData(rs.getDate("DT"));
                consulta.setDescricao(rs.getString("DESCRICAO"));
                consulta.setDiagnostico(rs.getString("DIAGNOSTICO"));
-               consulta.setHora(rs.getDate("HORA"));
+               consulta.setHora(rs.getString("HORA"));
                consulta.setSituacao(rs.getBoolean("SITUACAO"));
                consulta.setMedicoId(rs.getInt("medico_ID"));
                consulta.setPacienteId(rs.getInt("paciente_ID"));
@@ -109,7 +109,7 @@ public class ConsultaDAO {
                consulta.setData(rs.getDate("DT"));
                consulta.setDescricao(rs.getString("DESCRICAO"));
                consulta.setDiagnostico(rs.getString("DIAGNOSTICO"));
-               consulta.setHora(rs.getDate("HORA"));
+               consulta.setHora(rs.getString("HORA"));
                consulta.setSituacao(rs.getBoolean("SITUACAO"));
                consulta.setMedicoId(rs.getInt("medico_ID"));
                consulta.setPacienteId(rs.getInt("paciente_ID"));
