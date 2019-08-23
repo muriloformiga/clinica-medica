@@ -5,7 +5,19 @@
  */
 package br.ufs.view.cadastros;
 
+import br.ufs.control.ControleConsulta;
+import br.ufs.model.EscalaTrabalho;
+import br.ufs.model.Medico;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,7 +28,10 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
     /**
      * Creates new form CadastrarConsultaView
      */
+    public String CPF;
+    private ControleConsulta con;
     public CadastrarConsultaView() {
+        con = new ControleConsulta();
         initComponents();
         btnCadastrarConsulta.setBackground(new Color(20, 150, 90));
         
@@ -37,6 +52,8 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        txtData = new javax.swing.JTextField();
+        txtDescricao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadatrar Consulta");
@@ -61,6 +78,11 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma especialidade", "Cardiologia", "Pediatra", " ", " ", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -82,6 +104,20 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
+        txtData.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 51)), "Ano de Aquisição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
+            }
+        });
+
+        txtDescricao.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 0)), "Descrição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        txtDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescricaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -97,7 +133,11 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(240, 240, 240))))
+                        .addGap(240, 240, 240))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 447, Short.MAX_VALUE))
+                    .addComponent(txtDescricao)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +146,11 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
@@ -146,8 +190,93 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarConsultaActionPerformed
-        // TODO add your handling code here:
+        try {
+            String string = txtData.getText();
+            DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+            Date date;
+            date = format.parse(string);
+            con.consulta.setData(date);
+            con.consulta.setDescricao(txtDescricao.getText());
+            con.setPaciente(CPF);
+            con.consulta.setPacienteId(con.paciente.getId());
+            int linha = jTable1.getSelectedRow();
+            System.out.println(jTable1.getValueAt(linha, 1).toString());
+            
+            for (Iterator<Medico> it = con.medico_list.iterator(); it.hasNext();) {
+                con.medico = it.next();
+                if(con.medico.getNome().equals(jTable1.getValueAt(linha, 0).toString())){
+                    con.consulta.setMedicoId(con.medico.getId());
+                    con.consulta.setHora(
+                            jTable1.getValueAt(linha, 1).toString()+
+                            jTable1.getValueAt(linha, 2).toString()+
+                            jTable1.getValueAt(linha, 3).toString()+
+                            jTable1.getValueAt(linha, 4).toString()+
+                            jTable1.getValueAt(linha, 5)
+                    );
+                }
+            }
+            
+            con.consulta.setSituacao(true);
+            con.cadastrarConsulta();
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastrarConsultaView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCadastrarConsultaActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        Object[] linha;
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        con.setConsultaPorEspecialidae(jComboBox1.getSelectedItem().toString());
+        for (Iterator<Medico> it = con.medico_list.iterator(); it.hasNext();) {
+            con.medico = it.next();
+            con.setEscala(con.medico.getMatricula());
+            for (Iterator<EscalaTrabalho> it_ = con.medico_escala.iterator(); it_.hasNext();) {
+                con.escala = it_.next();
+                switch(con.escala.getDiasTrabalhar()){
+                    case "seg":
+                        linha = new String [] {
+                        con.medico.getNome(), con.escala.getHora(), "", "", "", ""
+                        };
+                        model.addRow(linha);
+                        break;
+                    case "ter":
+                        linha = new String [] {
+                        con.medico.getNome(), "", con.escala.getHora(), "", "", ""
+                        };
+                        model.addRow(linha);
+                        break;
+                    case "qua":
+                        linha = new String [] {
+                        con.medico.getNome(), "", "", con.escala.getHora(), "", ""
+                        };
+                        model.addRow(linha);
+                        break;
+                    case "qui":
+                        linha = new String [] {
+                        con.medico.getNome(), "", "", "", con.escala.getHora(), ""
+                        };
+                        model.addRow(linha);
+                        break;
+                    case "sex":
+                        linha = new String [] {
+                        con.medico.getNome(), "", "", "", "", con.escala.getHora()
+                        };
+                        model.addRow(linha);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
+
+    private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescricaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,5 +320,7 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtData;
+    private javax.swing.JTextField txtDescricao;
     // End of variables declaration//GEN-END:variables
 }
