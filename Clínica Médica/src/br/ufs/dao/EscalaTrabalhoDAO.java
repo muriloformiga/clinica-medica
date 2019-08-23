@@ -7,7 +7,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +28,7 @@ public class EscalaTrabalhoDAO {
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, escala.getDiasTrabalhar());
-           stmt.setDate(2, new java.sql.Date(escala.getHora().getTime())); //OBS: Horario do tipo Time ou Date?
+           stmt.setString(2, escala.getHora()); //OBS: Horario do tipo Time ou Date?
            stmt.setString(3, escala.getCargaHoraria());
            stmt.setInt(4, escala.getFuncionarioId());
            
@@ -36,8 +38,6 @@ public class EscalaTrabalhoDAO {
        } catch (SQLException e) {
            Logger.getLogger(EscalaTrabalhoDAO.class.getName()).log(Level.SEVERE, null, e);
            return false;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
     }
     
@@ -52,8 +52,8 @@ public class EscalaTrabalhoDAO {
            while(rs.next()){
                EscalaTrabalho esc = new EscalaTrabalho();
                esc.setCargaHoraria(rs.getString("CARGA_HORARIA"));
-               esc.setDiasTrabalhar(rs.getString("DIAS_TRABALHO"));
-               esc.setHora(rs.getDate("HORA"));
+               esc.setDiasTrabalhar(rs.getString("DIAS_TRABALHO"));  
+               esc.setHora(rs.getString("HORA"));
                esc.setId(rs.getInt("ID"));
                esc.setFuncionarioId(rs.getInt("funcionario_ID"));
                escala.add(esc);
@@ -61,9 +61,11 @@ public class EscalaTrabalhoDAO {
        } catch (SQLException e) {
            Logger.getLogger(EnderecoDAO.class.getName()).log(Level.SEVERE, null, e);
            return null;
-       } finally {
-            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
        return escala;
+    }
+    
+    public void closeConnection(){
+        ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
     }
 }
