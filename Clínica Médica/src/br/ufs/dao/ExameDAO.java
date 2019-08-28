@@ -73,4 +73,38 @@ public class ExameDAO {
        }
         return exame;
     }
+    
+    public List<Exame> getExamesMarcados(int paciente_ID, int medico_ID){
+        
+        List<Exame> exames = new ArrayList();
+        Exame exame = new Exame();
+
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,paciente_ID);
+           stmt.setInt(2, medico_ID);
+           stmt.setBoolean(3, false);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               Exame ex = new Exame();
+               ex.setData(rs.getDate("DT"));
+               ex.setDiagnostico(rs.getString("DIAGNOSTICO"));
+               ex.setHora(rs.getDate("HORA"));
+               ex.setSituacao(rs.getBoolean("SITUACAO"));
+               ex.setTipo(rs.getString("TIPO"));
+               ex.setId(rs.getInt("ID"));
+               ex.setConsultaId(rs.getInt("consulta_ID"));
+               ex.setAtestadoId(rs.getInt("atestado_ID"));
+               exames.add(ex);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return exames;
+    }
 }

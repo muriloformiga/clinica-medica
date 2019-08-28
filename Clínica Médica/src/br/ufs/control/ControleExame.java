@@ -38,6 +38,15 @@ public class ControleExame {
         
         
     }
+    public List<Exame> exameMarcados(){
+         List<Exame> exames = new ArrayList();
+        
+        exames = this.examedao.getExamesMarcados(1,1);
+        
+        return exames;
+       
+       
+    }
 }
 
 
