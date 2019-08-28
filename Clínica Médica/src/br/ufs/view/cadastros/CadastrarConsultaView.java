@@ -104,7 +104,7 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        txtData.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 51)), "Ano de Aquisição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        txtData.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 51)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         txtData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataActionPerformed(evt);
@@ -224,14 +224,21 @@ public class CadastrarConsultaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarConsultaActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        jTable1.setModel(new DefaultTableModel(null, new String [] {
+                "Nome", "seg", "ter", "qua", "qui", "sex"
+        }));
         Object[] linha;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged(); // notifies
+        con = new ControleConsulta();
         con.setConsultaPorEspecialidae(jComboBox1.getSelectedItem().toString());
         for (Iterator<Medico> it = con.medico_list.iterator(); it.hasNext();) {
             con.medico = it.next();
             con.setEscala(con.medico.getMatricula());
             for (Iterator<EscalaTrabalho> it_ = con.medico_escala.iterator(); it_.hasNext();) {
                 con.escala = it_.next();
+                System.out.println(con.escala.getDiasTrabalhar());
                 switch(con.escala.getDiasTrabalhar()){
                     case "seg":
                         linha = new String [] {
