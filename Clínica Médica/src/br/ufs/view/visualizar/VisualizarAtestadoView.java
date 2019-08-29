@@ -14,6 +14,34 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
     /**
      * Creates new form VisualizarAtestadoView
      */
+    public void setNome(String nome){
+        txtNome.setText("Nome: " + nome);
+    }
+    
+    public void setCid(String cid){
+        txtCid.setText("CID: " + cid);
+    }
+    
+    public void setCpf(String cpf){
+        txtCpf.setText("CPF: " + cpf);
+    }
+    
+    public void setDataInicio(String data){
+        txtDataInicio.setText("Data Início: " + data);
+    }
+    
+    public void setDataNascimento(String data){
+        txtDataNascimento.setText("Data Nascimento: " + data);
+    }
+    
+    public void setQtdDias(String qtd){
+        txtQtdDias.setText("Quantidade de Dias: " + qtd);
+    }
+    
+    public void setTelefone(String telefone){
+        txtTelefone.setText("Telefone: " + telefone);
+    }
+    
     public VisualizarAtestadoView() {
         initComponents();
     }
@@ -30,13 +58,13 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        txtlNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JLabel();
         txtCpf = new javax.swing.JLabel();
         txtDataNascimento = new javax.swing.JLabel();
-        txtDataNascimento1 = new javax.swing.JLabel();
-        txtDataNascimento2 = new javax.swing.JLabel();
-        txtDataNascimento3 = new javax.swing.JLabel();
+        txtQtdDias = new javax.swing.JLabel();
+        txtCid = new javax.swing.JLabel();
+        txtDataInicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Visualizar Atestado");
@@ -52,7 +80,7 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
-        txtlNome.setText("txtNome");
+        txtNome.setText("txtNome");
 
         txtTelefone.setText("txtTelefone");
 
@@ -60,11 +88,11 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
 
         txtDataNascimento.setText("txtDataNascimento");
 
-        txtDataNascimento1.setText("txtQuantidadeDias");
+        txtQtdDias.setText("txtQuantidadeDias");
 
-        txtDataNascimento2.setText("txtCid");
+        txtCid.setText("txtCid");
 
-        txtDataNascimento3.setText("txtDataInicio");
+        txtDataInicio.setText("txtDataInicio");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -74,7 +102,7 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtlNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -82,10 +110,10 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
                         .addGap(154, 154, 154)
                         .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtDataNascimento3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(txtDataNascimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtDataNascimento2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtQtdDias, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCid, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -93,7 +121,7 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtlNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -101,10 +129,10 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDataNascimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDataNascimento3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtQtdDias, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDataNascimento2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtCid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -192,12 +220,12 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel txtCid;
     private javax.swing.JLabel txtCpf;
+    private javax.swing.JLabel txtDataInicio;
     private javax.swing.JLabel txtDataNascimento;
-    private javax.swing.JLabel txtDataNascimento1;
-    private javax.swing.JLabel txtDataNascimento2;
-    private javax.swing.JLabel txtDataNascimento3;
+    private javax.swing.JLabel txtNome;
+    private javax.swing.JLabel txtQtdDias;
     private javax.swing.JLabel txtTelefone;
-    private javax.swing.JLabel txtlNome;
     // End of variables declaration//GEN-END:variables
 }

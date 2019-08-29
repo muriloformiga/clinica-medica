@@ -5,6 +5,7 @@
  */
 package br.ufs.view.visualizar;
 
+import br.ufs.control.ControleAtestado;
 import br.ufs.control.ControlePaciente;
 import br.ufs.control.ControleProntuario;
 import br.ufs.view.cadastros.CadastrarAtestadoView;
@@ -13,6 +14,7 @@ import br.ufs.view.cadastros.MarcarExameView;
 import java.awt.Color.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JList;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
@@ -83,6 +85,8 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         btn_exame = new javax.swing.JButton();
         txtError = new javax.swing.JLabel();
         btn_atestado = new javax.swing.JButton();
+        verAtestado = new javax.swing.JButton();
+        verExame = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -199,6 +203,20 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
             }
         });
 
+        verAtestado.setText("Visualizar Atestado");
+        verAtestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verAtestadoActionPerformed(evt);
+            }
+        });
+
+        verExame.setText("Visualizar Exame");
+        verExame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verExameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -213,7 +231,11 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_atestado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(verAtestado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtError)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verExame)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -224,10 +246,12 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_exame, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(btn_exame, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(txtError)
-                    .addComponent(btn_atestado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
-                .addGap(44, 44, 44)
+                    .addComponent(btn_atestado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(verAtestado)
+                    .addComponent(verExame))
+                .addGap(42, 42, 42)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -304,6 +328,46 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_atestadoActionPerformed
 
+    private void verAtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verAtestadoActionPerformed
+        // TODO add your handling code here:
+        if(this.consulta_id != null){
+            ControleAtestado con = new ControleAtestado();
+            con.setAtestado(this.consulta_id);
+            if(con.atestado != null){
+                VisualizarAtestadoView frm = new VisualizarAtestadoView();
+                frm.setNome(txtNome.getText());
+                frm.setCpf(txtCpf.getText());
+                frm.setTelefone(txtTelefone.getText());
+                frm.setDataNascimento(this.data);
+                frm.setCid(con.atestado.getCid());
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+                frm.setDataInicio(formatter.format(con.atestado.getDt_Inicio()));
+                frm.setQtdDias(Integer.toString(con.atestado.getQt_Dias()));
+                frm.setVisible(true);
+                this.dispose();
+            }else{
+                txtError.setText("Não há atestado.");
+            }
+        }else{
+            txtError.setText("Selecione uma consulta.");
+        }
+    }//GEN-LAST:event_verAtestadoActionPerformed
+
+    private void verExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verExameActionPerformed
+        if(this.consulta_id != null){
+            VisualizarExameView frm = new VisualizarExameView();
+            frm.setNome(txtNome.getText());
+            frm.setCpf(txtCpf.getText());
+            frm.setTelefone(txtTelefone.getText());
+            frm.setDataNascimento(this.data);
+            frm.consulta_id = this.consulta_id;
+            frm.setVisible(true);
+            this.dispose();
+        }else{
+            txtError.setText("Selecione uma consulta.");
+        }
+    }//GEN-LAST:event_verExameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,5 +422,7 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
     private javax.swing.JLabel txtError;
     private javax.swing.JLabel txtNome;
     private javax.swing.JLabel txtTelefone;
+    private javax.swing.JButton verAtestado;
+    private javax.swing.JButton verExame;
     // End of variables declaration//GEN-END:variables
 }

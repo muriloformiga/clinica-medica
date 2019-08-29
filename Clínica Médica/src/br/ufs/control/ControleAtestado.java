@@ -55,7 +55,8 @@ public class ControleAtestado {
         
     }
     
-      public void cadastrarAtestadoExame(){
+
+    public void cadastrarAtestadoExame(){
         try{
             
             //System.out.println(rs.getInt("ID"));
@@ -65,8 +66,12 @@ public class ControleAtestado {
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e+" controlecadastrarItem()");
         }
+     }
         
         
+    public void setAtestado(int id){
+        consulta = consultadao.getById(id);
+        atestado = atestadodao.get(consulta.getAtestadoId());
     }
 }
 
