@@ -152,17 +152,20 @@ public class BuscarPacienteVisualizarView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPacienteCPFActionPerformed
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
-       ControlePaciente pac = new ControlePaciente();
+      ControlePaciente pac = new ControlePaciente();
        
        pac.paciente = pac.buscarPaciente(txtPacienteCPF.getText());
+       
+       
+       
               
        if(pac.paciente.getCpf() == null){
            txtErro.setText("Paciente não encontrado!");
        }else{
-           
+            
             List<Consulta> consultas = new ArrayList();
             ControleConsulta consulta = new ControleConsulta();
-            
+            consulta.paciente.setId(pac.paciente.getId());
             consultas = consulta.consultasMarcadas();
             
   

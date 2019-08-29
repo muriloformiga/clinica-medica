@@ -159,7 +159,8 @@ public class BuscarVisualizarExameView extends javax.swing.JFrame {
            
             List<Exame> exames = new ArrayList();
             ControleExame exame= new ControleExame();
-            
+            exame.paciente.setId(pac.paciente.getId());
+
             exames = exame.exameMarcados();
             
   

@@ -9,6 +9,7 @@ import br.ufs.dao.ConsultaDAO;
 import br.ufs.dao.ExameDAO;
 import br.ufs.model.Consulta;
 import br.ufs.model.Exame;
+import br.ufs.model.Paciente;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -22,10 +23,13 @@ import javax.swing.JOptionPane;
 public class ControleExame {
     public Exame exame;
     public ExameDAO examedao;
-    
+    public Paciente paciente;
+
     public ControleExame(){
         exame = new Exame();
         examedao = new ExameDAO();
+        paciente = new Paciente();
+
     }
     
     public void cadastrarExame(){
@@ -41,7 +45,7 @@ public class ControleExame {
     public List<Exame> exameMarcados(){
          List<Exame> exames = new ArrayList();
         
-        exames = this.examedao.getExamesMarcados(1,1);
+        exames = this.examedao.getExamesMarcados(paciente.getId());
         
         return exames;
        

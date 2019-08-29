@@ -74,18 +74,16 @@ public class ExameDAO {
         return exame;
     }
     
-    public List<Exame> getExamesMarcados(int paciente_ID, int medico_ID){
+    public List<Exame> getExamesMarcados(int paciente_ID){
         
         List<Exame> exames = new ArrayList();
-        Exame exame = new Exame();
 
         try{
            ResultSet rs = null;
-           String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
+           String sql = "SELECT a.DT,a.DIAGNOSTICO,a.HORA,a.SITUACAO,a.TIPO,a.ID,a.consulta_ID,a.atestado_ID FROM exame AS a JOIN consulta AS c ON(c.ID = a.consulta_ID) WHERE c.paciente_ID = ? AND a.SITUACAO = false ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,paciente_ID);
-           stmt.setInt(2, medico_ID);
-           stmt.setBoolean(3, false);
+         
            rs = stmt.executeQuery();
            while(rs.next()){
                Exame ex = new Exame();

@@ -53,8 +53,7 @@ public class ControleConsulta {
     
     public List<Consulta> consultasMarcadas(){
          List<Consulta> consultas = new ArrayList();
-        
-        consultas = this.consultadao.getConsultasMarcadas(1,1);
+        consultas = this.consultadao.getConsultasMarcadas(paciente.getId());
         
         return consultas;
        

@@ -49,6 +49,8 @@ public class ControleProntuario implements ActionListener{
             {
                 paciente = pacientedao.get(paciente.getCpf());
                 prontuariodao.up(paciente.getProntuarioId(),prontuario);
+                JOptionPane.showMessageDialog(null, "Prontuário cadastrado com sucesso!");
+
             }
         catch(Exception ex)
             {
