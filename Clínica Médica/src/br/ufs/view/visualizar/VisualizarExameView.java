@@ -242,10 +242,10 @@ public class VisualizarExameView extends javax.swing.JFrame {
     
     private void btn_atestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atestadoActionPerformed
         // TODO add your handling code here:
-        if(this.exame_id != null){
+         if(this.exame_id != null){
             CadastrarAtestadoView frm = new CadastrarAtestadoView();
             frm.setNome(txtNome.getText());
-            frm.setConsulta(this.exame_id);
+            frm.setExame(this.exame_id);
             frm.setCpf(txtCpf.getText());
             frm.setTelefone(txtTelefone.getText());
             frm.setDataNascimento(this.data);
@@ -253,7 +253,7 @@ public class VisualizarExameView extends javax.swing.JFrame {
             frm.setVisible(true);
             this.dispose();
         }else{
-            txtError.setText("Selecione um exame.");
+            txtError.setText("Selecione uma consulta.");
         }
     }//GEN-LAST:event_btn_atestadoActionPerformed
 

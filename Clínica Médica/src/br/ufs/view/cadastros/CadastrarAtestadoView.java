@@ -24,9 +24,13 @@ public class CadastrarAtestadoView extends javax.swing.JFrame {
      * Creates new form CadastrarConsultaView
      */
      public Integer consulta_id;
+     public Integer exame_id;
     
     public void setConsulta(Integer consulta){
         this.consulta_id = consulta;
+    }
+    public void setExame(Integer exame){
+        this.exame_id = exame;
     }
     public void setNome(String nom){
        txtNome.setText(nom);
@@ -255,8 +259,15 @@ public class CadastrarAtestadoView extends javax.swing.JFrame {
             ates.atestado.setCid(txtcid.getText());
             ates.atestado.setDt_Inicio(data);
             ates.atestado.setQt_Dias(Integer.parseInt(txtDias.getText()));
-            ates.consulta.setId(consulta_id);
-            ates.cadastrarAtestado();
+            if(exame_id != null){
+                ates.exame.setId(exame_id);
+                ates.cadastrarAtestadoExame();
+            }
+            if(consulta_id != null){
+                ates.consulta.setId(consulta_id);
+                ates.cadastrarAtestado();
+            }
+           
 
         }catch(Exception exc){
             JOptionPane.showMessageDialog(null, exc+" cadastrar");

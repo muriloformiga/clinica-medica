@@ -7,8 +7,10 @@ package br.ufs.control;
 
 import br.ufs.dao.AtestadoDAO;
 import br.ufs.dao.ConsultaDAO;
+import br.ufs.dao.ExameDAO;
 import br.ufs.model.Atestado;
 import br.ufs.model.Consulta;
+import br.ufs.model.Exame;
 
 import java.sql.Array;
 import java.sql.ResultSet;
@@ -25,12 +27,18 @@ public class ControleAtestado {
     public AtestadoDAO atestadodao;
     public ConsultaDAO consultadao;
     public Consulta consulta;
+    public Exame exame;
+    public ExameDAO examedao;
+
     
     public ControleAtestado(){
         atestado = new Atestado();
         atestadodao = new AtestadoDAO();
         consultadao = new ConsultaDAO();
         consulta = new Consulta();
+        exame = new Exame();
+        examedao = new ExameDAO();
+
     }
     
     public void cadastrarAtestado(){
@@ -39,6 +47,20 @@ public class ControleAtestado {
             //System.out.println(rs.getInt("ID"));
             consulta.setAtestadoId(atestadodao.add(atestado));
             consultadao.inserirAtestado(consulta);
+            JOptionPane.showMessageDialog(null, "Atestado criado com sucesso!");
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e+" controlecadastrarItem()");
+        }
+        
+        
+    }
+    
+      public void cadastrarAtestadoExame(){
+        try{
+            
+            //System.out.println(rs.getInt("ID"));
+            exame.setAtestadoId(atestadodao.add(atestado));
+            examedao.inserirAtestado(exame);
             JOptionPane.showMessageDialog(null, "Atestado criado com sucesso!");
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, e+" controlecadastrarItem()");

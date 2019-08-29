@@ -105,4 +105,22 @@ public class ExameDAO {
        }
         return exames;
     }
+    
+     public void inserirAtestado(Exame exame){
+       String sql = "UPDATE exame SET atestado_id= ? WHERE id = ?";
+       
+       try{
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1, exame.getAtestadoId());
+           stmt.setInt(2,exame.getId());
+
+           int i = stmt.executeUpdate();
+           if(i == 1){System.out.println("Okay");}
+           //return true;
+           
+       } catch (SQLException e) {
+           Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
+           //return false;
+       } 
+    }
 }
