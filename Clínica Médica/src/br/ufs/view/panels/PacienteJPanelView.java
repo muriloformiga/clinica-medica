@@ -40,7 +40,7 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         btnCadastrarProntuario.setBackground(new Color(20, 150, 90));
         btnVisualizarProntuario.setBackground(new Color(20, 150, 90));
         btnCadastrarPaciente.setBackground(new Color(20, 150, 90));
-        btnVisualizarExame.setBackground(new Color(20, 150, 90));
+//        btnVisualizarExame.setBackground(new Color(20, 150, 90));
     }
 
     /**
@@ -61,8 +61,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel33 = new javax.swing.JPanel();
         btnCadastrarProntuario = new javax.swing.JButton();
         btnVisualizarProntuario = new javax.swing.JButton();
-        jPanel34 = new javax.swing.JPanel();
-        btnVisualizarExame = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnCadastrarPaciente = new javax.swing.JButton();
 
@@ -192,37 +190,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
 
         jPanel1.add(jPanel33);
 
-        jPanel34.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel34.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exame", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jPanel34.setOpaque(false);
-
-        btnVisualizarExame.setBackground(new java.awt.Color(255, 255, 255));
-        btnVisualizarExame.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnVisualizarExame.setForeground(new java.awt.Color(255, 255, 255));
-        btnVisualizarExame.setText("Visualizar Exame");
-        btnVisualizarExame.setBorder(null);
-        btnVisualizarExame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarExameActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
-        jPanel34.setLayout(jPanel34Layout);
-        jPanel34Layout.setHorizontalGroup(
-            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnVisualizarExame, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-        );
-        jPanel34Layout.setVerticalGroup(
-            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel34Layout.createSequentialGroup()
-                .addComponent(btnVisualizarExame, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 138, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel34);
-        jPanel34.getAccessibleContext().setAccessibleName("Exame");
-
         add(jPanel1);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
@@ -287,10 +254,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         new BuscarPacienteVisualizarView().setVisible(true);
         //btnVisualizarConsulta.setEnabled(false);
     }//GEN-LAST:event_btnVisualizarConsultaActionPerformed
-
-    private void btnVisualizarExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarExameActionPerformed
-        new BuscarVisualizarExameView().setVisible(true);
-    }//GEN-LAST:event_btnVisualizarExameActionPerformed
     
     public void ativarJButton(){
     ActionListener ativarBotoes = new ActionListener() {
@@ -311,14 +274,12 @@ public class PacienteJPanelView extends javax.swing.JPanel {
     private javax.swing.JButton btnCadastrarProntuario;
     private javax.swing.JButton btnVisualizarAtestado;
     private javax.swing.JButton btnVisualizarConsulta;
-    private javax.swing.JButton btnVisualizarExame;
     private javax.swing.JButton btnVisualizarProntuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel34;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -24,11 +24,15 @@ public class ControleExame {
     public Exame exame;
     public ExameDAO examedao;
     public Paciente paciente;
+    public ConsultaDAO consultadao;
+    public Consulta consulta;
 
     public ControleExame(){
         exame = new Exame();
         examedao = new ExameDAO();
         paciente = new Paciente();
+        consultadao = new ConsultaDAO();
+        consulta = new Consulta();
 
     }
     
@@ -50,6 +54,11 @@ public class ControleExame {
         return exames;
        
        
+    }
+    
+    public void setExame(int id){
+        consulta = consultadao.getById(id);
+        exame = examedao.get(exame.getConsultaId());
     }
 }
 

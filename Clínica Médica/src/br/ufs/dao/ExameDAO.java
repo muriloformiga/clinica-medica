@@ -45,8 +45,8 @@ public class ExameDAO {
        }
     }
     
-    public List<Exame> get(int consulta_ID){
-        List<Exame> exame = new ArrayList<>();
+    public Exame get(int consulta_ID){
+        Exame ex = new Exame();
         try{
            ResultSet rs = null;
            String sql = "SELECT * FROM exame WHERE consulta_ID = ?";
@@ -54,7 +54,6 @@ public class ExameDAO {
            stmt.setInt(1,consulta_ID);
            rs = stmt.executeQuery();
            while(rs.next()){
-               Exame ex = new Exame();
                ex.setData(rs.getDate("DT"));
                ex.setDiagnostico(rs.getString("DIAGNOSTICO"));
                ex.setHora(rs.getDate("HORA"));
@@ -63,7 +62,6 @@ public class ExameDAO {
                ex.setId(rs.getInt("ID"));
                ex.setConsultaId(rs.getInt("consulta_ID"));
                ex.setAtestadoId(rs.getInt("atestado_ID"));
-               exame.add(ex);
            }
        } catch (SQLException e) {
            Logger.getLogger(ExameDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -71,7 +69,7 @@ public class ExameDAO {
        } finally {
             ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
        }
-        return exame;
+        return ex;
     }
     
     public List<Exame> getExamesMarcados(int paciente_ID){

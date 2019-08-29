@@ -6,6 +6,7 @@
 package br.ufs.view.visualizar;
 
 import br.ufs.control.ControleAtestado;
+import br.ufs.control.ControleExame;
 import br.ufs.control.ControlePaciente;
 import br.ufs.control.ControleProntuario;
 import br.ufs.view.cadastros.CadastrarAtestadoView;
@@ -233,10 +234,9 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(verAtestado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtError)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(verExame)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -245,12 +245,13 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_exame, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(txtError)
-                    .addComponent(btn_atestado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(verAtestado)
-                    .addComponent(verExame))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtError, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_exame, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(btn_atestado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(verAtestado)
+                        .addComponent(verExame)))
                 .addGap(42, 42, 42)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -355,14 +356,27 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
 
     private void verExameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verExameActionPerformed
         if(this.consulta_id != null){
-            VisualizarExameView frm = new VisualizarExameView();
-            frm.setNome(txtNome.getText());
-            frm.setCpf(txtCpf.getText());
-            frm.setTelefone(txtTelefone.getText());
-            frm.setDataNascimento(this.data);
-            frm.consulta_id = this.consulta_id;
-            frm.setVisible(true);
-            this.dispose();
+            ControleExame con = new ControleExame();
+            con.setExame(this.consulta_id);
+            if(con.exame != null){
+
+                VisualizarExameView frm = new VisualizarExameView();
+                frm.setNome(txtNome.getText());
+                frm.setCpf(txtCpf.getText());
+                frm.setTelefone(txtTelefone.getText());
+                frm.setDataNascimento(this.data);
+                if(con.exame.isSituacao())frm.setSituacao("Realizado");
+                else frm.setSituacao("Marcado");
+                frm.setTipo(con.exame.getTipo());
+                frm.setDiagnostico(con.exame.getDiagnostico());
+
+
+                //frm.consulta_id = this.consulta_id;
+                frm.setVisible(true);
+                this.dispose();
+            }else{
+                txtError.setText("Não há atestado.");
+            }
         }else{
             txtError.setText("Selecione uma consulta.");
         }

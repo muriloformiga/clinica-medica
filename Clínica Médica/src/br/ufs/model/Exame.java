@@ -60,6 +60,7 @@ public class Exame {
     }
     
     public String getTipo() {
+        
         return tipo.toString();
     }
     
@@ -82,7 +83,7 @@ public class Exame {
                 break;
             case "fezes":
                 this.tipo = Tipo.FEZES;
-            case "t4Livre":
+            case "t4livre":
                 this.tipo = Tipo.T4LIVRE;
                 break;
 

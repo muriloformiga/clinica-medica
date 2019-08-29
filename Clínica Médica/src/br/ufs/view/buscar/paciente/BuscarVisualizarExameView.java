@@ -166,25 +166,11 @@ public class BuscarVisualizarExameView extends javax.swing.JFrame {
   
             VisualizarExameView frm = new VisualizarExameView();
            
-            DefaultTableModel model =(DefaultTableModel) frm.getTable().getModel();
-            model.setNumRows(0);
+  
             DateFormat dtd = new SimpleDateFormat("dd/MM/yyyy");
             DateFormat df = new SimpleDateFormat("hh:mm:ss");
 
-            for (Exame ob : exames) {
-                
-                model.addRow(new Object[]
-                {
-                              //retorna os dados da tabela do BD, cada campo e um coluna.
-                    ob.getId(),
-                    dtd.format(ob.getData()),
-                    df.format(ob.getHora()),
-                    ob.getTipo(),
-                    ob.getDiagnostico()
-                   
-                });
-                
-            }
+           
 
             frm.setNome(pac.paciente.getNome());
             frm.setCpf(pac.paciente.getCpf());
