@@ -124,6 +124,34 @@ public class ConsultaDAO {
        }
         return consultas;
     }
+    
+    public Consulta getById(int id) {
+       Consulta consulta = new Consulta();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM consulta WHERE id = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,id);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               consulta.setData(rs.getDate("DT"));
+               consulta.setDescricao(rs.getString("DESCRICAO"));
+               consulta.setDiagnostico(rs.getString("DIAGNOSTICO"));
+               consulta.setHora(rs.getString("HORA"));
+               consulta.setSituacao(rs.getBoolean("SITUACAO"));
+               consulta.setMedicoId(rs.getInt("medico_ID"));
+               consulta.setPacienteId(rs.getInt("paciente_ID"));
+               consulta.setId(rs.getInt("ID"));
+               consulta.setAtestadoId(rs.getInt("atestado_ID"));
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return consulta;
+    }
 
    
     

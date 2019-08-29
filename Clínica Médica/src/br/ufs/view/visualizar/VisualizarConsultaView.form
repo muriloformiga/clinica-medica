@@ -122,7 +122,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_atestado" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="verAtestado" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtError" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="verExame" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -137,11 +141,13 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_exame" alignment="3" pref="26" max="32767" attributes="0"/>
+                          <Component id="btn_exame" alignment="3" pref="0" max="32767" attributes="0"/>
                           <Component id="txtError" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_atestado" alignment="3" pref="26" max="32767" attributes="0"/>
+                          <Component id="btn_atestado" alignment="3" pref="0" max="32767" attributes="0"/>
+                          <Component id="verAtestado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="verExame" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="jTabbedPane1" min="-2" pref="408" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -305,6 +311,22 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_atestadoMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_atestadoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="verAtestado">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Visualizar Atestado"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verAtestadoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="verExame">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Visualizar Exame"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verExameActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

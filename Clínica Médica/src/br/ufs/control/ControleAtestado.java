@@ -46,6 +46,11 @@ public class ControleAtestado {
         
         
     }
+    
+    public void setAtestado(int id){
+        consulta = consultadao.getById(id);
+        atestado = atestadodao.get(consulta.getAtestadoId());
+    }
 }
 
 
