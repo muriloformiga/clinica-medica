@@ -36,7 +36,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         initComponents();
         btnCadastrarConsulta.setBackground(new Color(20, 150, 90));
         btnVisualizarConsulta.setBackground(new Color(20, 150, 90));
-        btnVisualizarAtestado.setBackground(new Color(20, 150, 90));
         btnCadastrarProntuario.setBackground(new Color(20, 150, 90));
         btnVisualizarProntuario.setBackground(new Color(20, 150, 90));
         btnCadastrarPaciente.setBackground(new Color(20, 150, 90));
@@ -56,8 +55,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnCadastrarConsulta = new javax.swing.JButton();
         btnVisualizarConsulta = new javax.swing.JButton();
-        jPanel26 = new javax.swing.JPanel();
-        btnVisualizarAtestado = new javax.swing.JButton();
         jPanel33 = new javax.swing.JPanel();
         btnCadastrarProntuario = new javax.swing.JButton();
         btnVisualizarProntuario = new javax.swing.JButton();
@@ -102,7 +99,7 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnVisualizarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addComponent(btnVisualizarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
             .addComponent(btnCadastrarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -115,36 +112,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         );
 
         jPanel1.add(jPanel2);
-
-        jPanel26.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Atestado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jPanel26.setOpaque(false);
-
-        btnVisualizarAtestado.setBackground(new java.awt.Color(255, 255, 255));
-        btnVisualizarAtestado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnVisualizarAtestado.setForeground(new java.awt.Color(255, 255, 255));
-        btnVisualizarAtestado.setText("Visualizar Atestado");
-        btnVisualizarAtestado.setBorder(null);
-        btnVisualizarAtestado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisualizarAtestadoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnVisualizarAtestado, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addComponent(btnVisualizarAtestado, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 138, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel26);
 
         jPanel33.setBackground(new java.awt.Color(20, 182, 130));
         jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prontuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
@@ -176,7 +143,7 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         jPanel33.setLayout(jPanel33Layout);
         jPanel33Layout.setHorizontalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCadastrarProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addComponent(btnCadastrarProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
             .addComponent(btnVisualizarProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel33Layout.setVerticalGroup(
@@ -225,11 +192,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         add(jPanel3);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVisualizarAtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizarAtestadoActionPerformed
-     new BuscarVisualizarAtestadoView().setVisible(true);
-     //btnCadastrarProntuario.setEnabled(false);
-    }//GEN-LAST:event_btnVisualizarAtestadoActionPerformed
-
     private void btnCadastrarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProntuarioActionPerformed
         new BuscarPacienteCadastrarProntuarioView().setVisible(true);
         //btnCadastrarProntuario.setEnabled(false);
@@ -261,7 +223,6 @@ public class PacienteJPanelView extends javax.swing.JPanel {
         btnCadastrarConsulta.setEnabled(true);
         btnCadastrarPaciente.setEnabled(true);
         btnCadastrarProntuario.setEnabled(true);
-        btnVisualizarAtestado.setEnabled(true);
         btnVisualizarConsulta.setEnabled(true);
         btnVisualizarProntuario.setEnabled(true);
       }
@@ -272,12 +233,10 @@ public class PacienteJPanelView extends javax.swing.JPanel {
     private javax.swing.JButton btnCadastrarConsulta;
     private javax.swing.JButton btnCadastrarPaciente;
     private javax.swing.JButton btnCadastrarProntuario;
-    private javax.swing.JButton btnVisualizarAtestado;
     private javax.swing.JButton btnVisualizarConsulta;
     private javax.swing.JButton btnVisualizarProntuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel33;
     // End of variables declaration//GEN-END:variables

@@ -36,7 +36,7 @@ public class MarcarExameView extends javax.swing.JFrame {
        txtTelefone.setText(nom);
     }
     public void setDataNascimento(String nom){
-       txtData.setText(nom);
+       txtData.setText("Data de Nascimento: " + nom);
     }
     public MarcarExameView() {
         initComponents();
@@ -234,7 +234,7 @@ public class MarcarExameView extends javax.swing.JFrame {
                 ex.exame.setConsultaId(this.consulta_id);
                 ex.exame.setTipo((String) txtCombo.getSelectedItem());
                 ex.exame.setData(data);
-                ex.exame.setHora(hora);
+                ex.exame.setHora(txtHora.getText()+":00");
                 ex.cadastrarExame();
 
             }

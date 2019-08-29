@@ -40,9 +40,6 @@ public class AgendaJPanelView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnConsultas = new javax.swing.JButton();
         btnExames = new javax.swing.JButton();
-        jPanel21 = new javax.swing.JPanel();
-        jPanel26 = new javax.swing.JPanel();
-        jPanel33 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 204));
         setRequestFocusEnabled(false);
@@ -82,7 +79,7 @@ public class AgendaJPanelView extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnExames, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+            .addComponent(btnExames, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
             .addComponent(btnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -95,57 +92,6 @@ public class AgendaJPanelView extends javax.swing.JPanel {
         );
 
         jPanel1.add(jPanel2);
-
-        jPanel21.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "...", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jPanel21.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
-        );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel21);
-
-        jPanel26.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "...", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jPanel26.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel26);
-
-        jPanel33.setBackground(new java.awt.Color(20, 182, 130));
-        jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "...", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        jPanel33.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
-        jPanel33.setLayout(jPanel33Layout);
-        jPanel33Layout.setHorizontalGroup(
-            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
-        );
-        jPanel33Layout.setVerticalGroup(
-            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel33);
 
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
@@ -177,9 +123,6 @@ public class AgendaJPanelView extends javax.swing.JPanel {
     private javax.swing.JButton btnExames;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel33;
     // End of variables declaration//GEN-END:variables
 
 }

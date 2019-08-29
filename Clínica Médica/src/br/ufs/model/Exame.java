@@ -24,6 +24,7 @@ public class Exame {
     private String diagnostico;
     private String pacienteNome;
     private Tipo tipo;
+    private String tipo_;
     private int id;
     private int atestado_id;
     private int consulta_id;
@@ -62,7 +63,11 @@ public class Exame {
     
     public String getTipo() {
         
-        return tipo.toString();
+        return tipo_;
+    }
+    
+    public String getTipo_(){
+        return tipo_;
     }
     
      public String getPacienteNome() {
@@ -74,6 +79,7 @@ public class Exame {
     }
     
     public void setTipo(String tipo) {
+        tipo_ = tipo;
         switch (tipo.toLowerCase()) {
             case "sangue":
                 this.tipo = Tipo.SANGUE;
@@ -97,6 +103,7 @@ public class Exame {
                 break;
 
             default:
+                tipo_ = tipo;
                 break;
         }
     }

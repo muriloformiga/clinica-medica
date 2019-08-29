@@ -36,13 +36,13 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
     public Integer consulta_id;
     
     public void setNome(String nom){
-       txtNome.setText(nom);
+       txtNome.setText("Nome: " + nom);
     }
     public void setCpf(String nom){
-       txtCpf.setText(nom);
+       txtCpf.setText("CPF: " + nom);
     }
     public void setTelefone(String nom){
-       txtTelefone.setText(nom);
+       txtTelefone.setText("Telefone: " + nom);
     }
     public void setDataNascimento(String nom){
        this.data = nom;
@@ -367,8 +367,6 @@ public class VisualizarConsultaView extends javax.swing.JFrame {
                 frm.setDataNascimento(this.data);
                 if(con.exame.isSituacao())frm.setSituacao("Realizado");
                 else frm.setSituacao("Marcado");
-                frm.setTipo(con.exame.getTipo());
-                frm.setDiagnostico(con.exame.getDiagnostico());
 
 
                 //frm.consulta_id = this.consulta_id;

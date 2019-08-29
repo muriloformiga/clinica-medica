@@ -28,9 +28,9 @@ public class ExameDAO {
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setDate(1, new java.sql.Date(exame.getData().getTime()));
-           DateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-           stmt.setString(2, sdf.format(exame.getHora()));
-           stmt.setBoolean(3, exame.isSituacao());
+           //DateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+           stmt.setString(2, exame.getHora());
+           stmt.setBoolean(3, true);
            stmt.setString(4, exame.getDiagnostico());
            stmt.setString(5, exame.getTipo());
            stmt.setInt(6, exame.getConsultaId());
@@ -130,14 +130,14 @@ public class ExameDAO {
 
         try{
            ResultSet rs = null;
-           String sql = "SELECT e.DT,e.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) JOIN exame AS e ON(c.ID = e.consulta_ID) WHERE medico_ID = ? AND e.SITUACAO = ? ORDER BY DT DESC";
+           String sql = "SELECT e.TIPO, e.DT,e.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) JOIN exame AS e ON(c.ID = e.consulta_ID) WHERE medico_ID = ? AND e.SITUACAO = ? ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,id);
-           stmt.setBoolean(2, false);
+           stmt.setBoolean(2, true);
            rs = stmt.executeQuery();
            while(rs.next()){
                exame.setData(rs.getDate("DT"));
-               
+               exame.setTipo(rs.getString("TIPO"));
                exame.setHora(rs.getString("HORA"));
                exame.setPacienteNome(rs.getString("NOME"));
                
@@ -161,14 +161,14 @@ public class ExameDAO {
 
         try{
            ResultSet rs = null;
-           String sql = "SELECT e.DT,e.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) JOIN exame AS e ON(c.ID = e.consulta_ID) WHERE medico_ID = ? AND e.SITUACAO = ? ORDER BY DT DESC";
+           String sql = "SELECT e.TIPO, e.DT,e.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) JOIN exame AS e ON(c.ID = e.consulta_ID) WHERE medico_ID = ? AND e.SITUACAO = ? ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,id);
-           stmt.setBoolean(2, true);
+           stmt.setBoolean(2, false);
            rs = stmt.executeQuery();
            while(rs.next()){
                exame.setData(rs.getDate("DT"));
-               
+               exame.setTipo(rs.getString("TIPO"));
                exame.setHora(rs.getString("HORA"));
                exame.setPacienteNome(rs.getString("NOME"));
                

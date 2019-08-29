@@ -15,7 +15,7 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
      * Creates new form VisualizarAtestadoView
      */
     public void setNome(String nome){
-        txtNome.setText("Nome: " + nome);
+        txtNome.setText(nome);
     }
     
     public void setCid(String cid){
@@ -23,7 +23,7 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
     }
     
     public void setCpf(String cpf){
-        txtCpf.setText("CPF: " + cpf);
+        txtCpf.setText(cpf);
     }
     
     public void setDataInicio(String data){
@@ -39,7 +39,7 @@ public class VisualizarAtestadoView extends javax.swing.JFrame {
     }
     
     public void setTelefone(String telefone){
-        txtTelefone.setText("Telefone: " + telefone);
+        txtTelefone.setText(telefone);
     }
     
     public VisualizarAtestadoView() {

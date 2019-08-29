@@ -29,7 +29,7 @@ public class ConsultaDAO {
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setDate(1, new java.sql.Date(consulta.getData().getTime()));
            stmt.setString(2, consulta.getHora()); //OBS: Horario do tipo Time ou Date?
-           stmt.setBoolean(3, consulta.isSituacao());
+           stmt.setBoolean(3, true);
            stmt.setString(4, consulta.getDescricao());
            stmt.setString(5, consulta.getDiagnostico());
            stmt.setInt(6, consulta.getMedicoId()); //Chave estrangeira de Medico
@@ -102,7 +102,7 @@ public class ConsultaDAO {
            String sql = "SELECT * FROM consulta WHERE paciente_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,paciente_ID);
-           stmt.setBoolean(2, false);
+           stmt.setBoolean(2, true);
            rs = stmt.executeQuery();
            while(rs.next()){
                consulta.setData(rs.getDate("DT"));
@@ -162,7 +162,7 @@ public class ConsultaDAO {
            String sql = "SELECT c.DT,c.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) WHERE medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,id);
-           stmt.setBoolean(2, false);
+           stmt.setBoolean(2, true);
            rs = stmt.executeQuery();
            while(rs.next()){
                consulta.setData(rs.getDate("DT"));
@@ -194,7 +194,7 @@ public class ConsultaDAO {
            String sql = "SELECT c.DT,c.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) WHERE medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,id);
-           stmt.setBoolean(2, true);
+           stmt.setBoolean(2, false);
            rs = stmt.executeQuery();
            while(rs.next()){
                 consulta.setData(rs.getDate("DT"));

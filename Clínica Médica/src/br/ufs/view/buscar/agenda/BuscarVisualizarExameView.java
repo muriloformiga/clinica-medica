@@ -179,7 +179,7 @@ public class BuscarVisualizarExameView extends javax.swing.JFrame {
                 {
                               //retorna os dados da tabela do BD, cada campo e um coluna.
                     ob.getPacienteNome(),
-                    "Tipo",
+                    ob.getTipo_(),
 
                     dtd.format(ob.getData()),
                     ob.getHora()
