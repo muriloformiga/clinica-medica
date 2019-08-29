@@ -274,6 +274,7 @@ public class HomeView extends javax.swing.JFrame {
         AgendaJPanelView ag = new AgendaJPanelView();
         jPanelMain.removeAll();//limpar Jpanel
         jPanelMain.add(ag);
+        ag.setVisible(true);
         this.pack();
         setExtendedState(MAXIMIZED_BOTH);
     }//GEN-LAST:event_jPanelAgendaMouseClicked
