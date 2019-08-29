@@ -23,7 +23,7 @@ public class VisualizarExameView extends javax.swing.JFrame {
     public String cpf;
     public String telefone;
     public String data;
-    public Integer consulta_id;
+    public Integer exame_id;
     
     public void setNome(String nom){
        txtNome.setText(nom);
@@ -149,6 +149,11 @@ public class VisualizarExameView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jTabbedPane1.addTab("Exames Marcados", jScrollPane2);
@@ -233,13 +238,14 @@ public class VisualizarExameView extends javax.swing.JFrame {
         // TODO add your handling code here:
  
     }//GEN-LAST:event_btn_atestadoMouseClicked
-
+    
+    
     private void btn_atestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atestadoActionPerformed
         // TODO add your handling code here:
-        if(this.consulta_id != null){
+        if(this.exame_id != null){
             CadastrarAtestadoView frm = new CadastrarAtestadoView();
             frm.setNome(txtNome.getText());
-            frm.setConsulta(this.consulta_id);
+            frm.setConsulta(this.exame_id);
             frm.setCpf(txtCpf.getText());
             frm.setTelefone(txtTelefone.getText());
             frm.setDataNascimento(this.data);
@@ -250,6 +256,12 @@ public class VisualizarExameView extends javax.swing.JFrame {
             txtError.setText("Selecione um exame.");
         }
     }//GEN-LAST:event_btn_atestadoActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int linha = jTable2.getSelectedRow();
+
+        this.exame_id = Integer.parseInt(jTable2.getValueAt(linha,0).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments

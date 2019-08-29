@@ -64,25 +64,25 @@ public class Exame {
     }
     
     public void setTipo(String tipo) {
-        switch (tipo) {
-            case "Sangue":
+        switch (tipo.toLowerCase()) {
+            case "sangue":
                 this.tipo = Tipo.SANGUE;
                 break;
-            case "LDL":
+            case "ldl":
                 this.tipo = Tipo.LDL;
                 break;
-            case "Glicose":
+            case "glicose":
                 this.tipo = Tipo.GLICOSE;
                 break;
-            case "Albumina":
+            case "albumina":
                 this.tipo = Tipo.ALBUMINA;
                 break;
-            case "Urina":
+            case "urina":
                 this.tipo = Tipo.URINA;
                 break;
-            case "Fezes":
+            case "fezes":
                 this.tipo = Tipo.FEZES;
-            case "T4Livre":
+            case "t4Livre":
                 this.tipo = Tipo.T4LIVRE;
                 break;
 
