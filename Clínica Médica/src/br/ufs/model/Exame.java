@@ -19,9 +19,10 @@ public class Exame {
     }
       
     private Date data;
-    private Date hora;
+    private String hora;
     private boolean situacao;
     private String diagnostico;
+    private String pacienteNome;
     private Tipo tipo;
     private int id;
     private int atestado_id;
@@ -35,11 +36,11 @@ public class Exame {
         this.data = data;
     }
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -62,6 +63,14 @@ public class Exame {
     public String getTipo() {
         
         return tipo.toString();
+    }
+    
+     public String getPacienteNome() {
+        return pacienteNome;
+    }
+
+    public void setPacienteNome(String nome) {
+        this.pacienteNome = nome;
     }
     
     public void setTipo(String tipo) {

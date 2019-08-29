@@ -1,6 +1,7 @@
 package br.ufs.dao;
 //classes
 import br.ufs.connection.ConnectionFactory;
+import br.ufs.model.Consulta;
 import br.ufs.model.Exame;
 //pacotes
 import java.sql.Connection;
@@ -56,7 +57,7 @@ public class ExameDAO {
            while(rs.next()){
                ex.setData(rs.getDate("DT"));
                ex.setDiagnostico(rs.getString("DIAGNOSTICO"));
-               ex.setHora(rs.getDate("HORA"));
+               ex.setHora(rs.getString("HORA"));
                ex.setSituacao(rs.getBoolean("SITUACAO"));
                ex.setTipo(rs.getString("TIPO"));
                ex.setId(rs.getInt("ID"));
@@ -87,7 +88,7 @@ public class ExameDAO {
                Exame ex = new Exame();
                ex.setData(rs.getDate("DT"));
                ex.setDiagnostico(rs.getString("DIAGNOSTICO"));
-               ex.setHora(rs.getDate("HORA"));
+               ex.setHora(rs.getString("HORA"));
                ex.setSituacao(rs.getBoolean("SITUACAO"));
                ex.setTipo(rs.getString("TIPO"));
                ex.setId(rs.getInt("ID"));
@@ -120,5 +121,66 @@ public class ExameDAO {
            Logger.getLogger(ProntuarioDAO.class.getName()).log(Level.SEVERE, null, e);
            //return false;
        } 
+    }
+     
+     public List<Exame> getExamesMarcadosMedico(int id) {
+        List<Exame> exames = new ArrayList();
+        Exame exame = new Exame();
+
+
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT e.DT,e.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) JOIN exame AS e ON(c.ID = e.consulta_ID) WHERE medico_ID = ? AND e.SITUACAO = ? ORDER BY DT DESC";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,id);
+           stmt.setBoolean(2, false);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               exame.setData(rs.getDate("DT"));
+               
+               exame.setHora(rs.getString("HORA"));
+               exame.setPacienteNome(rs.getString("NOME"));
+               
+             
+               exames.add(exame);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ExameDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return exames;
+    }
+    
+    public List<Exame> getExamesRealizadosMedico(int id) {
+        this.con = new ConnectionFactory().getConnection();
+
+        List<Exame> exames = new ArrayList();
+        Exame exame = new Exame();
+
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT e.DT,e.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) JOIN exame AS e ON(c.ID = e.consulta_ID) WHERE medico_ID = ? AND e.SITUACAO = ? ORDER BY DT DESC";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,id);
+           stmt.setBoolean(2, true);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               exame.setData(rs.getDate("DT"));
+               
+               exame.setHora(rs.getString("HORA"));
+               exame.setPacienteNome(rs.getString("NOME"));
+               
+             
+               exames.add(exame);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ExameDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return exames;
     }
 }

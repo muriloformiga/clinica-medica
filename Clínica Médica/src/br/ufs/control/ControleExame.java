@@ -9,6 +9,7 @@ import br.ufs.dao.ConsultaDAO;
 import br.ufs.dao.ExameDAO;
 import br.ufs.model.Consulta;
 import br.ufs.model.Exame;
+import br.ufs.model.Medico;
 import br.ufs.model.Paciente;
 import java.sql.Array;
 import java.sql.ResultSet;
@@ -26,6 +27,7 @@ public class ControleExame {
     public Paciente paciente;
     public ConsultaDAO consultadao;
     public Consulta consulta;
+    public Medico medico;
 
     public ControleExame(){
         exame = new Exame();
@@ -33,6 +35,7 @@ public class ControleExame {
         paciente = new Paciente();
         consultadao = new ConsultaDAO();
         consulta = new Consulta();
+        medico = new Medico();
 
     }
     
@@ -59,6 +62,20 @@ public class ControleExame {
     public void setExame(int id){
         consulta = consultadao.getById(id);
         exame = examedao.get(exame.getConsultaId());
+    }
+
+    public List<Exame> examesMarcadosMedico() {
+        List<Exame> exames = new ArrayList();
+        exames = this.examedao.getExamesMarcadosMedico(medico.getId());
+        
+        return exames;
+    }
+
+    public List<Exame> examesRealizadasMedico() {
+        List<Exame> exames = new ArrayList();
+        exames = this.examedao.getExamesRealizadosMedico(medico.getId());
+        
+        return exames;
     }
 }
 
