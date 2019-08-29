@@ -23,13 +23,13 @@ public class EscalaTrabalhoDAO {
     }
     
     public boolean add(EscalaTrabalho escala){
-       String sql = "INSERT INTO funcionario(DIAS_TRABALHO, HORA, CARGA_HORARIA, funcionario_ID) VALUES (?,?,?,?)";
+       String sql = "INSERT INTO escala_trabalho(DIAS_TRABALHO, HORA, CARGA_HORARIA, funcionario_ID) VALUES (?,?::Time,?,?)";
        
        try{
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setString(1, escala.getDiasTrabalhar());
            stmt.setString(2, escala.getHora()); //OBS: Horario do tipo Time ou Date?
-           stmt.setString(3, escala.getCargaHoraria());
+           stmt.setInt(3, Integer.parseInt(escala.getCargaHoraria()));
            stmt.setInt(4, escala.getFuncionarioId());
            
            stmt.execute();

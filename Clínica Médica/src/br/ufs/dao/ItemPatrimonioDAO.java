@@ -74,4 +74,32 @@ public class ItemPatrimonioDAO {
        }
         return itempatrimonio;
     }
+    
+    public ItemPatrimonio getItem(int num){
+        ItemPatrimonio itempatrimonio = new ItemPatrimonio();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM item_patrimonio WHERE num_patrimonio = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,num);
+           rs = stmt.executeQuery();
+           System.out.println("Testado aqui");
+           while(rs.next()){
+               itempatrimonio.setAnoAquisicao(rs.getDate("ANO_AQUISICAO"));
+               itempatrimonio.setDescricao(rs.getString("DESCRICAO"));
+               itempatrimonio.setLocalizacao(rs.getString("LOCALIZACAO"));
+               itempatrimonio.setNumPatrimonio(rs.getInt("NUM_PATRIMONIO"));
+               itempatrimonio.setStatus(rs.getString("status"));
+               itempatrimonio.setTipo(rs.getString("tipo"));
+               itempatrimonio.setId(rs.getInt("ID"));
+               itempatrimonio.setPatrimonioId(rs.getInt("patrimonio_ID"));
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ItemPatrimonioDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return itempatrimonio;
+    }
 }

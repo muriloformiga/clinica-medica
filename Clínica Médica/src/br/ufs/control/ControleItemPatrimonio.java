@@ -72,5 +72,13 @@ public class ControleItemPatrimonio {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    public void setItemPatrimonio(int num){
+        itempatrimonio = itempatrimoniodao.getItem(num);
+    }
+    
+    public void setPatrimonio_(int id){
+        patrimonio = patrimoniodao.get_(id);
+    }
 
 }

@@ -6,9 +6,12 @@
 package br.ufs.view.buscar.funcionario;
 
 
+import br.ufs.control.ControleEscalaTrabalho;
 import br.ufs.view.visualizar.VisualizarAtestadoView;
 import br.ufs.view.visualizar.VisualizarEscalaTrabalhoFuncionarioView;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -127,7 +130,17 @@ public class BuscarVisualizarEscalaTrabalhoView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMatriculaFuncionarioActionPerformed
 
     private void btnBuscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFuncionarioActionPerformed
-        new VisualizarEscalaTrabalhoFuncionarioView().setVisible(true);
+        VisualizarEscalaTrabalhoFuncionarioView tela = new VisualizarEscalaTrabalhoFuncionarioView();
+        ControleEscalaTrabalho con = new ControleEscalaTrabalho();
+        con.setEscalaTrabalho(txtMatriculaFuncionario.getText());
+        con.setFuncionario(txtMatriculaFuncionario.getText());
+        tela.setNome(con.funcionario.getNome());
+        DateFormat dtd = new SimpleDateFormat("dd/MM/yyyy");
+        tela.setData(dtd.format(con.funcionario.getDt_nasc()));
+        tela.setMatricula(con.funcionario.getMatricula());
+        tela.setTelefone(con.funcionario.getTelefone());
+        tela.setTabela(con.escala_list);
+        tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBuscarFuncionarioActionPerformed
 

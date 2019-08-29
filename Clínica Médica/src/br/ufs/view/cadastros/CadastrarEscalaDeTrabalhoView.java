@@ -5,20 +5,42 @@
  */
 package br.ufs.view.cadastros;
 
+import br.ufs.control.ControleEscalaTrabalho;
 import java.awt.Color;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
 
 /**
  *
  * 
  */
 public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form CadastrarConsultaView
-     */
+    
+    private int id;
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public void setNome(String nome){
+        txtNome.setText("Nome: " + nome);
+    }
+    
+    public void setData(String data){
+        txtData.setText("Data de Nascimento: " + data);
+    }
+    
+    public void setMatricula(String matricula){
+        txtMatricula.setText("Matricula: " + matricula);
+    }
+    
+    public void setTelefone(String telefone){
+        txtTelefone.setText("Telefone: " + telefone);
+    }
+    
     public CadastrarEscalaDeTrabalhoView() {
         initComponents();
-        jButton1.setBackground(new Color(20, 150, 90));
+        jCadastrar.setBackground(new Color(20, 150, 90));
         
     }
 
@@ -31,39 +53,26 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jCadastrar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabelNomeFuncionario = new javax.swing.JLabel();
-        jLabelTelefoneFuncionario = new javax.swing.JLabel();
-        jLabelMatriculaFuncionario = new javax.swing.JLabel();
-        jLabelDataNascFuncionario = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JLabel();
+        txtMatricula = new javax.swing.JLabel();
+        txtData = new javax.swing.JLabel();
         jLabelDataNascFuncionario1 = new javax.swing.JLabel();
-        jTextFieldCargaHorariaFuncionario = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jCheckBoxSegunda = new javax.swing.JCheckBox();
-        boxEntradaSegunda = new javax.swing.JComboBox();
-        boxSaidaSegunda = new javax.swing.JComboBox();
-        jCheckBoxTerca = new javax.swing.JCheckBox();
-        boxEntradaTerca = new javax.swing.JComboBox();
-        boxSaidaTerca = new javax.swing.JComboBox();
-        jCheckBoxQuarta = new javax.swing.JCheckBox();
-        boxEntradaQuarta = new javax.swing.JComboBox();
-        boxSaidaQuarta = new javax.swing.JComboBox();
-        jCheckBoxQuinta = new javax.swing.JCheckBox();
-        boxEntradaQuinta = new javax.swing.JComboBox();
-        boxSaidaQuinta = new javax.swing.JComboBox();
-        jCheckBoxSexta = new javax.swing.JCheckBox();
-        boxEntradaSexta = new javax.swing.JComboBox();
-        boxSaidaSexta = new javax.swing.JComboBox();
-        jCheckBoxSabado = new javax.swing.JCheckBox();
-        boxEntradaSabado = new javax.swing.JComboBox();
-        boxSaidaSabado = new javax.swing.JComboBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jHoras = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jInicio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadatrar Escala de Trabalho");
@@ -72,31 +81,42 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(20, 150, 90));
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 23, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 479, Short.MAX_VALUE)
+        );
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 102, 51), new java.awt.Color(0, 102, 51), new java.awt.Color(0, 102, 51), new java.awt.Color(0, 102, 51)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 102, 0));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cadastrar");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jCadastrar.setBackground(new java.awt.Color(255, 255, 255));
+        jCadastrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jCadastrar.setText("Cadastrar");
+        jCadastrar.setBorder(null);
+        jCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jCadastrarActionPerformed(evt);
             }
         });
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Funcionario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
-        jLabelNomeFuncionario.setText("Aqui aparecerar o nome do Funcionario");
+        txtNome.setText("Aqui aparecerar o nome do Funcionario");
 
-        jLabelTelefoneFuncionario.setText("Aqui aparecerar o Telefone ");
+        txtTelefone.setText("Aqui aparecerar o Telefone ");
 
-        jLabelMatriculaFuncionario.setText("Aqui aparecerar a Matricula do Funcionario");
+        txtMatricula.setText("Aqui aparecerar a Matricula do Funcionario");
 
-        jLabelDataNascFuncionario.setText("Data de nascimento");
+        txtData.setText("Data de nascimento");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -105,12 +125,12 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelMatriculaFuncionario)
-                    .addComponent(jLabelDataNascFuncionario))
+                    .addComponent(txtMatricula)
+                    .addComponent(txtData))
                 .addGap(137, 137, 137))
         );
         jPanel3Layout.setVerticalGroup(
@@ -118,25 +138,16 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMatriculaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDataNascFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jLabelDataNascFuncionario1.setText("Carga Horária:");
-
-        jTextFieldCargaHorariaFuncionario.setEditable(false);
-        jTextFieldCargaHorariaFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCargaHorariaFuncionarioActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("horas.");
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -146,126 +157,47 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
         jLabel2.setText("                  Dia");
         jPanel4.add(jLabel2);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel3.setText("                  Entrada");
-        jPanel4.add(jLabel3);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel4.setText("                    Saída");
-        jPanel4.add(jLabel4);
-
-        jCheckBoxSegunda.setBackground(new java.awt.Color(255, 255, 204));
-        jCheckBoxSegunda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBoxSegunda.setText("Segunda-feira.");
-        jCheckBoxSegunda.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jCheckBoxSegundaStateChanged(evt);
-            }
-        });
-        jCheckBoxSegunda.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("seg");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxSegundaActionPerformed(evt);
+                jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBoxSegunda);
+        jPanel4.add(jRadioButton1);
 
-        boxEntradaSegunda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxEntradaSegunda.setEnabled(false);
-        jPanel4.add(boxEntradaSegunda);
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("ter");
+        jPanel4.add(jRadioButton2);
 
-        boxSaidaSegunda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxSaidaSegunda.setEnabled(false);
-        jPanel4.add(boxSaidaSegunda);
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("qua");
+        jPanel4.add(jRadioButton3);
 
-        jCheckBoxTerca.setBackground(new java.awt.Color(255, 255, 204));
-        jCheckBoxTerca.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBoxTerca.setText("Terça-feira.");
-        jCheckBoxTerca.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButton4);
+        jRadioButton4.setText("qui");
+        jPanel4.add(jRadioButton4);
+
+        buttonGroup1.add(jRadioButton5);
+        jRadioButton5.setText("sex");
+        jPanel4.add(jRadioButton5);
+
+        jHoras.setText("0");
+        jHoras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxTercaActionPerformed(evt);
+                jHorasActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBoxTerca);
 
-        boxEntradaTerca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxEntradaTerca.setEnabled(false);
-        jPanel4.add(boxEntradaTerca);
-
-        boxSaidaTerca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxSaidaTerca.setEnabled(false);
-        jPanel4.add(boxSaidaTerca);
-
-        jCheckBoxQuarta.setBackground(new java.awt.Color(255, 255, 204));
-        jCheckBoxQuarta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBoxQuarta.setText("Quarta-feira.");
-        jCheckBoxQuarta.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setText("Início: ");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxQuartaActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBoxQuarta);
 
-        boxEntradaQuarta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxEntradaQuarta.setEnabled(false);
-        jPanel4.add(boxEntradaQuarta);
-
-        boxSaidaQuarta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxSaidaQuarta.setEnabled(false);
-        jPanel4.add(boxSaidaQuarta);
-
-        jCheckBoxQuinta.setBackground(new java.awt.Color(255, 255, 204));
-        jCheckBoxQuinta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBoxQuinta.setText("Quinta-feira.");
-        jCheckBoxQuinta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxQuintaActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jCheckBoxQuinta);
-
-        boxEntradaQuinta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxEntradaQuinta.setEnabled(false);
-        jPanel4.add(boxEntradaQuinta);
-
-        boxSaidaQuinta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxSaidaQuinta.setEnabled(false);
-        jPanel4.add(boxSaidaQuinta);
-
-        jCheckBoxSexta.setBackground(new java.awt.Color(255, 255, 204));
-        jCheckBoxSexta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBoxSexta.setText("Sexta-feira.");
-        jCheckBoxSexta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxSextaActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jCheckBoxSexta);
-
-        boxEntradaSexta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxEntradaSexta.setEnabled(false);
-        jPanel4.add(boxEntradaSexta);
-
-        boxSaidaSexta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxSaidaSexta.setEnabled(false);
-        jPanel4.add(boxSaidaSexta);
-
-        jCheckBoxSabado.setBackground(new java.awt.Color(255, 255, 204));
-        jCheckBoxSabado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBoxSabado.setText("Sábado.");
-        jCheckBoxSabado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxSabadoActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jCheckBoxSabado);
-
-        boxEntradaSabado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxEntradaSabado.setEnabled(false);
-        jPanel4.add(boxEntradaSabado);
-
-        boxSaidaSabado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
-        boxSaidaSabado.setEnabled(false);
-        jPanel4.add(boxSaidaSabado);
+        jInicio.setText("07:00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -276,17 +208,20 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelDataNascFuncionario1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCargaHorariaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1))
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(242, 242, 242)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -297,28 +232,16 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDataNascFuncionario1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCargaHorariaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 29, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -327,103 +250,50 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(1, 1, 1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 28, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void jTextFieldCargaHorariaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCargaHorariaFuncionarioActionPerformed
+    private void jCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadastrarActionPerformed
+        ControleEscalaTrabalho con = new ControleEscalaTrabalho();
+        for (Enumeration<AbstractButton> buttons = buttonGroup1.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+                con.escalatrabalho.setCargaHoraria(jHoras.getText());
+                con.escalatrabalho.setDiasTrabalhar(button.getText());
+                con.escalatrabalho.setFuncionarioId(id);
+                con.escalatrabalho.setHora(jInicio.getText());
+                con.cadastrarEscalaTrabalho();
+                System.out.println(button.getText());
+            }
+        }
+        //
+    }//GEN-LAST:event_jCadastrarActionPerformed
+
+    private void jHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHorasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCargaHorariaFuncionarioActionPerformed
+    }//GEN-LAST:event_jHorasActionPerformed
 
-    private void jCheckBoxSegundaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSegundaActionPerformed
-        if(boxEntradaSegunda.isEnabled() == false)
-            boxEntradaSegunda.setEnabled(true);
-        else
-            boxEntradaSegunda.setEnabled(false);
-        
-         if(boxSaidaSegunda.isEnabled() == false)
-            boxSaidaSegunda.setEnabled(true);
-        else
-            boxSaidaSegunda.setEnabled(false);
-    }//GEN-LAST:event_jCheckBoxSegundaActionPerformed
-
-    private void jCheckBoxTercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTercaActionPerformed
-        if(boxEntradaTerca.isEnabled() == false)
-            boxEntradaTerca.setEnabled(true);
-        else
-            boxEntradaTerca.setEnabled(false);
-        
-         if(boxSaidaTerca.isEnabled() == false)
-            boxSaidaTerca.setEnabled(true);
-        else
-            boxSaidaTerca.setEnabled(false);
-    }//GEN-LAST:event_jCheckBoxTercaActionPerformed
-
-    private void jCheckBoxQuartaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxQuartaActionPerformed
-        if(boxEntradaQuarta.isEnabled() == false)
-            boxEntradaQuarta.setEnabled(true);
-        else
-            boxEntradaQuarta.setEnabled(false);
-        
-         if(boxSaidaQuarta.isEnabled() == false)
-            boxSaidaQuarta.setEnabled(true);
-        else
-            boxSaidaQuarta.setEnabled(false);
-    }//GEN-LAST:event_jCheckBoxQuartaActionPerformed
-
-    private void jCheckBoxQuintaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxQuintaActionPerformed
-        if(boxEntradaQuinta.isEnabled() == false)
-            boxEntradaQuinta.setEnabled(true);
-        else
-            boxEntradaQuinta.setEnabled(false);
-        
-         if(boxSaidaQuinta.isEnabled() == false)
-            boxSaidaQuinta.setEnabled(true);
-        else
-            boxSaidaQuinta.setEnabled(false);
-    }//GEN-LAST:event_jCheckBoxQuintaActionPerformed
-
-    private void jCheckBoxSextaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSextaActionPerformed
-        if(boxEntradaSexta.isEnabled() == false)
-            boxEntradaSexta.setEnabled(true);
-        else
-            boxEntradaSexta.setEnabled(false);
-        
-         if(boxSaidaSexta.isEnabled() == false)
-            boxSaidaSexta.setEnabled(true);
-        else
-            boxSaidaSexta.setEnabled(false);
-    }//GEN-LAST:event_jCheckBoxSextaActionPerformed
-
-    private void jCheckBoxSegundaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxSegundaStateChanged
-        
-    }//GEN-LAST:event_jCheckBoxSegundaStateChanged
-
-    private void jCheckBoxSabadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSabadoActionPerformed
-        if(boxEntradaSabado.isEnabled() == false)
-            boxEntradaSabado.setEnabled(true);
-        else
-            boxEntradaSabado.setEnabled(false);
-        
-         if(boxSaidaSabado.isEnabled() == false)
-            boxSaidaSabado.setEnabled(true);
-        else
-            boxSaidaSabado.setEnabled(false);
-    }//GEN-LAST:event_jCheckBoxSabadoActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -468,38 +338,25 @@ public class CadastrarEscalaDeTrabalhoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox boxEntradaQuarta;
-    private javax.swing.JComboBox boxEntradaQuinta;
-    private javax.swing.JComboBox boxEntradaSabado;
-    private javax.swing.JComboBox boxEntradaSegunda;
-    private javax.swing.JComboBox boxEntradaSexta;
-    private javax.swing.JComboBox boxEntradaTerca;
-    private javax.swing.JComboBox boxSaidaQuarta;
-    private javax.swing.JComboBox boxSaidaQuinta;
-    private javax.swing.JComboBox boxSaidaSabado;
-    private javax.swing.JComboBox boxSaidaSegunda;
-    private javax.swing.JComboBox boxSaidaSexta;
-    private javax.swing.JComboBox boxSaidaTerca;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBoxQuarta;
-    private javax.swing.JCheckBox jCheckBoxQuinta;
-    private javax.swing.JCheckBox jCheckBoxSabado;
-    private javax.swing.JCheckBox jCheckBoxSegunda;
-    private javax.swing.JCheckBox jCheckBoxSexta;
-    private javax.swing.JCheckBox jCheckBoxTerca;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jCadastrar;
+    private javax.swing.JTextField jHoras;
+    private javax.swing.JTextField jInicio;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelDataNascFuncionario;
     private javax.swing.JLabel jLabelDataNascFuncionario1;
-    private javax.swing.JLabel jLabelMatriculaFuncionario;
-    private javax.swing.JLabel jLabelNomeFuncionario;
-    private javax.swing.JLabel jLabelTelefoneFuncionario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextFieldCargaHorariaFuncionario;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel txtData;
+    private javax.swing.JLabel txtMatricula;
+    private javax.swing.JLabel txtNome;
+    private javax.swing.JLabel txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

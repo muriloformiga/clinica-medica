@@ -6,6 +6,7 @@
 package br.ufs.view.buscar.patrinomio;
 
 
+import br.ufs.control.ControleItemPatrimonio;
 import br.ufs.view.buscar.paciente.*;
 import br.ufs.view.cadastros.CadastrarAtestadoView;
 import br.ufs.view.panels.PacienteJPanelView;
@@ -129,7 +130,17 @@ public class BuscarItemPatrimonioView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumItemPatrimonioActionPerformed
 
     private void btnBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPacienteActionPerformed
-        new VisualizarItemPatrimonioView().setVisible(true);
+        ControleItemPatrimonio con = new ControleItemPatrimonio();
+        con.setItemPatrimonio(Integer.parseInt(txtNumItemPatrimonio.getText()));
+        con.setPatrimonio_(con.itempatrimonio.getPatrimonioId());
+        VisualizarItemPatrimonioView tela = new VisualizarItemPatrimonioView();
+        tela.setAno(con.itempatrimonio.getAnoAquisicao().toString());
+        tela.setDescricao(con.itempatrimonio.getDescricao());
+        tela.setTipo(con.itempatrimonio.getTipo_());
+        tela.setStatus(con.itempatrimonio.getStatus_());
+        tela.setNome(con.itempatrimonio.getNumPatrimonio());
+        System.out.println(con.itempatrimonio.getStatus_());
+        tela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBuscarPacienteActionPerformed
 

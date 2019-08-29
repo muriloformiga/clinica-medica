@@ -5,6 +5,10 @@
  */
 package br.ufs.view.visualizar;
 
+import br.ufs.model.EscalaTrabalho;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * 
@@ -14,6 +18,36 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
     /**
      * Creates new form VisualizarProntuarioView
      */
+    private int id;
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public void setNome(String nome){
+        txtNome.setText("Nome: " + nome);
+    }
+    
+    public void setData(String data){
+        txtData.setText("Data de Nascimento: " + data);
+    }
+    
+    public void setMatricula(String matricula){
+        txtMatricula.setText("Matricula: " + matricula);
+    }
+    
+    public void setTelefone(String telefone){
+        txtTelefone.setText("Telefone: " + telefone);
+    }
+    
+    public void setTabela(List<EscalaTrabalho> escala){
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        for (EscalaTrabalho escala1 : escala) {
+            model.setNumRows(0);
+            model.addRow(new Object[]{escala1.getDiasTrabalhar(), escala1.getHora(), escala1.getCargaHoraria()});
+        }
+    }
+    
     public VisualizarEscalaTrabalhoFuncionarioView() {
         initComponents();
     }
@@ -30,13 +64,11 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        txtlNomeFuncionario = new javax.swing.JLabel();
-        txtTelefoneFuncionario = new javax.swing.JLabel();
-        txtMatriculaFuncionario = new javax.swing.JLabel();
-        txtDataNascimentoFuncionario = new javax.swing.JLabel();
+        txtNome = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JLabel();
+        txtMatricula = new javax.swing.JLabel();
+        txtData = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jTextCargaHoraria = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -53,13 +85,13 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
-        txtlNomeFuncionario.setText("txtNome");
+        txtNome.setText("txtNome");
 
-        txtTelefoneFuncionario.setText("txtTelefone");
+        txtTelefone.setText("txtTelefone");
 
-        txtMatriculaFuncionario.setText("txtMatriculaFuncionario");
+        txtMatricula.setText("txtMatriculaFuncionario");
 
-        txtDataNascimentoFuncionario.setText("txtDataNascimento");
+        txtData.setText("txtDataNascimento");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -69,13 +101,13 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtlNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMatriculaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(154, 154, 154)
-                        .addComponent(txtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -83,21 +115,17 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtlNomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMatriculaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDataNascimentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 204));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Escala do Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
-
-        jTextCargaHoraria.setEditable(false);
-
-        jLabel1.setText("Carga Horária:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,7 +137,7 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
                 {null, null, null}
             },
             new String [] {
-                "          Dia", "    Hora Entrada", "    Hora Saída"
+                "          Dia", "Início", "Carga Horária"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -126,24 +154,13 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(0, 96, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -162,7 +179,7 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -233,33 +250,31 @@ public class VisualizarEscalaTrabalhoFuncionarioView extends javax.swing.JFrame 
     }
 
     public void setTxtCPF(String txtCPF) {
-        this.txtMatriculaFuncionario.setText(txtCPF);
+        this.txtMatricula.setText(txtCPF);
     }
 
     public void setTxtDataNascimento(String txtDataNascimento) {
-        this.txtDataNascimentoFuncionario.setText(txtDataNascimento);
+        this.txtData.setText(txtDataNascimento);
     }
 
     public void setTxtNome(String txtNome) {
-        this.txtlNomeFuncionario.setText(txtNome);
+        this.txtNome.setText(txtNome);
     }
 
     public void setTxtTelefone(String txtTelefone) {
-        this.txtTelefoneFuncionario.setText(txtTelefone);
+        this.txtTelefone.setText(txtTelefone);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextCargaHoraria;
-    private javax.swing.JLabel txtDataNascimentoFuncionario;
-    private javax.swing.JLabel txtMatriculaFuncionario;
-    private javax.swing.JLabel txtTelefoneFuncionario;
-    private javax.swing.JLabel txtlNomeFuncionario;
+    private javax.swing.JLabel txtData;
+    private javax.swing.JLabel txtMatricula;
+    private javax.swing.JLabel txtNome;
+    private javax.swing.JLabel txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

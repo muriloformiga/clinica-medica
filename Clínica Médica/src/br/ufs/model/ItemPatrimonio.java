@@ -26,6 +26,8 @@ public class ItemPatrimonio {
     private Status_item status;
     private int id;
     private int patrimonio_id;
+    private String status_string;
+    private String tipo_string;
     
     public String getDescricao() {
         return descricao;
@@ -63,6 +65,10 @@ public class ItemPatrimonio {
         return tipo.toString();
     }
     
+    public String getTipo_(){
+        return tipo_string;
+    }
+    
     public void setTipo(String tipo) {
         switch (tipo) {
             case "Tangível":
@@ -78,12 +84,17 @@ public class ItemPatrimonio {
                 this.tipo = Tipo_item.IMOVEL;
                 break;
             default:
+                this.tipo_string = tipo;
                 break;
         }
     }
     
     public String getStatus() {
         return status.toString();
+    }
+    
+    public String getStatus_(){
+        return status_string;
     }
     
     public void setStatus(String status) {
@@ -107,6 +118,7 @@ public class ItemPatrimonio {
                 this.status = Status_item.INDISPONIVEL;
                 break;
             default:
+                this.status_string = status;
                 break;
         }
     }

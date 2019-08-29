@@ -11,11 +11,64 @@ package br.ufs.view.visualizar;
  */
 public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VisualizarProntuarioView
-     */
     public VisualizarItemPatrimonioView() {
         initComponents();
+    }
+    
+    public void setNome(int id){
+        txtNome.setText(Integer.toString(id));
+    }
+    
+    public void setAno(String ano){
+        txtAno.setText(ano);
+    }
+    
+    public void setDescricao(String descricao){
+        txtDescricao.setText(descricao);
+    }
+    
+    public void setStatus(String status){
+        switch(status){
+            case "EM_USO":
+                jj1.setSelected(true);
+                break;
+            case "OCIOSO":
+                jj4.setSelected(true);
+                break;
+            case "RECOLHIDO":
+                jj2.setSelected(true);
+                break;
+            case "EM_MANUTENCAO":
+                jj5.setSelected(true);
+                break;
+            case "IRRECUPERAVEL":
+                jj3.setSelected(true);
+                break;
+            case "INDISPONIVEL":
+                jj6.setSelected(true);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public void setTipo(String tipo){
+        switch(tipo){
+            case "TANGIVEL":
+                j1.setSelected(true);
+                break;
+            case "INTANGIVEL":
+                j2.setSelected(true);
+                break;
+            case "MOVEL":
+                j3.setSelected(true);
+                break;
+            case "IMOVEL":
+                j4.setSelected(true);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -30,20 +83,21 @@ public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
+        txtAno = new javax.swing.JTextField();
+        txtDescricao = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
+        j1 = new javax.swing.JCheckBox();
+        j2 = new javax.swing.JCheckBox();
+        j3 = new javax.swing.JCheckBox();
+        j4 = new javax.swing.JCheckBox();
+        jPanel5 = new javax.swing.JPanel();
+        jj1 = new javax.swing.JCheckBox();
+        jj4 = new javax.swing.JCheckBox();
+        jj2 = new javax.swing.JCheckBox();
+        jj5 = new javax.swing.JCheckBox();
+        jj3 = new javax.swing.JCheckBox();
+        jj6 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Visualizar Item Patrimônio");
@@ -58,119 +112,142 @@ public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item Patrimônio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 2, 14))); // NOI18N
 
-        jTextField1.setEditable(false);
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item Patrimônio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
+        txtNome.setEditable(false);
+        txtNome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item Patrimônio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
 
-        jTextField2.setEditable(false);
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ano de Aquisição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
+        txtAno.setEditable(false);
+        txtAno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ano de Aquisição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
 
-        jTextField3.setEditable(false);
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descrição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
+        txtDescricao.setEditable(false);
+        txtDescricao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descrição", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Situação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
         jPanel4.setLayout(new java.awt.GridLayout(4, 3));
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox6.setText("Em Uso.");
-        jCheckBox6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jCheckBox6.setEnabled(false);
-        jCheckBox6.setOpaque(false);
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        j1.setBackground(new java.awt.Color(255, 255, 255));
+        j1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        j1.setText("Tangível");
+        j1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        j1.setEnabled(false);
+        j1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                j1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBox6);
+        jPanel4.add(j1);
 
-        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox5.setText("Ocioso.");
-        jCheckBox5.setEnabled(false);
-        jCheckBox5.setOpaque(false);
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        j2.setBackground(new java.awt.Color(255, 255, 255));
+        j2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        j2.setText("Intangível");
+        j2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        j2.setEnabled(false);
+        j2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                j2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBox5);
+        jPanel4.add(j2);
 
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox4.setText("Recolhido.");
-        jCheckBox4.setEnabled(false);
-        jCheckBox4.setOpaque(false);
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        j3.setBackground(new java.awt.Color(255, 255, 255));
+        j3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        j3.setText("Móvel");
+        j3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        j3.setEnabled(false);
+        j3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                j3ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBox4);
+        jPanel4.add(j3);
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox3.setText("Tangível.");
-        jCheckBox3.setEnabled(false);
-        jCheckBox3.setOpaque(false);
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        j4.setBackground(new java.awt.Color(255, 255, 255));
+        j4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        j4.setText("Imóvel");
+        j4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        j4.setEnabled(false);
+        j4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                j4ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBox3);
+        jPanel4.add(j4);
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox2.setText("Móvel.");
-        jCheckBox2.setEnabled(false);
-        jCheckBox2.setOpaque(false);
-        jPanel4.add(jCheckBox2);
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Situação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 12))); // NOI18N
+        jPanel5.setLayout(new java.awt.GridLayout(4, 3));
 
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox7.setText("Em Manutenção.");
-        jCheckBox7.setEnabled(false);
-        jCheckBox7.setOpaque(false);
-        jPanel4.add(jCheckBox7);
-
-        jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox8.setText("Irrecuperável.");
-        jCheckBox8.setEnabled(false);
-        jCheckBox8.setOpaque(false);
-        jPanel4.add(jCheckBox8);
-
-        jCheckBox9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox9.setText("Indisponível.");
-        jCheckBox9.setEnabled(false);
-        jCheckBox9.setOpaque(false);
-        jPanel4.add(jCheckBox9);
-
-        jCheckBox10.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox10.setText("Intangível.");
-        jCheckBox10.setEnabled(false);
-        jCheckBox10.setOpaque(false);
-        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
+        jj1.setBackground(new java.awt.Color(255, 255, 255));
+        jj1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jj1.setText("Em Uso");
+        jj1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jj1.setEnabled(false);
+        jj1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox10ActionPerformed(evt);
+                jj1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBox10);
+        jPanel5.add(jj1);
 
-        jCheckBox11.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox11.setText("Imóvel.");
-        jCheckBox11.setEnabled(false);
-        jCheckBox11.setOpaque(false);
-        jCheckBox11.addActionListener(new java.awt.event.ActionListener() {
+        jj4.setBackground(new java.awt.Color(255, 255, 255));
+        jj4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jj4.setText("Ocioso");
+        jj4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jj4.setEnabled(false);
+        jj4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox11ActionPerformed(evt);
+                jj4ActionPerformed(evt);
             }
         });
-        jPanel4.add(jCheckBox11);
+        jPanel5.add(jj4);
+
+        jj2.setBackground(new java.awt.Color(255, 255, 255));
+        jj2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jj2.setText("Recolhido");
+        jj2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jj2.setEnabled(false);
+        jj2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jj2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jj2);
+
+        jj5.setBackground(new java.awt.Color(255, 255, 255));
+        jj5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jj5.setText("Em manutenção");
+        jj5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jj5.setEnabled(false);
+        jj5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jj5ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jj5);
+
+        jj3.setBackground(new java.awt.Color(255, 255, 255));
+        jj3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jj3.setText("Irrecuperável");
+        jj3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jj3.setEnabled(false);
+        jj3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jj3ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jj3);
+
+        jj6.setBackground(new java.awt.Color(255, 255, 255));
+        jj6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jj6.setText("Indisponível");
+        jj6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jj6.setEnabled(false);
+        jj6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jj6ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jj6);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -179,12 +256,13 @@ public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(txtNome)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE))
+                        .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -192,13 +270,15 @@ public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -253,29 +333,45 @@ public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void j2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_j2ActionPerformed
 
-    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
+    private void jj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jj1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox11ActionPerformed
+    }//GEN-LAST:event_jj1ActionPerformed
 
-    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
+    private void j1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox10ActionPerformed
+    }//GEN-LAST:event_j1ActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void j3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_j3ActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void j4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_j4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_j4ActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void jj4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jj4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_jj4ActionPerformed
+
+    private void jj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jj2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jj2ActionPerformed
+
+    private void jj5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jj5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jj5ActionPerformed
+
+    private void jj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jj3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jj3ActionPerformed
+
+    private void jj6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jj6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jj6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,22 +417,23 @@ public class VisualizarItemPatrimonioView extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JCheckBox j1;
+    private javax.swing.JCheckBox j2;
+    private javax.swing.JCheckBox j3;
+    private javax.swing.JCheckBox j4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JCheckBox jj1;
+    private javax.swing.JCheckBox jj2;
+    private javax.swing.JCheckBox jj3;
+    private javax.swing.JCheckBox jj4;
+    private javax.swing.JCheckBox jj5;
+    private javax.swing.JCheckBox jj6;
+    private javax.swing.JTextField txtAno;
+    private javax.swing.JTextField txtDescricao;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

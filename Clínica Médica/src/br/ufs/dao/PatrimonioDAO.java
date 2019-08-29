@@ -63,4 +63,28 @@ public class PatrimonioDAO {
        }
         return patrimonio;
     }
+    
+    public Patrimonio get_(int id){
+        Patrimonio patrimonio = new Patrimonio();
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT * FROM patrimonio WHERE id = ?";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,id);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               patrimonio.setDataUltimoLevantamento(rs.getDate("DT_ULTIMO_LEVANTAMENTO"));
+               patrimonio.setQuantItem(rs.getInt("QTD_ITEM"));
+               patrimonio.setId(rs.getInt("ID"));
+               patrimonio.setGerenteId(rs.getInt("gerente_ID"));
+               
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ExameDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return patrimonio;
+    }
 }

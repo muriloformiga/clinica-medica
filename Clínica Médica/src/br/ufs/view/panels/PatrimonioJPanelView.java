@@ -5,6 +5,7 @@
  */
 package br.ufs.view.panels;
 
+import br.ufs.view.buscar.patrinomio.BuscarItemPatrimonioView;
 import br.ufs.view.cadastros.CadastrarItemPatrimonioView;
 import java.awt.Color;
 
@@ -19,8 +20,8 @@ public class PatrimonioJPanelView extends javax.swing.JPanel {
      */
     public PatrimonioJPanelView() {
         initComponents();
-        jButton1.setBackground(new Color(20, 150, 90));
-        jButton2.setBackground(new Color(20, 150, 90));
+        cadastrarItem.setBackground(new Color(20, 150, 90));
+        visualizarItem.setBackground(new Color(20, 150, 90));
     }
 
     /**
@@ -35,8 +36,8 @@ public class PatrimonioJPanelView extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cadastrarItem = new javax.swing.JButton();
+        visualizarItem = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         jPanel33 = new javax.swing.JPanel();
@@ -71,34 +72,39 @@ public class PatrimonioJPanelView extends javax.swing.JPanel {
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cadastrar Item");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarItem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cadastrarItem.setForeground(new java.awt.Color(255, 255, 255));
+        cadastrarItem.setText("Cadastrar Item");
+        cadastrarItem.setBorder(null);
+        cadastrarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cadastrarItemActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Visualizar Item");
-        jButton2.setBorder(null);
+        visualizarItem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        visualizarItem.setForeground(new java.awt.Color(255, 255, 255));
+        visualizarItem.setText("Visualizar Item");
+        visualizarItem.setBorder(null);
+        visualizarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizarItemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cadastrarItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(visualizarItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cadastrarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(visualizarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -156,19 +162,23 @@ public class PatrimonioJPanelView extends javax.swing.JPanel {
         add(jPanel33);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cadastrarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarItemActionPerformed
         new CadastrarItemPatrimonioView().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cadastrarItemActionPerformed
+
+    private void visualizarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarItemActionPerformed
+        new BuscarItemPatrimonioView().setVisible(true);
+    }//GEN-LAST:event_visualizarItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cadastrarItem;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton visualizarItem;
     // End of variables declaration//GEN-END:variables
 }
