@@ -86,6 +86,20 @@ public class ControleConsulta {
             JOptionPane.showMessageDialog(null, e+" controlecadastrarconsulta()");
         }
     }
+
+    public List<Consulta> consultasMarcadasMedico() {
+        List<Consulta> consultas = new ArrayList();
+        consultas = this.consultadao.getConsultasMarcadasMedico(medico.getId());
+        
+        return consultas;
+    }
+    
+     public List<Consulta> consultasRealizadasMedico() {
+        List<Consulta> consultas = new ArrayList();
+        consultas = this.consultadao.getConsultasRealizadasMedico(medico.getId());
+        
+        return consultas;
+    }
 }
 
 

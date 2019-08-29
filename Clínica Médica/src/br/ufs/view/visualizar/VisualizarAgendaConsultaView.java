@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package br.ufs.view.visualizar;
+
+import javax.swing.JTable;
+
 /**
  *
  * @author Ivisson
@@ -72,17 +75,17 @@ public class VisualizarAgendaConsultaView extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "          Nome do Médico", "          Nome do Paciente", "                Data", "                Hora"
+                "          Nome do Paciente", "                Data", "                Hora"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -198,4 +201,12 @@ public class VisualizarAgendaConsultaView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
+
+     public JTable getTable(){
+        return jTable1;
+    }
+     
+     public JTable getTable2(){
+        return jTable3;
+    }
 }

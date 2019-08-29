@@ -153,6 +153,67 @@ public class ConsultaDAO {
         return consulta;
     }
 
+    public List<Consulta> getConsultasMarcadasMedico(int id) {
+         List<Consulta> consultas = new ArrayList();
+        Consulta consulta = new Consulta();
+
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT c.DT,c.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) WHERE medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,id);
+           stmt.setBoolean(2, false);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+               consulta.setData(rs.getDate("DT"));
+               
+               consulta.setHora(rs.getString("HORA"));
+               consulta.setPacienteNome(rs.getString("NOME"));
+               
+             
+               
+               consultas.add(consulta);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return consultas;
+    }
+    
+    public List<Consulta> getConsultasRealizadasMedico(int id) {
+                this.con = new ConnectionFactory().getConnection();
+
+         List<Consulta> consultas = new ArrayList();
+        Consulta consulta = new Consulta();
+
+        try{
+           ResultSet rs = null;
+           String sql = "SELECT c.DT,c.HORA,p.nome FROM consulta AS c JOIN paciente AS p ON(c.paciente_ID = p.id) WHERE medico_ID = ? AND SITUACAO = ? ORDER BY DT DESC";
+           PreparedStatement stmt = con.prepareStatement(sql);
+           stmt.setInt(1,id);
+           stmt.setBoolean(2, true);
+           rs = stmt.executeQuery();
+           while(rs.next()){
+                consulta.setData(rs.getDate("DT"));
+               
+               consulta.setHora(rs.getString("HORA"));
+               consulta.setPacienteNome(rs.getString("NOME"));
+               
+             
+               consultas.add(consulta);
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, e);
+           return null;
+       } finally {
+            ConnectionFactory.closeConnection(con,stmt);//fecha a conexao
+       }
+        return consultas;
+    }
+
    
     
 }

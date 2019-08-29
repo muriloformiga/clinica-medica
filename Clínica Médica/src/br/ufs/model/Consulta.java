@@ -10,6 +10,7 @@ public class Consulta {
     private boolean situacao;
     private String descricao;
     private String diagnostico;
+    private String pacienteNome;
     private int id;
     private int medico_id;
     private int paciente_id;
@@ -53,6 +54,13 @@ public class Consulta {
 
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
+    }
+    public String getPacienteNome() {
+        return pacienteNome;
+    }
+
+    public void setPacienteNome(String nome) {
+        this.pacienteNome = nome;
     }
     
     public int getId(){

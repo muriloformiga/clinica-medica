@@ -6,6 +6,8 @@
 package br.ufs.view.panels;
 
 
+import br.ufs.view.buscar.agenda.BuscarVisualizarConsultaView;
+import br.ufs.view.buscar.agenda.BuscarVisualizarExameView;
 import br.ufs.view.visualizar.VisualizarAgendaConsultaView;
 import br.ufs.view.visualizar.VisualizarAgendaExameView;
 import java.awt.Color;
@@ -149,12 +151,12 @@ public class AgendaJPanelView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-        new VisualizarAgendaConsultaView().setVisible(true);
+        new BuscarVisualizarConsultaView().setVisible(true);
         //btnCadastrarConsulta.setEnabled(false);
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnExamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExamesActionPerformed
-        new VisualizarAgendaExameView().setVisible(true);
+        new BuscarVisualizarExameView().setVisible(true);
         //btnVisualizarConsulta.setEnabled(false);
     }//GEN-LAST:event_btnExamesActionPerformed
 

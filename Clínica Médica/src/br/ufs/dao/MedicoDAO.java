@@ -64,20 +64,20 @@ public class MedicoDAO {
        }
         return medico; 
     }
-    public Medico get(String cpf){
+    public Medico get(Integer crm){
         Medico medico = new Medico();
-        String sql = "SELECT f.NOME, f.CPF, f.MATRICULA, f.TELEFONE, f.DT_NASC, f.endereco_ID, m.ID, m.CRM, m.funcionario_ID FROM medico AS m JOIN funcionario AS f ON(me.funcionario_ID = f.ID) WHERE f.CPF = ?";
+        String sql = "SELECT f.NOME, f.CPF,f.TELEFONE, f.DT_NASC, f.endereco_ID, m.ID, m.CRM, m.funcionario_ID FROM medico AS m JOIN funcionario AS f ON(m.funcionario_ID = f.ID) WHERE m.CRM = ?";
         try{
            ResultSet rs = null;
            PreparedStatement stmt = con.prepareStatement(sql);
-           stmt.setString(1, cpf);
+           stmt.setInt(1, crm);
            rs = stmt.executeQuery();
            while(rs.next()){
                medico.setCrm(rs.getString("CRM"));
                medico.setNome(rs.getString("NOME"));
                medico.setCpf(rs.getString("CPF"));
                medico.setDt_nasc(rs.getDate("DT_NASC"));
-               medico.setMatricula(rs.getString("MATRICULA"));
+//               medico.setMatricula(rs.getString("MATRICULA"));
                medico.setTelefone(rs.getString("TELEFONE"));
                medico.setFuncionarioId(rs.getInt("funcionario_ID"));
                medico.setId(rs.getInt("ID"));
