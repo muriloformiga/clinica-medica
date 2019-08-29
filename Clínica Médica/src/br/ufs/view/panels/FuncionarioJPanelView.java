@@ -68,8 +68,7 @@ public class FuncionarioJPanelView extends javax.swing.JPanel {
         btnCadastrarEscalaTrabalho.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastrarEscalaTrabalho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCadastrarEscalaTrabalho.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrarEscalaTrabalho.setText("Consultar");
-        btnCadastrarEscalaTrabalho.setBorder(null);
+        btnCadastrarEscalaTrabalho.setText("Cadastrar");
         btnCadastrarEscalaTrabalho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarEscalaTrabalhoActionPerformed(evt);
