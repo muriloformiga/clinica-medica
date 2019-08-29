@@ -103,7 +103,7 @@ public class ConsultaDAO {
            PreparedStatement stmt = con.prepareStatement(sql);
            stmt.setInt(1,paciente_ID);
            stmt.setInt(2, medico_ID);
-           stmt.setBoolean(3, false);
+           stmt.setBoolean(3, true);
            rs = stmt.executeQuery();
            while(rs.next()){
                consulta.setData(rs.getDate("DT"));

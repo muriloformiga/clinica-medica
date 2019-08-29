@@ -180,7 +180,7 @@ public class BuscarPacienteVisualizarView extends javax.swing.JFrame {
                               //retorna os dados da tabela do BD, cada campo e um coluna.
                     ob.getId(),
                     dtd.format(ob.getData()),
-                    df.format(ob.getHora()),
+                    ob.getHora(),
                     ob.getDescricao(),
                     ob.getDiagnostico()
                    
